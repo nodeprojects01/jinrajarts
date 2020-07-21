@@ -9,6 +9,7 @@ import village_life from '../media/images/village_life.JPG'
 import chaturmuka_basadi from '../media/images/chaturmuka_basadi.JPG'
 import rainy_season from '../media/images/rainy_season.JPG'
 // const imagePath="../media/images/";
+
 export default   [
     {
         id: "1",
@@ -37,6 +38,7 @@ export default   [
         createdDate: "",
         category: "imaginary",
         likes: 0,
+        artist: "Praveen K R",
         position: 2,
         hide: false,
         backgroundColor:{backgroundColor: "#f9deed"},
@@ -55,6 +57,7 @@ export default   [
         createdDate: "",
         category: "imaginary",
         likes: 0,
+        artist: "Praveen K R",
         position: 2,
         hide: false,
         backgroundColor:{ backgroundColor:"#fff6e5"},
@@ -73,6 +76,7 @@ export default   [
         createdDate: "",
         category: "imaginary",
         likes: 0,
+        artist: "Praveen K R",
         position: 2,
         hide: false,
         backgroundColor:{ backgroundColor:"#999999"},
@@ -91,6 +95,7 @@ export default   [
         createdDate: "",
         category: "imaginary",
         likes: 0,
+        artist: "Praveen K R",
         position: 2,
         hide: false,
         backgroundColor:{backgroundColor: "#edc297"},
