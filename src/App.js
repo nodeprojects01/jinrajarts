@@ -49,12 +49,13 @@ function App() {
           {columnView.map((items) => (
             <Grid item xs={12} md={12/columnView.length}>
               {items.map((index) => (
-                <div>
-                  <Paper elevation={1} className={classes.paper}>
-                    <img className={classes.mainPic} src={images[index].filepath} />
-                  </Paper>
-                  <br /><br />
-                </div>
+                <ImageCard data={images[index]}/>
+                // <div>
+                //   <Paper elevation={1} className={classes.paper}>
+                //     <img className={classes.mainPic} src={images[index].filepath} />
+                //   </Paper>
+                //   <br /><br />
+                // </div>
               ))}
             </Grid>
           ))}
