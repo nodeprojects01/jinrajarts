@@ -17,11 +17,11 @@ import { jpStyle, jpTheme } from '../styles/global';
 export default function WideCard() {
     return (
         <div>
-            <Grid container spacing={4}>
+            <Grid container spacing={8}>
                 <Grid item xs={12} md={6}>
                     <Box style={{
                         backgroundColor: "#FFF",
-                        height: "400px",
+                        height: "300px",
                         width: "100%",
                         backgroundImage: `url(${Image1})`,
                         backgroundSize: 'cover',
@@ -32,7 +32,7 @@ export default function WideCard() {
                 </Grid>
                 <Grid item xs={12} md={6}>
                     <Box>
-                        <Typography variant="h2" style={jpTheme.header} >WALL PAINTING</Typography>
+                        <Typography variant="h2" style={jpTheme.title} >WALL PAINTING</Typography>
                         <p style={jpTheme.textDefault}>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
                             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 

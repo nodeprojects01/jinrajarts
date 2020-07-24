@@ -6,25 +6,28 @@ const jpStyle = {
     colorGrey: "#999",
     colorGreyLight: "#F5F5F5", //#F9F9F9
 
+    fontSizeXL: "5em",
     fontSizeL: "1.5em",
-    fontSizeML: "0.85em",
+    fontSizeML: "0.9em",
     fontSizeM: "0.75em",
     fontSizeS: "0.7em"
 }
 
 const jpTheme = {
-    headerTitle: {
-        fontFamily: jpStyle.fontFamilyDancingScript,
-        color:"#fff"
-    },
     header: {
+        fontFamily: jpStyle.fontFamilyMontserrat,
+        color:"#FFF",
+        fontWeight: "200",
+        fontSize: jpStyle.fontSizeXL
+    },
+    title: {
         fontFamily: jpStyle.fontFamilyMontserrat,
         fontWeight: "200",
         color: "#444",
         fontSize: "2.5em",
         margin: "1em 0"
     },
-    subHeader:{
+    subTitle:{
         fontFamily: jpStyle.fontFamilyMontserrat,
         fontWeight: "400",
         color: jpStyle.colorBlack,
@@ -46,6 +49,10 @@ const jpTheme = {
     buttonBorderless:{
         fontSize: "0.75em",
         color:"#fff"
+    },
+    buttonBorderlessGray:{
+        fontSize: "0.75em",
+        color:jpStyle.colorBlack
     }
 }
 

@@ -50,7 +50,7 @@ export default function ImageCard(props) {
             </Paper>
             <div style={{ padding: "8px 12px 12px 12px" }}>
                 <Box display="flex" p={0} >
-                    <Box p={0} flexGrow={1} style={jpTheme.subHeader}>
+                    <Box p={0} flexGrow={1} style={jpTheme.subTitle}>
                         {props.data.name}
                     </Box>
                     <Box p={0} >
@@ -60,7 +60,8 @@ export default function ImageCard(props) {
                     </Box>
                 </Box>
                 <Box style={jpTheme.textSmall}>
-                    Description of the painting
+                    {(props.data.description).substring(0,100)}
+                    ...<b style={{color:"#333", }}>more</b>
                 </Box>
             </div>
             <br />

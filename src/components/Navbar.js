@@ -39,10 +39,10 @@ export default function Navbar() {
         <div className={classes.root}>
             <AppBar position="static" style={{ background: 'transparent', boxShadow: 'none', color: "#555" }}>
                 <Toolbar>
-                    <Typography variant="h6" className={classes.title} 
+                    {/* <Typography variant="h6" className={classes.title} 
                     style={{ "fontFamily": jpStyle.fontFamilyDancingScript, color:"#fff" }}>
                         Jinraj & Praveen Arts
-                    </Typography>
+                    </Typography> */}
                     <Box display={{ xs: 'none', md: 'block', lg: 'block' }}>
                         <Button color={"inherit"} style={jpTheme.buttonBorderless}>home</Button>
                         <Button color={"inherit"} style={jpTheme.buttonBorderless}>portfolio</Button>
