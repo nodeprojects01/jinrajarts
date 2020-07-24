@@ -33,7 +33,7 @@ export default function WideCard() {
                 <Grid item xs={12} md={6}>
                     <Box>
                         <Typography variant="h2" style={jpTheme.header} >WALL PAINTING</Typography>
-                        <p style={jpTheme.default}>
+                        <p style={jpTheme.textDefault}>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
                             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi 

@@ -59,7 +59,7 @@ export default function ImageCard(props) {
                         {/* </IconButton> */}
                     </Box>
                 </Box>
-                <Box style={jpTheme.default}>
+                <Box style={jpTheme.textSmall}>
                     Description of the painting
                 </Box>
             </div>

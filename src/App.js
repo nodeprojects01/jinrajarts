@@ -47,7 +47,7 @@ function App() {
         </header>
       </Box>
 
-      <Box style={{ padding: "4em" }}>
+      <Box style={{ padding: "4em", background:jpStyle.colorGreyLight }}>
         <WideCard />
       </Box>
 

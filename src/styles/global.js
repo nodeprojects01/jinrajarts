@@ -4,10 +4,10 @@ const jpStyle = {
 
     colorBlack: "#555",
     colorGrey: "#999",
-    colorGreyLight: "#F2F2F2",
+    colorGreyLight: "#F5F5F5", //#F9F9F9
 
     fontSizeL: "1.5em",
-    fontSizeML: "0.9em",
+    fontSizeML: "0.85em",
     fontSizeM: "0.75em",
     fontSizeS: "0.7em"
 }
@@ -31,7 +31,13 @@ const jpTheme = {
         fontSize: jpStyle.fontSizeML,
         margin: "0.5em 0"
     },
-    default:{
+    textDefault:{
+        fontWeight: "400",
+        color: jpStyle.colorGrey,
+        fontSize: jpStyle.fontSizeML,
+        lineHeight: "2"
+    },
+    textSmall:{
         fontWeight: "400",
         color: jpStyle.colorGrey,
         fontSize: jpStyle.fontSizeM,
