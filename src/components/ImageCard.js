@@ -1,24 +1,20 @@
 import React from 'react';
-import Card from '@material-ui/core/Card';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardActions from '@material-ui/core/CardActions';
 import Paper from '@material-ui/core/Paper';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
+import { jpStyle, jpTheme } from '../styles/global';
 
 
 const useStyles = makeStyles(theme => ({
     button: {
-       "&:hover": {
-          color: "red"
+        "&:hover": {
+            color: "red"
         },
-      },
+    },
     mainPic: {
         maxWidth: '100%',
         maxHeight: '100%',
@@ -35,7 +31,7 @@ const useStyles = makeStyles(theme => ({
         padding: '4em',
         color: theme.palette.text.secondary,
         display: "flex",
-       justifyContent: "center",
+        justifyContent: "center",
         borderRadius: '0px'
     },
 }));
@@ -44,29 +40,29 @@ export default function ImageCard(props) {
     const classes = useStyles();
     return (
         <div>
-            <Paper elevation={1} className={classes.paper} style={props.data.backgroundColor}>
-                {(props.data.more.hideFrame == true) ?
+            <Paper elevation={0} className={classes.paper} style={props.data.backgroundColor}>
+                {(props.data.more.hideFrame == false) ?
                     <img className={classes.mainPic} style={props.data.more.frameColor} src={props.data.filepath} />
                     :
                     <img className={classes.mainPic} style={{ padding: 0 }} src={props.data.filepath} />
                 }
 
             </Paper>
-            <Card >
-                <CardHeader
-                    action={
-                        <IconButton aria-label="settings">
-                            <FavoriteIcon className={classes.button} />
-                        </IconButton>
-                    }
-                    title={props.data.name}
-                />
-                <CardContent>
-                    <Typography variant="body2" color="textSecondary" component="p">
-                        Description of the painting
-                    </Typography>
-                </CardContent>
-            </Card>
+            <div style={{ padding: "8px 12px 12px 12px" }}>
+                <Box display="flex" p={0} >
+                    <Box p={0} flexGrow={1} style={jpTheme.subHeader}>
+                        {props.data.name}
+                    </Box>
+                    <Box p={0} >
+                        {/* <IconButton aria-label="settings"> */}
+                        <FavoriteIcon style={{ color: jpStyle.colorGrey, padding: "5px", fontSize: "1.1em" }} className={classes.button} />
+                        {/* </IconButton> */}
+                    </Box>
+                </Box>
+                <Box style={jpTheme.default}>
+                    Description of the painting
+                </Box>
+            </div>
             <br />
         </div>
     )

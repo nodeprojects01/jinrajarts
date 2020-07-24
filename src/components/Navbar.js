@@ -14,6 +14,7 @@ import { jpStyle, jpTheme } from '../styles/global';
 const useStyles = makeStyles((theme) => ({
     // root: {
     //     flexGrow: 1,
+    //     fontSize:"0.8em"
     // },
     menuButton: {
         marginRight: theme.spacing(2),
@@ -36,30 +37,37 @@ export default function Navbar() {
     };
     return (
         <div className={classes.root}>
-            <AppBar position="static">
+            <AppBar position="static" style={{ background: 'transparent', boxShadow: 'none', color: "#555" }}>
                 <Toolbar>
-                    <Box display={{ xs: 'block', md: 'none', lg: 'none' }}>
+                    <Typography variant="h6" className={classes.title} 
+                    style={{ "fontFamily": jpStyle.fontFamilyDancingScript, color:"#fff" }}>
+                        Jinraj & Praveen Arts
+                    </Typography>
+                    <Box display={{ xs: 'none', md: 'block', lg: 'block' }}>
+                        <Button color={"inherit"} style={jpTheme.buttonBorderless}>home</Button>
+                        <Button color={"inherit"} style={jpTheme.buttonBorderless}>portfolio</Button>
+                        <Button color={"inherit"} style={jpTheme.buttonBorderless}>about us</Button>
+                        <Button color={"inherit"} style={jpTheme.buttonBorderless}>contact</Button>
+                    </Box>
+                    <Box display={{ xs: 'block', md: 'none', lg: 'none', flex: 1 }}>
                         <IconButton edge="start"
                             className={classes.menuButton}
                             color="inherit" aria-label="menu" onClick={handleClick}>
                             <MenuIcon />
                         </IconButton>
                     </Box>
+
                     <Menu
                         id="simple-menu"
                         anchorEl={anchorEl}
                         keepMounted
                         open={Boolean(anchorEl)}
-                        onClose={handleClose}
-                    >
-                        <MenuItem onClick={handleClose}>Profile</MenuItem>
-                        <MenuItem onClick={handleClose}>My account</MenuItem>
-                        <MenuItem onClick={handleClose}>Logout</MenuItem>
+                        onClose={handleClose}>
+                        <MenuItem onClick={handleClose}>home</MenuItem>
+                        <MenuItem onClick={handleClose}>portfolio</MenuItem>
+                        <MenuItem onClick={handleClose}>about us</MenuItem>
+                        <MenuItem onClick={handleClose}>contact</MenuItem>
                     </Menu>
-                    <Typography variant="h6" className={classes.title} style={{ "fontFamily": jpStyle.fontFamilyDancingScript }}>
-                        Jinraj & Praveen Arts
-          </Typography>
-                    <Button color="inherit">Login</Button>
                 </Toolbar>
             </AppBar>
         </div>

@@ -3,14 +3,17 @@ import './App.css';
 import { makeStyles } from '@material-ui/core/styles';
 import Navbar from './components/Navbar';
 import ImageCard from './components/ImageCard';
+import WideCard from './components/WideCard';
 import bgHome from './media/images/background5.jpg';
-import images from './config/data';
+import data from './config/data';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import chaturmuka_basadi from './media/images/chaturmuka_basadi.JPG';
 import rainy_season from './media/images/rainy_season.JPG';
 import serenity from './media/images/serenity.jpg';
 import Paper from '@material-ui/core/Paper';
+import { Typography } from '@material-ui/core';
+import { jpStyle, jpTheme } from './styles/global';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
 
 function App() {
   const classes = useStyles();
-  const columnView = [[1, 4, 7], [2, 5, 8], [3, 6]]
+  const columnView = data.imagesColumnView;
   return (
     <div>
       <Box>
@@ -44,18 +47,19 @@ function App() {
         </header>
       </Box>
 
-      <Box style={{ padding: "7em 2em" }}>
+      <Box style={{ padding: "4em" }}>
+        <WideCard />
+      </Box>
+
+      <Box style={{ padding: "0em 4em 4em" }}>
+        <Box style={{ padding: "2em 0" }}>
+          <Typography variant="h2" style={jpTheme.header} align="center">COLLECTIONS</Typography>
+        </Box>
         <Grid container spacing={4}>
           {columnView.map((items) => (
-            <Grid item xs={12} md={12/columnView.length}>
+            <Grid item xs={12} md={12 / columnView.length}>
               {items.map((index) => (
-                <ImageCard data={images[index]}/>
-                // <div>
-                //   <Paper elevation={1} className={classes.paper}>
-                //     <img className={classes.mainPic} src={images[index].filepath} />
-                //   </Paper>
-                //   <br /><br />
-                // </div>
+                <ImageCard data={data.images[index]} />
               ))}
             </Grid>
           ))}
