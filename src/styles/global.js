@@ -18,7 +18,7 @@ const jpTheme = {
     header: {
         fontFamily: jpStyle.fontFamilyMontserrat,
         color: "#FFF",
-        fontWeight: "200",
+        fontWeight: "700",
         letterSpacing: "3px",
         fontSize: jpStyle.fontSizeXL
     },
