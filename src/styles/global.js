@@ -5,6 +5,7 @@ const jpStyle = {
     colorBlack: "#555",
     colorGrey: "#999",
     colorGreyLight: "#F5F5F5", //#F9F9F9
+    colorGreen:"#009688",
 
     fontSizeXL: "6vw",
     fontSizeL: "1.5em",
@@ -51,6 +52,15 @@ const jpTheme = {
         fontSize: "0.75em",
         color:"#fff"
     },
+
+    subheader_c : {
+        fontFamily: jpStyle.fontFamilyMontserrat,
+        fontWeight: 800,
+        color: '#444',
+        fontSize: '3em',
+        margin: '1em 0'
+       }
+
     buttonBorderlessGray:{
         fontSize: "0.75em",
         color:jpStyle.colorBlack

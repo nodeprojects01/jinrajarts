@@ -19,6 +19,7 @@ const useStyles= makeStyles(theme=>({
 
 export default function Navbar() {
     const classes=useStyles();
+    
     return(<div style={{padding:'0px 50px 0px 50px'}}>
        <Grid container spacing={4}>
            {imageVariable.map((row)=>(

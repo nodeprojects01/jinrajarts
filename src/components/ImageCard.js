@@ -38,9 +38,10 @@ const useStyles = makeStyles(theme => ({
 
 export default function ImageCard(props) {
     const classes = useStyles();
+    
     return (
         <div>
-            <Paper elevation={0} className={classes.paper} style={props.data.backgroundColor}>
+            <Paper elevation={0} className={classes.paper} style={props.data.backgroundColor} onClick={props.onClick}>
                 {(props.data.more.hideFrame == false) ?
                     <img className={classes.mainPic} style={props.data.more.frameColor} src={props.data.filepath[0]} />
                     :
