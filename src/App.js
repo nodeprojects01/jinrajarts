@@ -5,14 +5,10 @@ import Navbar from './components/Navbar';
 import ImageCard from './components/ImageCard';
 import WideCard from './components/WideCard';
 import RecentEvent from './components/RecentEvent';
-import bgHome from './media/images/background5.jpg';
+import bgHome from './media/images/background51.jpg';
 import data from './config/data';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
-import chaturmuka_basadi from './media/images/chaturmuka_basadi.JPG';
-import rainy_season from './media/images/rainy_season.JPG';
-import serenity from './media/images/serenity.jpg';
-import Paper from '@material-ui/core/Paper';
 import { Typography, TextareaAutosize } from '@material-ui/core';
 import { jpStyle, jpTheme } from './styles/global';
 import Divider from '@material-ui/core/Divider';
@@ -44,30 +40,39 @@ function App() {
         alignItems="center"
         justify="center"
         style={{
+          padding:"4em",
           minHeight: "100vh",
           // background: 'radial-gradient(#A2BCD5, #C0D7E7)'
-          background: 'linear-gradient(45deg, #A2BCD5 30%, #DBE6E6 90%)',
-          // backgroundImage: `url(${bgHome})`,
-          // backgroundSize: 'cover',
-          // backgroundPosition: 'center'
+          // background: 'linear-gradient(45deg, #A2BCD5 30%, #C0D7E7 90%)',
+          backgroundImage: `url(${bgHome})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
         }}
       >
-        <Box>
+        <Box style={{ width: "100%", height: "100%" }}>
+          {/* <Typography variant="h3" style={{
+            paddingLeft: "12px",
+            fontFamily: jpStyle.fontFamilyMontserrat,
+            color: "#FFF",
+            fontWeight: "200"
+          }}>A</Typography> */}
           <Typography variant="h2" style={jpTheme.header}>GALLERY</Typography>
+
+          <Typography style={{
+            paddingLeft: "8px",
+            fontSize: "2em",
+            fontFamily: jpStyle.fontFamilyDancingScript,
+            fontWeight: "100",
+            color: "#FFF"
+          }} >by Jinraj & Praveen</Typography>
+          <br />
+          <Navbar />
         </Box>
-        <Typography style={{
-          fontSize: "0.8em",
-          fontFamily: jpStyle.fontFamilyMontserrat,
-          fontWeight: "700",
-          color: "#395D7E"
-        }} >by JINRAJ & PRAVEEN</Typography>
-        <br />
-        <Navbar />
       </Grid>
 
       <Box style={{ padding: "4em", background: jpStyle.colorGreyLight }}>
         <WideCard />
-        <Divider variant="middle" style={{marginTop:"4em"}}/>
+        <Divider variant="middle" style={{ marginTop: "4em" }} />
         <Box style={{ padding: "2em 0" }}>
           <Typography variant="h2" style={jpTheme.title} align="center">RECENT EVENTS</Typography>
         </Box>

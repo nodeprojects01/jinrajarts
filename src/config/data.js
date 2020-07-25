@@ -17,7 +17,8 @@ export default {
         {
             id: "1",
             name: "Walton Hall",
-            filepath: WaltonHallB4OU_HomagePainting,
+            size: "", 
+            filepath: [WaltonHallB4OU_HomagePainting],
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
             createdDate: "",
             category: "landscape",
@@ -36,7 +37,8 @@ export default {
         {
             id: "2",
             name: "Dream Home",
-            filepath: dream_home,
+            size: "", 
+            filepath: [dream_home],
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
             createdDate: "",
             category: "imaginary",
@@ -55,7 +57,8 @@ export default {
         {
             id: "3",
             name: "Nightmare",
-            filepath: nightmare,
+            size: "", 
+            filepath: [nightmare],
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
             createdDate: "",
             category: "imaginary",
@@ -74,7 +77,8 @@ export default {
         {
             id: "4",
             name: "Revisited Sanative",
-            filepath: revisited_sanative,
+            size: "", 
+            filepath: [revisited_sanative],
             description: "Lorem sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
             createdDate: "",
             category: "imaginary",
@@ -93,7 +97,8 @@ export default {
         {
             id: "5",
             name: "Serenity",
-            filepath: serenity,
+            size: "", 
+            filepath: [serenity],
             description: "Lorem ipsum eiusmod tempor incididunt ut labore et dolore magna aliqua",
             createdDate: "",
             category: "imaginary",
@@ -112,7 +117,8 @@ export default {
         {
             id: "6",
             name: "Forest",
-            filepath: forest,
+            size: "", 
+            filepath: [forest],
             description: "Lorem ipsum dolor ssmod tempor incididunt ut labore et dolore magna aliqua",
             createdDate: "",
             category: "landscape",
@@ -132,7 +138,8 @@ export default {
         {
             id: "7",
             name: "Village Life",
-            filepath: village_life,
+            size: "", 
+            filepath: [village_life],
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
             createdDate: "",
             category: "landscape",
@@ -152,7 +159,8 @@ export default {
         {
             id: "8",
             name: "Chaturmuka Basadi",
-            filepath: chaturmuka_basadi,
+            size: "", 
+            filepath: [chaturmuka_basadi],
             description: "Lorem do eiusmod tempor incididunt ut labore et dolore magna aliqua",
             createdDate: "",
             category: "landscape",
@@ -172,7 +180,8 @@ export default {
         {
             id: "9",
             name: "Rainy Season",
-            filepath: rainy_season,
+            size: "", 
+            filepath: [rainy_season],
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
             createdDate: "",
             category: "landscape",

@@ -38,7 +38,7 @@ export default function Navbar() {
     return (
         <div className={classes.root}>
             <AppBar position="static" style={{ background: 'transparent', boxShadow: 'none', color: "#555" }}>
-                <Toolbar>
+                <Toolbar style={{ padding:"0"}}>
                     {/* <Typography variant="h6" className={classes.title} 
                     style={{ "fontFamily": jpStyle.fontFamilyDancingScript, color:"#fff" }}>
                         Jinraj & Praveen Arts

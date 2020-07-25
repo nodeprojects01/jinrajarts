@@ -6,7 +6,7 @@ const jpStyle = {
     colorGrey: "#999",
     colorGreyLight: "#F5F5F5", //#F9F9F9
 
-    fontSizeXL: "5em",
+    fontSizeXL: "6vw",
     fontSizeL: "1.5em",
     fontSizeML: "0.9em",
     fontSizeM: "0.75em",
@@ -18,6 +18,7 @@ const jpTheme = {
         fontFamily: jpStyle.fontFamilyMontserrat,
         color:"#FFF",
         fontWeight: "200",
+        letterSpacing: "3px",
         fontSize: jpStyle.fontSizeXL
     },
     title: {

@@ -25,13 +25,16 @@ export default function RecentEvent() {
   const classes = useStyles();
 
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} elevation={0}  >
       <CardActionArea>
         <CardMedia
           className={classes.media}
           image={Image1}
+          // image="https://www.youtube.com/watch?v=50QwDgDlHok&t=48s"
           title="Mixed Art"
-        />
+        >
+          <div style={{width:"100%", height:"100%", background:"rgba(225,225,225,0.3)"}}></div>
+        </CardMedia>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             Lizard
