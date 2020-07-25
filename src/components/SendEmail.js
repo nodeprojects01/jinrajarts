@@ -20,7 +20,12 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: '#fff',
     margin: 'auto',
     padding: '2em',
-    borderRadius: '5px'
+    borderRadius: '5px',
+      width:"70%",
+    
+    [theme.breakpoints.down('md')]: {
+      width:"70%"
+    }
   },
   button: {
     marginTop: theme.spacing(5),
@@ -30,12 +35,13 @@ const useStyles = makeStyles(theme => ({
 
 export default function SendEmail() {
   const classes = useStyles();
-  const [emailMessage, setEmailMessage] = useState({
+  const defaultParams = {
     name: '',
     email: '',
     subject: 'Jinraj_ARTS',
     message: ''
-  });
+  };
+  const [emailMessage, setEmailMessage] = useState(defaultParams);
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -43,12 +49,7 @@ export default function SendEmail() {
       .post('/send', { ...emailMessage })
       .then(response => {
         console.log(response.data);
-        setEmailMessage({
-          name: '',
-          email: '',
-          subject: 'Jinraj_ARTS',
-          message: ''
-        });
+        setEmailMessage(defaultParams);
       })
       .catch(() => {
         console.log({
@@ -56,26 +57,20 @@ export default function SendEmail() {
           message: 'Something went wrong. Try again later'
         });
       });
-
-
   }
+
   const handleInputchange = (e) => {
     const { name, value } = e.target;
     setEmailMessage({ ...emailMessage, [name]: value })
   }
-  return (
-    <Grid container spacing={4} >
-      <Grid item xs={12} md={12} align="center">
-        <Typography variant="h1" style={jpTheme.subheader_c}>CONTACT US</Typography>
-      </Grid>
-      <Grid item xs={10} md={5} className={classes.form} style={{ padding: '2em' }}>
 
+  return (
+      <Box className={classes.form} >
         <CTextField
           label="Name"
           name="name"
           value={emailMessage.name}
-          onChange={handleInputchange}
-        />
+          onChange={handleInputchange}/>
 
         <CTextField
           label="Email"
@@ -93,17 +88,9 @@ export default function SendEmail() {
           variant="contained"
           color="primary"
           className={classes.button}
-          endIcon={<SendIcon />}
-          onClick={handleSubmit}
-        >
-          Send
-                 </Button>
+          onClick={handleSubmit}>Send</Button>
 
-
-      </Grid>
-      <Grid item xs={12} md={12}>
-      </Grid>
-    </Grid>
+      </Box>
   )
 }
 

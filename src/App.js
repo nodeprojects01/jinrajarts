@@ -1,11 +1,11 @@
-import React,{ useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { makeStyles } from '@material-ui/core/styles';
 import Navbar from './components/Navbar';
 import ImageCard from './components/ImageCard';
 import WideCard from './components/WideCard';
 import RecentEvent from './components/RecentEvent';
-import bgHome from './media/images/background51.jpg';
+import bgHome from './media/images/background5.jpg';
 import data from './config/data';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
@@ -31,19 +31,19 @@ const useStyles = makeStyles((theme) => ({
   backdrop: {
     zIndex: theme.zIndex.drawer + 1,
     color: '#fff',
-},
-mainPic: {
-  maxWidth: '80%',
-  maxHeight: '80%',
-  padding: '1em',
-},
+  },
+  mainPic: {
+    maxWidth: '80%',
+    maxHeight: '80%',
+    padding: '1em',
+  },
 }));
 
 function App() {
   const classes = useStyles();
   const columnView = data.imagesColumnView;
-  const [showImage, setShowImage] = React.useState(''); 
-  const handleOnClick=(e,filepath)=>{
+  const [showImage, setShowImage] = React.useState('');
+  const handleOnClick = (e, filepath) => {
     console.log(e.target)
     console.log(filepath)
     // setShowImage()
@@ -51,11 +51,11 @@ function App() {
   }
   return (
     <div>
-    {showImage!='' &&
-      <Backdrop className={classes.backdrop} open={true} onClick={()=>{setShowImage('')} } >
-         <img className={classes.mainPic} style={{ padding: 0 }} src={showImage} />
-       </Backdrop>
-    }
+      {showImage != '' &&
+        <Backdrop className={classes.backdrop} open={true} onClick={() => { setShowImage('') }} >
+          <img className={classes.mainPic} style={{ padding: 0 }} src={showImage} />
+        </Backdrop>
+      }
       <Grid
         container
         spacing={0}
@@ -63,7 +63,7 @@ function App() {
         alignItems="center"
         justify="center"
         style={{
-          padding:"4em",
+          padding: "4em",
           minHeight: "100vh",
           // background: 'radial-gradient(#A2BCD5, #C0D7E7)'
           // background: 'linear-gradient(45deg, #A2BCD5 30%, #C0D7E7 90%)',
@@ -116,17 +116,27 @@ function App() {
           {columnView.map((items) => (
             <Grid item xs={12} md={12 / columnView.length}>
               {items.map((index) => (
-                <ImageCard data={data.images[index]} onClick={(e) => { handleOnClick(e,data.images[index].filepath) }} />
+                <ImageCard data={data.images[index]} onClick={(e) => { handleOnClick(e, data.images[index].filepath) }} />
               ))}
             </Grid>
           ))}
 
         </Grid>
       </Box>
-      <Box style={{ background:jpStyle.colorGreen }}>
-        <SendEmail />
+
+      <Box style={{ padding: "4em", background: jpStyle.colorGreen }}>
+        <Box style={{ padding: "0 0 2em 0" }}>
+          <Typography variant="h2" style={jpTheme.title} align="center">CONTACT US</Typography>
+        </Box>
+
+        <Grid container
+        spacing={0}
+        direction="column"
+        alignItems="center"
+        justify="center" >
+          <SendEmail />
+        </Grid>
       </Box>
-    </div>
     </div>
   );
 }

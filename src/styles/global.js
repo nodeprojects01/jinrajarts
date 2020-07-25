@@ -5,7 +5,7 @@ const jpStyle = {
     colorBlack: "#555",
     colorGrey: "#999",
     colorGreyLight: "#F5F5F5", //#F9F9F9
-    colorGreen:"#009688",
+    colorGreen: "#009688",
 
     fontSizeXL: "6vw",
     fontSizeL: "1.5em",
@@ -17,7 +17,7 @@ const jpStyle = {
 const jpTheme = {
     header: {
         fontFamily: jpStyle.fontFamilyMontserrat,
-        color:"#FFF",
+        color: "#FFF",
         fontWeight: "200",
         letterSpacing: "3px",
         fontSize: jpStyle.fontSizeXL
@@ -29,41 +29,40 @@ const jpTheme = {
         fontSize: "2.5em",
         margin: "1em 0"
     },
-    subTitle:{
+    subTitle: {
         fontFamily: jpStyle.fontFamilyMontserrat,
         fontWeight: "400",
         color: jpStyle.colorBlack,
         fontSize: jpStyle.fontSizeML,
         margin: "0.5em 0"
     },
-    textDefault:{
+    textDefault: {
         fontWeight: "400",
         color: jpStyle.colorGrey,
         fontSize: jpStyle.fontSizeML,
         lineHeight: "2"
     },
-    textSmall:{
+    textSmall: {
         fontWeight: "400",
         color: jpStyle.colorGrey,
         fontSize: jpStyle.fontSizeM,
         lineHeight: "2"
     },
-    buttonBorderless:{
+    buttonBorderless: {
         fontSize: "0.75em",
-        color:"#fff"
+        color: "#fff"
     },
 
-    subheader_c : {
+    subheader_c: {
         fontFamily: jpStyle.fontFamilyMontserrat,
         fontWeight: 800,
         color: '#444',
         fontSize: '3em',
         margin: '1em 0'
-       }
-
-    buttonBorderlessGray:{
+    },
+    buttonBorderlessGray: {
         fontSize: "0.75em",
-        color:jpStyle.colorBlack
+        color: jpStyle.colorBlack
     }
 }
 
