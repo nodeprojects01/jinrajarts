@@ -4,18 +4,17 @@ import { makeStyles } from '@material-ui/core/styles';
 import Navbar from './components/Navbar';
 import ImageCard from './components/ImageCard';
 import WideCard from './components/WideCard';
-import bgHome from './media/images/background5.jpg';
+import RecentEvent from './components/RecentEvent';
+import bgHome from './media/images/background51.jpg';
 import data from './config/data';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
-import chaturmuka_basadi from './media/images/chaturmuka_basadi.JPG';
-import rainy_season from './media/images/rainy_season.JPG';
-import serenity from './media/images/serenity.jpg';
-import Paper from '@material-ui/core/Paper';
-import { Typography } from '@material-ui/core';
+import { Typography, TextareaAutosize } from '@material-ui/core';
 import { jpStyle, jpTheme } from './styles/global';
 import SendEmail from './components/SendEmail'
 import Backdrop from '@material-ui/core/Backdrop';
+import Divider from '@material-ui/core/Divider';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -57,26 +56,61 @@ function App() {
          <img className={classes.mainPic} style={{ padding: 0 }} src={showImage} />
        </Backdrop>
     }
-    <div>
-      <Box>
-        <header style={{
-          backgroundColor: "#FFF",
+      <Grid
+        container
+        spacing={0}
+        direction="column"
+        alignItems="center"
+        justify="center"
+        style={{
+          padding:"4em",
           minHeight: "100vh",
+          // background: 'radial-gradient(#A2BCD5, #C0D7E7)'
+          // background: 'linear-gradient(45deg, #A2BCD5 30%, #C0D7E7 90%)',
           backgroundImage: `url(${bgHome})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center'
-        }}>
+        }}
+      >
+        <Box style={{ width: "100%", height: "100%" }}>
+          {/* <Typography variant="h3" style={{
+            paddingLeft: "12px",
+            fontFamily: jpStyle.fontFamilyMontserrat,
+            color: "#FFF",
+            fontWeight: "200"
+          }}>A</Typography> */}
+          <Typography variant="h2" style={jpTheme.header}>GALLERY</Typography>
+
+          <Typography style={{
+            paddingLeft: "8px",
+            fontSize: "2em",
+            fontFamily: jpStyle.fontFamilyDancingScript,
+            fontWeight: "100",
+            color: "#FFF"
+          }} >by Jinraj & Praveen</Typography>
+          <br />
           <Navbar />
-        </header>
-      </Box>
+        </Box>
+      </Grid>
 
-      <Box style={{ padding: "4em", background:jpStyle.colorGreyLight }}>
+      <Box style={{ padding: "4em", background: jpStyle.colorGreyLight }}>
         <WideCard />
+        <Divider variant="middle" style={{ marginTop: "4em" }} />
+        <Box style={{ padding: "2em 0" }}>
+          <Typography variant="h2" style={jpTheme.title} align="center">RECENT EVENTS</Typography>
+        </Box>
+        <Grid container spacing={4}>
+          {[1, 2, 3].map((items) => (
+            <Grid item xs={12} md={4}>
+              <RecentEvent />
+            </Grid>
+          ))}
+        </Grid>
       </Box>
 
-      <Box style={{ padding: "0em 4em 4em" }}>
-        <Box style={{ padding: "2em 0" }}>
-          <Typography variant="h2" style={jpTheme.header} align="center">COLLECTIONS</Typography>
+      <Box style={{ padding: "4em" }}>
+        <Box style={{ padding: "0 0 2em 0" }}>
+          <Typography variant="h2" style={jpTheme.title} align="center">COLLECTIONS</Typography>
         </Box>
         <Grid container spacing={4}>
           {columnView.map((items) => (
