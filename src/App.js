@@ -14,7 +14,7 @@ import serenity from './media/images/serenity.jpg';
 import Paper from '@material-ui/core/Paper';
 import { Typography } from '@material-ui/core';
 import { jpStyle, jpTheme } from './styles/global';
-
+import SendEmail from './components/SendEmail'
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -66,7 +66,9 @@ function App() {
 
         </Grid>
       </Box>
-
+      <Box style={{ background:jpStyle.colorGreen }}>
+        <SendEmail />
+      </Box>
     </div>
   );
 }
