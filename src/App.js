@@ -5,8 +5,8 @@ import Navbar from './components/Navbar';
 import ImageCard from './components/ImageCard';
 import WideCard from './components/WideCard';
 import RecentEvent from './components/RecentEvent';
-import bgHome from './media/images/background5.jpg';
 import data from './config/data';
+import functions from './config/functions';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import { Typography, TextareaAutosize } from '@material-ui/core';
@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
 
 function App() {
   const classes = useStyles();
-  const columnView = data.imagesColumnView;
+  const columnView = functions.getColumnView(data.images, 3, "createdDate");
   const [showImage, setShowImage] = React.useState('');
   const handleOnClick = (e, filepath) => {
     console.log(e.target)
@@ -67,7 +67,7 @@ function App() {
           minHeight: "100vh",
           // background: 'radial-gradient(#A2BCD5, #C0D7E7)'
           // background: 'linear-gradient(45deg, #A2BCD5 30%, #C0D7E7 90%)',
-          backgroundImage: `url(${bgHome})`,
+          backgroundImage: `url(${data.wallpaper[0]})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}
@@ -94,15 +94,15 @@ function App() {
       </Grid>
 
       <Box style={{ padding: "4em", background: jpStyle.colorGreyLight }}>
-        <WideCard />
+        <WideCard data={data.images[0]} />
         <Divider variant="middle" style={{ marginTop: "4em" }} />
         <Box style={{ padding: "2em 0" }}>
           <Typography variant="h2" style={jpTheme.title} align="center">RECENT EVENTS</Typography>
         </Box>
         <Grid container spacing={4}>
-          {[1, 2, 3].map((items) => (
+          {[data.images[1], data.images[2], data.images[3]].map((item) => (
             <Grid item xs={12} md={4}>
-              <RecentEvent />
+              <RecentEvent data={item}/>
             </Grid>
           ))}
         </Grid>
@@ -115,8 +115,8 @@ function App() {
         <Grid container spacing={4}>
           {columnView.map((items) => (
             <Grid item xs={12} md={12 / columnView.length}>
-              {items.map((index) => (
-                <ImageCard data={data.images[index]} onClick={(e) => { handleOnClick(e, data.images[index].filepath) }} />
+              {items.map((image) => (
+                <ImageCard data={image} onClick={(e) => { handleOnClick(e, image.filepath) }} />
               ))}
             </Grid>
           ))}
@@ -130,10 +130,10 @@ function App() {
         </Box>
 
         <Grid container
-        spacing={0}
-        direction="column"
-        alignItems="center"
-        justify="center" >
+          spacing={0}
+          direction="column"
+          alignItems="center"
+          justify="center" >
           <SendEmail />
         </Grid>
       </Box>

@@ -8,16 +8,19 @@ import forest from '../media/images/forest.jpg'
 import village_life from '../media/images/village_life.JPG'
 import chaturmuka_basadi from '../media/images/chaturmuka_basadi.JPG'
 import rainy_season from '../media/images/rainy_season.JPG'
+import background5 from '../media/images/background5.jpg'
 // const imagePath="../media/images/";
 import { jpStyle, jpTheme } from '../styles/global';
 
 export default {
+    views: 1,
+    wallpaper: [background5],
     imagesColumnView: [[0, 3, 5], [1, 4, 7], [2, 5, 8]],
     images: [
         {
             id: "1",
             name: "Walton Hall",
-            size: "", 
+            size: "",
             filepath: [WaltonHallB4OU_HomagePainting],
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
             createdDate: "",
@@ -37,7 +40,7 @@ export default {
         {
             id: "2",
             name: "Dream Home",
-            size: "", 
+            size: "",
             filepath: [dream_home],
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
             createdDate: "",
@@ -57,7 +60,7 @@ export default {
         {
             id: "3",
             name: "Nightmare",
-            size: "", 
+            size: "",
             filepath: [nightmare],
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
             createdDate: "",
@@ -77,7 +80,7 @@ export default {
         {
             id: "4",
             name: "Revisited Sanative",
-            size: "", 
+            size: "",
             filepath: [revisited_sanative],
             description: "Lorem sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
             createdDate: "",
@@ -97,7 +100,7 @@ export default {
         {
             id: "5",
             name: "Serenity",
-            size: "", 
+            size: "",
             filepath: [serenity],
             description: "Lorem ipsum eiusmod tempor incididunt ut labore et dolore magna aliqua",
             createdDate: "",
@@ -117,7 +120,7 @@ export default {
         {
             id: "6",
             name: "Forest",
-            size: "", 
+            size: "",
             filepath: [forest],
             description: "Lorem ipsum dolor ssmod tempor incididunt ut labore et dolore magna aliqua",
             createdDate: "",
@@ -138,7 +141,7 @@ export default {
         {
             id: "7",
             name: "Village Life",
-            size: "", 
+            size: "",
             filepath: [village_life],
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
             createdDate: "",
@@ -159,7 +162,7 @@ export default {
         {
             id: "8",
             name: "Chaturmuka Basadi",
-            size: "", 
+            size: "",
             filepath: [chaturmuka_basadi],
             description: "Lorem do eiusmod tempor incididunt ut labore et dolore magna aliqua",
             createdDate: "",
@@ -180,7 +183,7 @@ export default {
         {
             id: "9",
             name: "Rainy Season",
-            size: "", 
+            size: "",
             filepath: [rainy_season],
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
             createdDate: "",

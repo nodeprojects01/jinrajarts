@@ -1,0 +1,43 @@
+
+function getImageCollections(arrOfObjects, sortByKey) {
+    arrOfObjects.filter((obj) => {
+        return !obj.hide;
+    });
+    return sortby(arrOfObjects, sortByKey);
+}
+
+function getColumnView(arrOfObjects, noOfColumns, sortByKey) {
+    var imageData = getImageCollections(arrOfObjects, sortByKey);
+    var columnView = [];
+    for (var j = 1; j <= noOfColumns; j++) {
+        var arr = [];
+        for (var i = j; i < imageData.length; i = i + noOfColumns) {
+            arr.push(imageData[i]);
+        }
+        columnView.push(arr);
+    }
+    return columnView;
+}
+
+
+function sortby(arrOfObjects, sortby) {
+    if ((sortby.toLowerCase()).indexOf("date") == -1) {
+        arrOfObjects.sort(function (a, b) {
+            return a.sortby > b.sortby;
+        });
+    } else {
+        arrOfObjects.sort(function (a, b) {
+            // Turn your strings into dates, and then subtract them
+            // to get a value that is either negative, positive, or zero.
+            return new Date(b.createdDate) - new Date(a.createdDate);
+        });
+    }
+    return arrOfObjects;
+}
+
+
+export default {
+    getColumnView,
+    getImageCollections,
+    sortby
+}
