@@ -15,6 +15,10 @@ import { jpStyle, jpTheme } from '../styles/global';
 const useStyles = makeStyles({
   root: {
     minWidth: "100%",
+    '& .MuiCardContent-root': {
+      '& .MuiTypography-body1': jpTheme.subTitle,
+      '& .MuiTypography-body2': jpTheme.textSmall
+    }
   },
   media: {
     height: 200,
@@ -33,27 +37,22 @@ export default function RecentEvent() {
           // image="https://www.youtube.com/watch?v=50QwDgDlHok&t=48s"
           title="Mixed Art"
         >
-          <div style={{width:"100%", height:"100%", background:"rgba(225,225,225,0.3)"}}></div>
+          <div style={{ width: "100%", height: "100%", background: "rgba(225,225,225,0.3)" }}></div>
         </CardMedia>
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography gutterBottom style={{fontSize:"1.3em"}}>
             Lizard
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
+          <Typography variant="body2" color="textSecondary" component="p" style={{fontSize:"0.89em"}}>
             Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
+            across all continents except Antarctica Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
             across all continents except Antarctica
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button style={jpTheme.buttonBorderlessGray}>share</Button>
-        <Button style={jpTheme.buttonBorderlessGray}>learn more</Button>
-        {/* <Button size="small" color="grey">
-          Share
-        </Button>
-        <Button size="small" color="grey">
-          Learn More
-        </Button> */}
+        {/* <Button style={jpTheme.buttonBorderlessGray}>share</Button> */}
+        <Button style={jpTheme.buttonBorderlessGray}>know more</Button>
       </CardActions>
     </Card>
   );

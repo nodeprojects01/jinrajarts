@@ -37,12 +37,14 @@ const jpTheme = {
         margin: "0.5em 0"
     },
     textDefault: {
+        fontFamily: jpStyle.fontFamilyMontserrat,
         fontWeight: "400",
         color: jpStyle.colorGrey,
         fontSize: jpStyle.fontSizeML,
         lineHeight: "2"
     },
     textSmall: {
+        fontFamily: jpStyle.fontFamilyMontserrat,
         fontWeight: "400",
         color: jpStyle.colorGrey,
         fontSize: jpStyle.fontSizeM,
