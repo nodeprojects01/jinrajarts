@@ -41,7 +41,7 @@ const jpTheme = {
         fontFamily: jpStyle.fontFamilyMontserrat,
         fontWeight: "400",
         color: jpStyle.colorGrey,
-        fontSize: jpStyle.fontSizeML,
+        fontSize: jpStyle.fontSizeM,
         lineHeight: "2"
     },
 

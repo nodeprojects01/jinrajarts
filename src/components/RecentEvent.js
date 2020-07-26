@@ -25,7 +25,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function RecentEvent() {
+export default function RecentEvent(props) {
   const classes = useStyles();
 
   return (
@@ -33,17 +33,17 @@ export default function RecentEvent() {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image={Image1}
+          image={props.data.filepath}
           // image="https://www.youtube.com/watch?v=50QwDgDlHok&t=48s"
           title="Mixed Art"
         >
-          <div style={{ width: "100%", height: "100%", background: "rgba(225,225,225,0.3)" }}></div>
+          <div style={{ width: "100%", height: "100%", background: "rgba(225,225,225,0.2)" }}></div>
         </CardMedia>
         <CardContent>
-          <Typography gutterBottom style={{fontSize:"1.3em"}}>
-            Lizard
+          <Typography gutterBottom style={{ fontSize: "1.3em" }}>
+            {props.data.name}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p" style={{fontSize:"0.89em"}}>
+          <Typography variant="body2" color="textSecondary" component="p" style={{ fontSize: "0.89em" }}>
             Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
             across all continents except Antarctica Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
             across all continents except Antarctica

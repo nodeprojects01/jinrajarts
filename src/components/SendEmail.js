@@ -30,7 +30,6 @@ const useStyles = makeStyles(theme => ({
   button: {
     backgroundColor: jpStyle.colorGreen
   },
-
   message: jpTheme.textSmall,
 }));
 
@@ -94,6 +93,7 @@ export default function SendEmail() {
         name="message"
         value={emailMessage.message}
         onChange={handleInputchange} />
+
       <Box style={{ marginTop: "2em" }}>
         <Button
           variant="contained"
@@ -104,8 +104,6 @@ export default function SendEmail() {
           <span className={classes.message} style={{ marginLeft: "1em", color: "red" }}>{errorMessage}</span>
         }
       </Box>
-
-
 
     </Box>
   )
