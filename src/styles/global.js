@@ -6,6 +6,7 @@ const jpStyle = {
     colorGrey: "#999",
     colorGreyLight: "#F5F5F5", //#F9F9F9
     colorGreen: "#009688",
+    colorRed: "#EB7077",
 
     fontSizeXL: "6vw",
     fontSizeL: "1.5em",
@@ -43,6 +44,7 @@ const jpTheme = {
         fontSize: jpStyle.fontSizeM,
         lineHeight: "2"
     },
+
     textSmall: {
         fontFamily: jpStyle.fontFamilyMontserrat,
         fontWeight: "400",
@@ -50,6 +52,7 @@ const jpTheme = {
         fontSize: jpStyle.fontSizeM,
         lineHeight: "2"
     },
+
     buttonBorderless: {
         fontSize: "0.75em",
         color: "#fff"
@@ -65,7 +68,8 @@ const jpTheme = {
     buttonBorderlessGray: {
         fontSize: "0.75em",
         color: jpStyle.colorBlack
-    }
+    },
+
 }
 
 module.exports = { jpStyle, jpTheme }

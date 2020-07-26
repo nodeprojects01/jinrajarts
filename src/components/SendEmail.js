@@ -42,21 +42,31 @@ export default function SendEmail() {
     message: ''
   };
   const [emailMessage, setEmailMessage] = useState(defaultParams);
-
+  const [errorMessage, setErrorMessage] = useState('')
   const handleSubmit = event => {
-    event.preventDefault();
-    axios
-      .post('/send', { ...emailMessage })
-      .then(response => {
-        console.log(response.data);
-        setEmailMessage(defaultParams);
-      })
-      .catch(() => {
-        console.log({
-          success: false,
-          message: 'Something went wrong. Try again later'
+    setErrorMessage('')
+    let errorstatus = validateInput(emailMessage);
+    if (errorstatus) {
+      console.log(errorstatus)
+      setErrorMessage(errorstatus)
+    }
+    else {
+      event.preventDefault();
+      axios
+        .post('/send', { ...emailMessage })
+        .then(response => {
+          console.log(response.data);
+          setEmailMessage(defaultParams);
+        })
+        .catch(() => {
+          console.log({
+            success: false,
+            message: 'Something went wrong. Try again later'
+          });
         });
-      });
+
+    }
+
   }
 
   const handleInputchange = (e) => {
@@ -90,9 +100,32 @@ export default function SendEmail() {
           color="primary"
           className={classes.button}
           onClick={handleSubmit}>Send</Button>
-        <span className={classes.message} style={{ marginLeft: "1em", color: "red" }}>Name is required</span>
+        {errorMessage != '' &&
+          <span className={classes.message} style={{ marginLeft: "1em", color: "red" }}>{errorMessage}</span>
+        }
       </Box>
+
     </Box>
   )
 }
 
+function validateInput(emailMessage) {
+  if (emailMessage.name == '') {
+    return "Please Enter Name."
+  }
+  if (emailMessage.email == '') {
+    return "Please Enter email."
+  }
+  if (!validateEmail(emailMessage.email)) {
+    return "Please Enter correct Email ID."
+  }
+  if (emailMessage.message == '') {
+    return "Please Enter message."
+  }
+
+}
+
+function validateEmail(email) {
+  const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
+}
