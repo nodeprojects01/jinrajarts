@@ -21,16 +21,16 @@ const useStyles = makeStyles(theme => ({
     margin: 'auto',
     padding: '2em',
     borderRadius: '5px',
-      width:"70%",
-    
+    width: "70%",
+
     [theme.breakpoints.down('md')]: {
-      width:"70%"
+      width: "70%"
     }
   },
   button: {
-    marginTop: theme.spacing(5),
     backgroundColor: jpStyle.colorGreen
   },
+  message: jpTheme.textSmall,
 }));
 
 export default function SendEmail() {
@@ -65,32 +65,34 @@ export default function SendEmail() {
   }
 
   return (
-      <Box className={classes.form} >
-        <CTextField
-          label="Name"
-          name="name"
-          value={emailMessage.name}
-          onChange={handleInputchange}/>
+    <Box className={classes.form} >
+      <CTextField
+        label="Name"
+        name="name"
+        value={emailMessage.name}
+        onChange={handleInputchange} />
 
-        <CTextField
-          label="Email"
-          name="email"
-          value={emailMessage.email}
-          onChange={handleInputchange} />
+      <CTextField
+        label="Email"
+        name="email"
+        value={emailMessage.email}
+        onChange={handleInputchange} />
 
-        <CTextField
-          label="Message"
-          name="message"
-          value={emailMessage.message}
-          onChange={handleInputchange} />
+      <CTextField
+        label="Message"
+        name="message"
+        value={emailMessage.message}
+        onChange={handleInputchange} />
 
+      <Box style={{ marginTop: "2em" }}>
         <Button
           variant="contained"
           color="primary"
           className={classes.button}
           onClick={handleSubmit}>Send</Button>
-
+        <span className={classes.message} style={{ marginLeft: "1em", color: "red" }}>Name is required</span>
       </Box>
+    </Box>
   )
 }
 
