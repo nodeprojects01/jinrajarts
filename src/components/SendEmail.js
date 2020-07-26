@@ -111,16 +111,16 @@ export default function SendEmail() {
 
 function validateInput(emailMessage) {
   if (emailMessage.name == '') {
-    return "Please Enter Name."
+    return "Please enter the name"
   }
   if (emailMessage.email == '') {
-    return "Please Enter email."
+    return "Please enter the email address"
   }
   if (!validateEmail(emailMessage.email)) {
-    return "Please Enter correct Email ID."
+    return "Please enter the correct email address"
   }
   if (emailMessage.message == '') {
-    return "Please Enter message."
+    return "Message cannot be empty"
   }
 
 }

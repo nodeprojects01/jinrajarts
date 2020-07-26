@@ -40,7 +40,7 @@ export default function RecentEvent(props) {
           <div style={{ width: "100%", height: "100%", background: "rgba(225,225,225,0.2)" }}></div>
         </CardMedia>
         <CardContent>
-          <Typography gutterBottom style={{ fontSize: "1.3em" }}>
+          <Typography gutterBottom style={{ fontSize: "1.1em" }}>
             {props.data.name}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p" style={{ fontSize: "0.89em" }}>
