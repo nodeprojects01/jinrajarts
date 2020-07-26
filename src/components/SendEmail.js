@@ -21,16 +21,17 @@ const useStyles = makeStyles(theme => ({
     margin: 'auto',
     padding: '2em',
     borderRadius: '5px',
-      width:"70%",
-    
+    width: "70%",
+
     [theme.breakpoints.down('md')]: {
-      width:"70%"
+      width: "70%"
     }
   },
   button: {
-    marginTop: theme.spacing(5),
     backgroundColor: jpStyle.colorGreen
   },
+
+  message: jpTheme.textSmall,
 }));
 
 export default function SendEmail() {
@@ -42,21 +43,31 @@ export default function SendEmail() {
     message: ''
   };
   const [emailMessage, setEmailMessage] = useState(defaultParams);
-
+  const [errorMessage, setErrorMessage] = useState('')
   const handleSubmit = event => {
-    event.preventDefault();
-    axios
-      .post('/send', { ...emailMessage })
-      .then(response => {
-        console.log(response.data);
-        setEmailMessage(defaultParams);
-      })
-      .catch(() => {
-        console.log({
-          success: false,
-          message: 'Something went wrong. Try again later'
+    setErrorMessage('')
+    let errorstatus = validateInput(emailMessage);
+    if (errorstatus) {
+      console.log(errorstatus)
+      setErrorMessage(errorstatus)
+    }
+    else {
+      event.preventDefault();
+      axios
+        .post('/send', { ...emailMessage })
+        .then(response => {
+          console.log(response.data);
+          setEmailMessage(defaultParams);
+        })
+        .catch(() => {
+          console.log({
+            success: false,
+            message: 'Something went wrong. Try again later'
+          });
         });
-      });
+
+    }
+
   }
 
   const handleInputchange = (e) => {
@@ -65,32 +76,58 @@ export default function SendEmail() {
   }
 
   return (
-      <Box className={classes.form} >
-        <CTextField
-          label="Name"
-          name="name"
-          value={emailMessage.name}
-          onChange={handleInputchange}/>
+    <Box className={classes.form} >
+      <CTextField
+        label="Name"
+        name="name"
+        value={emailMessage.name}
+        onChange={handleInputchange} />
 
-        <CTextField
-          label="Email"
-          name="email"
-          value={emailMessage.email}
-          onChange={handleInputchange} />
+      <CTextField
+        label="Email"
+        name="email"
+        value={emailMessage.email}
+        onChange={handleInputchange} />
 
-        <CTextField
-          label="Message"
-          name="message"
-          value={emailMessage.message}
-          onChange={handleInputchange} />
-
+      <CTextField
+        label="Message"
+        name="message"
+        value={emailMessage.message}
+        onChange={handleInputchange} />
+      <Box style={{ marginTop: "2em" }}>
         <Button
           variant="contained"
           color="primary"
           className={classes.button}
           onClick={handleSubmit}>Send</Button>
-
+        {errorMessage != '' &&
+          <span className={classes.message} style={{ marginLeft: "1em", color: "red" }}>{errorMessage}</span>
+        }
       </Box>
+
+
+
+    </Box>
   )
 }
 
+function validateInput(emailMessage) {
+  if (emailMessage.name == '') {
+    return "Please Enter Name."
+  }
+  if (emailMessage.email == '') {
+    return "Please Enter email."
+  }
+  if (!validateEmail(emailMessage.email)) {
+    return "Please Enter correct Email ID."
+  }
+  if (emailMessage.message == '') {
+    return "Please Enter message."
+  }
+
+}
+
+function validateEmail(email) {
+  const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
+}
