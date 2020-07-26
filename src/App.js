@@ -42,6 +42,8 @@ const useStyles = makeStyles((theme) => ({
 function App() {
   const classes = useStyles();
   const columnView = functions.getColumnView(data.images, 3, "createdDate");
+  const events = functions.getEvents(data.images, "createdDate");
+  console.log("events - ", events);
   const [showImage, setShowImage] = React.useState('');
   const handleOnClick = (e, filepath) => {
     console.log(e.target)
@@ -73,14 +75,7 @@ function App() {
         }}
       >
         <Box style={{ width: "100%", height: "100%" }}>
-          {/* <Typography variant="h3" style={{
-            paddingLeft: "12px",
-            fontFamily: jpStyle.fontFamilyMontserrat,
-            color: "#FFF",
-            fontWeight: "200"
-          }}>A</Typography> */}
           <Typography variant="h2" style={jpTheme.header}>GALLERY</Typography>
-
           <Typography style={{
             paddingLeft: "8px",
             fontSize: "2em",
@@ -94,15 +89,15 @@ function App() {
       </Grid>
 
       <Box style={{ padding: "4em", background: jpStyle.colorGreyLight }}>
-        <WideCard data={data.images[0]} />
+        <WideCard data={events[0]} />
         <Divider variant="middle" style={{ marginTop: "4em" }} />
         <Box style={{ padding: "2em 0" }}>
           <Typography variant="h2" style={jpTheme.title} align="center">RECENT EVENTS</Typography>
         </Box>
         <Grid container spacing={4}>
-          {[data.images[1], data.images[2], data.images[3]].map((item) => (
+          {(events.slice(1)).map((item, index) => (
             <Grid item xs={12} md={4}>
-              <RecentEvent data={item}/>
+              <RecentEvent data={item} />
             </Grid>
           ))}
         </Grid>

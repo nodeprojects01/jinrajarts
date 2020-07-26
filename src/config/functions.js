@@ -11,7 +11,7 @@ function getColumnView(arrOfObjects, noOfColumns, sortByKey) {
     var columnView = [];
     for (var j = 1; j <= noOfColumns; j++) {
         var arr = [];
-        for (var i = j; i < imageData.length; i = i + noOfColumns) {
+        for (var i = j-1; i < imageData.length; i = i + noOfColumns) {
             arr.push(imageData[i]);
         }
         columnView.push(arr);
@@ -19,6 +19,12 @@ function getColumnView(arrOfObjects, noOfColumns, sortByKey) {
     return columnView;
 }
 
+function getEvents(arrOfObjects, sortByKey) {
+    const events = arrOfObjects.filter((obj) => {
+        return (!obj.hide && obj.isEvent);
+    });
+    return sortby(events, sortByKey);
+}
 
 function sortby(arrOfObjects, sortby) {
     if ((sortby.toLowerCase()).indexOf("date") == -1) {
@@ -27,8 +33,6 @@ function sortby(arrOfObjects, sortby) {
         });
     } else {
         arrOfObjects.sort(function (a, b) {
-            // Turn your strings into dates, and then subtract them
-            // to get a value that is either negative, positive, or zero.
             return new Date(b.createdDate) - new Date(a.createdDate);
         });
     }
@@ -39,5 +43,6 @@ function sortby(arrOfObjects, sortby) {
 export default {
     getColumnView,
     getImageCollections,
-    sortby
+    sortby,
+    getEvents
 }
