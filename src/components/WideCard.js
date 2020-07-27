@@ -8,7 +8,7 @@ import ImageSlider from './ImageSlider'
 import data from '../config/data'
 
 export default function WideCard(props) {
-   
+
     return (
         <div>
             <Grid container spacing={8}>
@@ -20,14 +20,16 @@ export default function WideCard(props) {
                         // backgroundImage: `url(${props.data.filepath})`,
                         // backgroundSize: 'cover',
                         // backgroundPosition: 'center'
-                    }}> */}
-                        {/* <div style={{
+                    }}> 
+                        <div style={{
                             width: "100%", height: "100%",
                             background: "rgba(225,225,225,0.2)"
-                        }} > */}
-                        <ImageSlider images={data.wallpaper} height="300px" width="100%"/>
-                        {/* </div> */}
-                    {/* </Box> */}
+                        }} > 
+                        </div> 
+                    </Box> */}
+                    <Box style={{ background: 'linear-gradient(45deg, #333 30%, #333 90%)' }}>
+                        <ImageSlider images={data.wallpaper} height="300px" width="100%" />
+                    </Box>
                 </Grid>
                 <Grid item xs={12} md={6}>
                     <Box>

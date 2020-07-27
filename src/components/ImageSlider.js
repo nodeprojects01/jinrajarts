@@ -1,9 +1,6 @@
 import React from 'react';
 import Carousel from 'react-material-ui-carousel';
 import { Paper, Button } from '@material-ui/core'
-import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
-// import React from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 
 const useStyles = makeStyles({
@@ -19,8 +16,8 @@ export default function ImageSlider(props) {
     const value = {
         autoPlay: true,
         timer: 500,
-        indicators: true,
-        timeout: 500,
+        indicators: false,
+        timeout: 200,
         navButtonsAlwaysVisible: false
     }
     return (
@@ -35,16 +32,14 @@ export default function ImageSlider(props) {
                 {
                     props.images.map((item, index) => {
                         return (
-
                             <Paper
                                 className="Project"
+                                elevation={0}
                                 style={{
                                     backgroundColor: item.color,
                                     height: props.height,
                                     width: props.width
-                                }}
-                                elevation={10}
-                            >
+                                }}>
                                 <img classname={classes.photo} height={props.height} width={props.width} src={item} />
                             </Paper>
                         )
