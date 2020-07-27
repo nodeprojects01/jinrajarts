@@ -64,7 +64,7 @@ function App() {
           <img className={classes.mainPic} style={{ padding: 0 }} src={showImage} />
         </Backdrop>
       }
-      <Grid
+      {/* <Grid
         container
         spacing={0}
         direction="column"
@@ -79,7 +79,9 @@ function App() {
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}
-      >
+      > */}
+      <Box style={{ background: 'linear-gradient(45deg, #333 30%, #333 90%)' }}>
+        <ImageSlider images={data.wallpaper} height="300px" width="100%" cover="true" content={
         <Box style={{ width: "100%", height: "100%" }}>
           <Typography variant="h2" style={jpTheme.header}>GALLERY</Typography>
           <Typography style={{
@@ -92,7 +94,10 @@ function App() {
           <br />
           <Navbar />
         </Box>
-      </Grid>
+        }>
+        </ImageSlider>
+        </Box>
+      {/* </Grid> */}
 
       <Box style={{ padding: "4em", background: jpStyle.colorGreyLight }}>
         <WideCard data={events[0]} />

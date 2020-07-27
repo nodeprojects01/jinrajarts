@@ -9,12 +9,15 @@ import village_life from '../media/images/village_life.JPG'
 import chaturmuka_basadi from '../media/images/chaturmuka_basadi.JPG'
 import rainy_season from '../media/images/rainy_season.JPG'
 import background5 from '../media/images/background5.jpg'
+import background3 from '../media/images/background3.jpg'
+import background2 from '../media/images/background2.jpg'
+import background1 from '../media/images/background1.jpg'
 // const imagePath="../media/images/";
 import { jpStyle, jpTheme } from '../styles/global';
 
 export default {
     views: 1,
-    wallpaper: [background5,background5,background5],
+    wallpaper: [background5,background3,background2,background1],
     images: [
         {
             id: "1",
