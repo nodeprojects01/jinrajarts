@@ -17,7 +17,7 @@ import { jpStyle, jpTheme } from '../styles/global';
 
 export default {
     views: 1,
-    wallpaper: [background5,background3,background2,background1],
+    wallpaper: [background1,background5,background2,background3],
     images: [
         {
             id: "1",

@@ -16,6 +16,15 @@ import Backdrop from '@material-ui/core/Backdrop';
 import Divider from '@material-ui/core/Divider';
 import ImageSlider from './components/ImageSlider'
 const useStyles = makeStyles((theme) => ({
+  coverText: {
+    position: 'absolute',
+    top: "35%",
+    zIndex: 100,
+    left: "5%",
+    [theme.breakpoints.down('md')]: {
+      top: "50%",
+    }
+  },
   root: {
     flexGrow: 1,
   },
@@ -51,7 +60,7 @@ function App() {
     // setShowImage()
     setShowImage(filepath)
   }
- 
+
   return (
     <div>
       {showImage != '' &&
@@ -59,11 +68,21 @@ function App() {
           <img className={classes.mainPic} style={{ padding: 0 }} src={showImage} />
         </Backdrop>
       }
-      <Grid container style={{ minHeight: "100vh", }}>
-        <Box style={{ width: "100%", height: "100%", position: 'absolute', background: 'linear-gradient(45deg, #333 30%, #333 90%)' }}>
-          <ImageSlider images={data.wallpaper} cover="true" />
-        </Box>
-        <Box style={{ position: 'absolute',top: "50%", zIndex: 100 }}>
+      <Grid container
+        spacing={0}
+        direction="column"
+        alignItems="center"
+        justify="center"
+        style={{
+          minHeight: "100vh",
+          background: 'linear-gradient(45deg, #333 30%, #333 90%)'
+          // backgroundImage: `url(${item})`,
+          // backgroundSize: 'cover',
+          // backgroundPosition: 'center'
+        }}>
+        <ImageSlider images={data.wallpaper} autoPlay={true} height="100vh" width="100%" />
+
+        <Box className={classes.coverText}>
           <Typography variant="h2" style={jpTheme.header}>GALLERY</Typography>
           <Typography style={{
             paddingLeft: "8px",
@@ -76,6 +95,7 @@ function App() {
           <Navbar />
         </Box>
       </Grid>
+
       <Box style={{ padding: "4em", background: jpStyle.colorGreyLight }}>
         <WideCard data={events[0]} />
         <Divider variant="middle" style={{ marginTop: "4em" }} />

@@ -15,16 +15,17 @@ const useStyles = makeStyles({
 export default function ImageSlider(props) {
     const classes = useStyles(props);
     const value = {
-        autoPlay: true,
-        timer: 500,
+        autoPlay: props.autoPlay,
         indicators: false,
-        timeout: 200,
+        timer: 500,
+        strictIndexing: true,
+        timeout: 300,
+        // interval: 100,
         navButtonsAlwaysVisible: false
     }
 
     return (
-
-        <div >
+        <div>
             <Carousel
                 autoPlay={value.autoPlay}
                 timer={value.timer}
@@ -38,26 +39,16 @@ export default function ImageSlider(props) {
                             className="Project"
                             elevation={0}
                             style={{
-                                backgroundColor: "#333",
-
+                                backgroundColor: "#333"
                             }}>
-                            {props.cover == 'true' ?
-                                <Grid
-                                    container
-                                    spacing={0}
-                                    direction="column"
-                                    alignItems="center"
-                                    justify="center"
-                                    style={{
-                                        padding: "4em",
-                                        minHeight: "100vh",
-                                        backgroundImage: `url(${item})`,
-                                        backgroundSize: 'cover',
-                                        backgroundPosition: 'center'
-                                    }} />
-                                :
-                                <img classname={classes.photo} height={props.height} width={props.width} src={item} />
-                            }
+                            <img classname={classes.photo}
+                                style={{
+                                    display: "block",
+                                    height: props.height,
+                                    width: props.width,
+                                    objectFit: "cover"
+                                }}
+                                height={props.height} width={props.width} src={item} />
                         </Paper>
                     )
                 })
