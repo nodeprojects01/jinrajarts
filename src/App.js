@@ -14,7 +14,7 @@ import { jpStyle, jpTheme } from './styles/global';
 import SendEmail from './components/SendEmail'
 import Backdrop from '@material-ui/core/Backdrop';
 import Divider from '@material-ui/core/Divider';
-
+import ImageSlider from './components/ImageSlider'
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -51,6 +51,12 @@ function App() {
     // setShowImage()
     setShowImage(filepath)
   }
+  const images = [
+    'https://homepages.cae.wisc.edu/~ece533/images/airplane.png',
+    'https://homepages.cae.wisc.edu/~ece533/images/arctichare.png',
+    'https://homepages.cae.wisc.edu/~ece533/images/baboon.png',
+    'https://homepages.cae.wisc.edu/~ece533/images/barbara.png',
+];
   return (
     <div>
       {showImage != '' &&
@@ -131,6 +137,10 @@ function App() {
           justify="center" >
           <SendEmail />
         </Grid>
+      </Box>
+      <Box>
+      
+        
       </Box>
     </div>
   );
