@@ -51,12 +51,7 @@ function App() {
     // setShowImage()
     setShowImage(filepath)
   }
-  const images = [
-    'https://homepages.cae.wisc.edu/~ece533/images/airplane.png',
-    'https://homepages.cae.wisc.edu/~ece533/images/arctichare.png',
-    'https://homepages.cae.wisc.edu/~ece533/images/baboon.png',
-    'https://homepages.cae.wisc.edu/~ece533/images/barbara.png',
-];
+ 
   return (
     <div>
       {showImage != '' &&
@@ -64,25 +59,11 @@ function App() {
           <img className={classes.mainPic} style={{ padding: 0 }} src={showImage} />
         </Backdrop>
       }
-      {/* <Grid
-        container
-        spacing={0}
-        direction="column"
-        alignItems="center"
-        justify="center"
-        style={{
-          padding: "4em",
-          minHeight: "100vh",
-          // background: 'radial-gradient(#A2BCD5, #C0D7E7)'
-          // background: 'linear-gradient(45deg, #A2BCD5 30%, #C0D7E7 90%)',
-          backgroundImage: `url(${data.wallpaper[0]})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
-        }}
-      > */}
-      <Box style={{ background: 'linear-gradient(45deg, #333 30%, #333 90%)' }}>
-        <ImageSlider images={data.wallpaper} height="300px" width="100%" cover="true" content={
-        <Box style={{ width: "100%", height: "100%" }}>
+      <Grid container style={{ minHeight: "100vh", }}>
+        <Box style={{ width: "100%", height: "100%", position: 'absolute', background: 'linear-gradient(45deg, #333 30%, #333 90%)' }}>
+          <ImageSlider images={data.wallpaper} cover="true" />
+        </Box>
+        <Box style={{ position: 'absolute',top: "50%", zIndex: 100 }}>
           <Typography variant="h2" style={jpTheme.header}>GALLERY</Typography>
           <Typography style={{
             paddingLeft: "8px",
@@ -94,11 +75,7 @@ function App() {
           <br />
           <Navbar />
         </Box>
-        }>
-        </ImageSlider>
-        </Box>
-      {/* </Grid> */}
-
+      </Grid>
       <Box style={{ padding: "4em", background: jpStyle.colorGreyLight }}>
         <WideCard data={events[0]} />
         <Divider variant="middle" style={{ marginTop: "4em" }} />
@@ -144,8 +121,8 @@ function App() {
         </Grid>
       </Box>
       <Box>
-      
-        
+
+
       </Box>
     </div>
   );

@@ -8,30 +8,9 @@ const useStyles = makeStyles({
         // objectFit: 'cover',
         width: '100%',
         height: '100%',
-       
+
     }
 });
-const CoverGrid = ({ url,content }) => {
-    const styles = {
-    padding: "4em",
-    minHeight: "100vh",
-      backgroundImage: `url(${url})`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center'
-    };
-  
-    return (
-        <Grid
-        container
-        spacing={0}
-        direction="column"
-        alignItems="center"
-        justify="center"
-        style={styles}>
-            {content}
-        </Grid>
-    );
-  }
 
 export default function ImageSlider(props) {
     const classes = useStyles(props);
@@ -42,9 +21,9 @@ export default function ImageSlider(props) {
         timeout: 200,
         navButtonsAlwaysVisible: false
     }
-   
+
     return (
-        
+
         <div >
             <Carousel
                 autoPlay={value.autoPlay}
@@ -53,24 +32,37 @@ export default function ImageSlider(props) {
                 indicators={value.indicators}
                 navButtonsAlwaysVisible={value.navButtonsAlwaysVisible}
             >
-               {props.images.map((item, index) => {
-                        return (
-                            <Paper
-                                className="Project"
-                                elevation={0}
-                                style={{
-                                    backgroundColor: "#333",                                 
-                                }}>
-                             {props.cover=='true'?
-                            <CoverGrid url={ item } content={props.content}></CoverGrid>
-                            :
-                            <img classname={classes.photo} height={props.height} width={props.width} src={item} />
+                {props.images.map((item, index) => {
+                    return (
+                        <Paper
+                            className="Project"
+                            elevation={0}
+                            style={{
+                                backgroundColor: "#333",
+
+                            }}>
+                            {props.cover == 'true' ?
+                                <Grid
+                                    container
+                                    spacing={0}
+                                    direction="column"
+                                    alignItems="center"
+                                    justify="center"
+                                    style={{
+                                        padding: "4em",
+                                        minHeight: "100vh",
+                                        backgroundImage: `url(${item})`,
+                                        backgroundSize: 'cover',
+                                        backgroundPosition: 'center'
+                                    }} />
+                                :
+                                <img classname={classes.photo} height={props.height} width={props.width} src={item} />
                             }
-                            </Paper>
-                        )
-                    })
+                        </Paper>
+                    )
+                })
                 }
-                
+
             </Carousel>
         </div>
     )
