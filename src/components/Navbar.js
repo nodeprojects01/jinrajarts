@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function Navbar() {
+export default function Navbar(props) {
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -38,16 +38,11 @@ export default function Navbar() {
     return (
         <div className={classes.root}>
             <AppBar position="static" style={{ background: 'transparent', boxShadow: 'none', color: "#555" }}>
-                <Toolbar style={{ padding:"0"}}>
-                    {/* <Typography variant="h6" className={classes.title} 
-                    style={{ "fontFamily": jpStyle.fontFamilyDancingScript, color:"#fff" }}>
-                        Jinraj & Praveen Arts
-                    </Typography> */}
+                <Toolbar style={{ padding: "0" }}>
                     <Box display={{ xs: 'none', md: 'block', lg: 'block' }}>
-                        <Button color={"inherit"} style={jpTheme.buttonBorderless}>home</Button>
-                        <Button color={"inherit"} style={jpTheme.buttonBorderless}>portfolio</Button>
-                        <Button color={"inherit"} style={jpTheme.buttonBorderless}>about us</Button>
-                        <Button color={"inherit"} style={jpTheme.buttonBorderless}>contact</Button>
+                        {props.data.map((item) => (
+                            <Button color={"inherit"} style={jpTheme.buttonBorderless}>{item.name}</Button>
+                        ))}
                     </Box>
                     <Box display={{ xs: 'block', md: 'none', lg: 'none', flex: 1 }}>
                         <IconButton edge="start"
@@ -63,10 +58,9 @@ export default function Navbar() {
                         keepMounted
                         open={Boolean(anchorEl)}
                         onClose={handleClose}>
-                        <MenuItem onClick={handleClose}>home</MenuItem>
-                        <MenuItem onClick={handleClose}>portfolio</MenuItem>
-                        <MenuItem onClick={handleClose}>about us</MenuItem>
-                        <MenuItem onClick={handleClose}>contact</MenuItem>
+                        {props.data.map((item) => (
+                            <MenuItem onClick={handleClose}>{item.name}</MenuItem>
+                        ))}
                     </Menu>
                 </Toolbar>
             </AppBar>
