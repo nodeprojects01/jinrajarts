@@ -3,25 +3,30 @@ import Carousel from 'react-material-ui-carousel';
 import { Paper, Button } from '@material-ui/core'
 import makeStyles from "@material-ui/core/styles/makeStyles";
 
-const useStyles = makeStyles({
-    photo: {
-        // objectFit: 'cover',
-        width: '100%',
-        height: '100%',
-    }
-});
+const showImage = (props, item) => {
+    return (
+        <img src={item} style={{
+            display: "block",
+            height: props.height,
+            width: props.width,
+            objectFit: "cover"
+        }} />
+    )
+}
 
 export default function ImageSlider(props) {
-    const classes = useStyles(props);
     const value = {
-        autoPlay: true,
-        timer: 500,
+        autoPlay: props.autoPlay,
         indicators: false,
-        timeout: 200,
+        timer: 500,
+        strictIndexing: true,
+        timeout: 300,
+        interval: 100,
         navButtonsAlwaysVisible: false
     }
+
     return (
-        <div >
+        <div>
             <Carousel
                 autoPlay={value.autoPlay}
                 timer={value.timer}
@@ -29,22 +34,18 @@ export default function ImageSlider(props) {
                 indicators={value.indicators}
                 navButtonsAlwaysVisible={value.navButtonsAlwaysVisible}
             >
-                {
-                    props.images.map((item, index) => {
-                        return (
-                            <Paper
-                                className="Project"
-                                elevation={0}
-                                style={{
-                                    backgroundColor: item.color,
-                                    height: props.height,
-                                    width: props.width
-                                }}>
-                                <img classname={classes.photo} height={props.height} width={props.width} src={item} />
-                            </Paper>
-                        )
-                    })
-                }
+                {props.images.map((item, index) => {
+                    return (
+                        <Paper elevation={0} style={{}} >
+                            <img src={item} style={{
+                                display: "block",
+                                height: props.height,
+                                width: props.width,
+                                objectFit: "cover"
+                            }} />
+                        </Paper>
+                    )
+                })}
             </Carousel>
         </div>
     )

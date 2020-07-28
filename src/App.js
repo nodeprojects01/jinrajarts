@@ -15,7 +15,17 @@ import SendEmail from './components/SendEmail'
 import Backdrop from '@material-ui/core/Backdrop';
 import Divider from '@material-ui/core/Divider';
 import ImageSlider from './components/ImageSlider'
+
 const useStyles = makeStyles((theme) => ({
+  coverText: {
+    position: 'absolute',
+    top: "35%",
+    zIndex: 100,
+    left: "4%",
+    [theme.breakpoints.down('md')]: {
+      top: "50%",
+    }
+  },
   root: {
     flexGrow: 1,
   },
@@ -43,20 +53,12 @@ function App() {
   const classes = useStyles();
   const columnView = functions.getColumnView(data.images, 3, "createdDate");
   const events = functions.getEvents(data.images, "createdDate");
-  console.log("events - ", events);
   const [showImage, setShowImage] = React.useState('');
+
   const handleOnClick = (e, filepath) => {
-    console.log(e.target)
-    console.log(filepath)
-    // setShowImage()
     setShowImage(filepath)
   }
-  const images = [
-    'https://homepages.cae.wisc.edu/~ece533/images/airplane.png',
-    'https://homepages.cae.wisc.edu/~ece533/images/arctichare.png',
-    'https://homepages.cae.wisc.edu/~ece533/images/baboon.png',
-    'https://homepages.cae.wisc.edu/~ece533/images/barbara.png',
-];
+
   return (
     <div>
       {showImage != '' &&
@@ -64,23 +66,21 @@ function App() {
           <img className={classes.mainPic} style={{ padding: 0 }} src={showImage} />
         </Backdrop>
       }
-      <Grid
-        container
+      <Grid container
         spacing={0}
         direction="column"
         alignItems="center"
         justify="center"
         style={{
-          padding: "4em",
           minHeight: "100vh",
-          // background: 'radial-gradient(#A2BCD5, #C0D7E7)'
-          // background: 'linear-gradient(45deg, #A2BCD5 30%, #C0D7E7 90%)',
-          backgroundImage: `url(${data.wallpaper[0]})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
-        }}
-      >
-        <Box style={{ width: "100%", height: "100%" }}>
+          background: 'linear-gradient(45deg, #333 30%, #333 90%)'
+          // backgroundImage: `url(${item})`,
+          // backgroundSize: 'cover',
+          // backgroundPosition: 'center'
+        }}>
+        <ImageSlider images={data.wallpaper} autoPlay={true} height="100vh" width="100%" />
+
+        <Box className={classes.coverText}>
           <Typography variant="h2" style={jpTheme.header}>GALLERY</Typography>
           <Typography style={{
             paddingLeft: "8px",
@@ -139,8 +139,7 @@ function App() {
         </Grid>
       </Box>
       <Box>
-      
-        
+
       </Box>
     </div>
   );
