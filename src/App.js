@@ -56,6 +56,8 @@ function App() {
   const events = functions.getEvents(data.images, "createdDate");
   const menuItems = data.menu;
   const categories = functions.getCategories(data.images);
+  const [tabValue, setTabValue] = React.useState(categories[0]);
+
   console.log("categories - ", categories);
 
   const [showImage, setShowImage] = React.useState('');
@@ -63,7 +65,13 @@ function App() {
   const handleOnClick = (e, filepath) => {
     setShowImage(filepath)
   }
+  // const filterCategory(values) = values.filter((data) => {
+  //   if (data.category==tabValue) {
+  //     return data
+  //   }
 
+  // })
+  console.log(tabValue)
   return (
     <div>
       {showImage != '' &&
@@ -117,13 +125,15 @@ function App() {
       <Box style={{ padding: "4em" }}>
         <Box style={{ padding: "0 0 2em 0" }}>
           <Typography variant="h2" style={jpTheme.title} align="center">PAINTINGS</Typography>
-          <Tags data={categories} />
+          <Tags data={categories} value={tabValue} setValue={(newValue)=>setTabValue(newValue)}/>
         </Box>
         <Grid container spacing={4}>
           {columnView.map((items) => (
             <Grid item xs={12} md={12 / columnView.length}>
               {items.map((image) => (
+                image.category==tabValue &&
                 <ImageCard data={image} onClick={(e) => { handleOnClick(e, image.filepath) }} />
+                
               ))}
             </Grid>
           ))}
