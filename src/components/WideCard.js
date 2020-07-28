@@ -1,5 +1,4 @@
 import React from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
@@ -8,25 +7,10 @@ import ImageSlider from './ImageSlider'
 import data from '../config/data'
 
 export default function WideCard(props) {
-
     return (
         <div>
             <Grid container spacing={8}>
                 <Grid item xs={12} md={6}>
-                    {/* <Box style={{
-                        backgroundColor: "#FFF",
-                        height: "300px",
-                        width: "100%",
-                        // backgroundImage: `url(${props.data.filepath})`,
-                        // backgroundSize: 'cover',
-                        // backgroundPosition: 'center'
-                    }}> 
-                        <div style={{
-                            width: "100%", height: "100%",
-                            background: "rgba(225,225,225,0.2)"
-                        }} > 
-                        </div> 
-                    </Box> */}
                     <Box style={{ background: 'linear-gradient(45deg, #333 30%, #333 90%)' }}>
                         <ImageSlider images={data.wallpaper} autoPlay={false} height="300px" width="100%" />
                     </Box>

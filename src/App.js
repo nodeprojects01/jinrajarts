@@ -15,12 +15,13 @@ import SendEmail from './components/SendEmail'
 import Backdrop from '@material-ui/core/Backdrop';
 import Divider from '@material-ui/core/Divider';
 import ImageSlider from './components/ImageSlider'
+
 const useStyles = makeStyles((theme) => ({
   coverText: {
     position: 'absolute',
     top: "35%",
     zIndex: 100,
-    left: "5%",
+    left: "4%",
     [theme.breakpoints.down('md')]: {
       top: "50%",
     }
@@ -52,12 +53,9 @@ function App() {
   const classes = useStyles();
   const columnView = functions.getColumnView(data.images, 3, "createdDate");
   const events = functions.getEvents(data.images, "createdDate");
-  console.log("events - ", events);
   const [showImage, setShowImage] = React.useState('');
+
   const handleOnClick = (e, filepath) => {
-    console.log(e.target)
-    console.log(filepath)
-    // setShowImage()
     setShowImage(filepath)
   }
 
@@ -141,7 +139,6 @@ function App() {
         </Grid>
       </Box>
       <Box>
-
 
       </Box>
     </div>
