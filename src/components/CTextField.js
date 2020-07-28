@@ -25,7 +25,15 @@ const CssTextField = withStyles({
               borderColor: 'yellow',
             },
           },
+          '& .MuiInputLabel-root': {
+            fontFamily: jpStyle.fontFamilyMontserrat,
+            color: jpStyle.colorGrey,
+            fontSize: jpStyle.fontSizeML,
+          }
+        //   jpTheme.textDefault,
+          
     },
+    
    
 })(TextField);
 
