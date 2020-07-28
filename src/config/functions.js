@@ -1,4 +1,16 @@
 
+function getCategories(arrOfObjects){
+    var categories = [];
+    arrOfObjects.forEach(obj => {
+        var lw = obj.category.map(v => v.toLowerCase())
+        categories.push.apply(categories, lw);
+    });
+    console.log("itemsss - ",categories);
+    return categories.filter(function(elem, pos) {
+        return categories.indexOf(elem) == pos;
+    });
+}
+
 function getImageCollections(arrOfObjects, sortByKey) {
     arrOfObjects.filter((obj) => {
         return !obj.hide;
@@ -44,5 +56,6 @@ export default {
     getColumnView,
     getImageCollections,
     sortby,
-    getEvents
+    getEvents,
+    getCategories
 }

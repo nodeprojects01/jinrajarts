@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Navbar from './components/Navbar';
 import ImageCard from './components/ImageCard';
 import WideCard from './components/WideCard';
+import Tags from './components/Tags';
 import RecentEvent from './components/RecentEvent';
 import data from './config/data';
 import functions from './config/functions';
@@ -53,6 +54,10 @@ function App() {
   const classes = useStyles();
   const columnView = functions.getColumnView(data.images, 3, "createdDate");
   const events = functions.getEvents(data.images, "createdDate");
+  const menuItems = data.menu;
+  const categories = functions.getCategories(data.images);
+  console.log("categories - ", categories);
+
   const [showImage, setShowImage] = React.useState('');
 
   const handleOnClick = (e, filepath) => {
@@ -90,7 +95,7 @@ function App() {
             color: "#FFF"
           }} >by Jinraj & Praveen</Typography>
           <br />
-          <Navbar />
+          <Navbar data={menuItems} />
         </Box>
       </Grid>
 
@@ -111,7 +116,8 @@ function App() {
 
       <Box style={{ padding: "4em" }}>
         <Box style={{ padding: "0 0 2em 0" }}>
-          <Typography variant="h2" style={jpTheme.title} align="center">COLLECTIONS</Typography>
+          <Typography variant="h2" style={jpTheme.title} align="center">PAINTINGS</Typography>
+          <Tags data={categories} />
         </Box>
         <Grid container spacing={4}>
           {columnView.map((items) => (
