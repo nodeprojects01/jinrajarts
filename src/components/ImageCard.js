@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
         // padding: theme.spacing(2),
         // textAlign: 'center',
         // verticalAlign: 'middle',
-        padding: '4em',
+        padding: '2em',
         color: theme.palette.text.secondary,
         display: "flex",
         justifyContent: "center",
