@@ -60,16 +60,21 @@ const useStyles = makeStyles((theme) => ({
 
 function App() {
   const classes = useStyles();
-  const columnView = functions.getColumnView(data.images, 3, "createdDate");
+  const [columnView, setColumnView] = React.useState(functions.getColumnView(data.images, 3, "createdDate"));
   const events = functions.getEvents(data.images, "createdDate");
   const menuItems = data.menu;
   const categories = functions.getCategories(data.images);
-  console.log("categories - ", categories);
-
+  const [activeCategory, setActiveCategory] = React.useState(categories[0]);
   const [showImage, setShowImage] = React.useState('');
 
   const handleOnClick = (e, filepath) => {
-    setShowImage(filepath)
+    setShowImage(filepath);
+  }
+
+  const onCategoryClick = (newValue) => {
+    setActiveCategory(newValue)
+    var filterImages = functions.getCategoryImages(data.images, newValue, "createdDate");
+    setColumnView(functions.getColumnView(filterImages, 3, "createdDate"))
   }
 
   return (
@@ -125,13 +130,15 @@ function App() {
       <Box style={{ padding: "2em 4em 4em" }}>
         <Box style={{ padding: "0 0 2em 0" }}>
           <Typography variant="h2" style={jpTheme.title} align="center">PAINTINGS</Typography>
-          <Tags data={categories} />
+          <Tags data={categories} value={activeCategory} setValue={(newValue) => { onCategoryClick(newValue) }} />
         </Box>
         <Grid container spacing={4}>
           {columnView.map((items) => (
             <Grid item xs={12} md={12 / columnView.length}>
               {items.map((image) => (
+                (image.category == activeCategory || activeCategory == 'ALL') &&
                 <ImageCard data={image} onClick={(e) => { handleOnClick(e, image.filepath) }} />
+
               ))}
             </Grid>
           ))}

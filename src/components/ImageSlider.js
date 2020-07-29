@@ -26,17 +26,18 @@ export default function ImageSlider(props) {
     }
 
     return (
-        <div>
+        <div style={{width:"100%"}}>
             <Carousel
                 autoPlay={value.autoPlay}
                 timer={value.timer}
                 timeout={value.timeout}
                 indicators={value.indicators}
                 navButtonsAlwaysVisible={value.navButtonsAlwaysVisible}
+               
             >
                 {props.images.map((item, index) => {
                     return (
-                        <Paper elevation={0} style={{}} >
+                        <Paper elevation={0} >
                             <img src={item} style={{
                                 display: "block",
                                 height: props.height,
