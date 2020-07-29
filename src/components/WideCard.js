@@ -11,9 +11,7 @@ export default function WideCard(props) {
         <div>
             <Grid container spacing={8}>
                 <Grid item xs={12} md={6}>
-                    <Box style={{ background: 'linear-gradient(45deg, #333 30%, #333 90%)' }}>
-                        <ImageSlider images={data.wallpaper} autoPlay={false} height="300px" width="100%" />
-                    </Box>
+                    <ImageSlider images={data.wallpaper} autoPlay={false} height="300px" width="100%" />
                 </Grid>
                 <Grid item xs={12} md={6}>
                     <Box>

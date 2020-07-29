@@ -10,14 +10,22 @@ import data from './config/data';
 import functions from './config/functions';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
-import { Typography, TextareaAutosize } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import { jpStyle, jpTheme } from './styles/global';
 import SendEmail from './components/SendEmail'
 import Backdrop from '@material-ui/core/Backdrop';
 import Divider from '@material-ui/core/Divider';
-import ImageSlider from './components/ImageSlider'
+import ImageSlider from './components/ImageSlider';
+import Praveen from './media/images/praveen.jpg';
+import Jinraj from './media/images/jinraj.jpg';
 
 const useStyles = makeStyles((theme) => ({
+  aboutGrid: {
+    padding: "5em !important",
+    [theme.breakpoints.down('md')]: {
+      padding: "0 !important"
+    }
+  },
   coverText: {
     position: 'absolute',
     top: "35%",
@@ -114,7 +122,7 @@ function App() {
         </Grid>
       </Box>
 
-      <Box style={{ padding: "4em" }}>
+      <Box style={{ padding: "2em 4em 4em" }}>
         <Box style={{ padding: "0 0 2em 0" }}>
           <Typography variant="h2" style={jpTheme.title} align="center">PAINTINGS</Typography>
           <Tags data={categories} />
@@ -131,23 +139,90 @@ function App() {
         </Grid>
       </Box>
 
-      <Box style={{ padding: "4em", background: jpStyle.colorGreen }}>
+      <Box style={{ padding: "2em 4em 4em", background: jpStyle.colorGreyLight }}>
         <Box style={{ padding: "0 0 2em 0" }}>
-          <Typography variant="h2" style={jpTheme.title} align="center">CONTACT US</Typography>
+          <Typography variant="h2" style={jpTheme.title} align="center">ABOUT US</Typography>
+        </Box>
+        <Grid container spacing={8}>
+          <Grid item xs={12} md={6} direction="column" alignItems="center" justify="center">
+            <img style={{
+              height: "700px",
+              width: "100%",
+              backgroundImage: `url(${Praveen})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center center"
+            }} />
+          </Grid>
+
+          <Grid item xs={12} md={6}>
+            <Box>
+              <Typography variant="h2" style={jpTheme.title} >Praveen</Typography>
+              <p style={jpTheme.textDefault}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                ut aliquip ex ea commodo consequat.consectetur adipiscing elit,
+                sed do eiusmod consectetur adipiscing elit,
+                sed do eiusmod temporconsectetur adipiscing elit, sed do eiusmod temportempor.
+                        </p>
+              <p style={jpTheme.textDefault}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                ut aliquip ex ea commodo consequat.consectetur adipiscing elit,
+                sed do eiusmod consectetur adipiscing elit,
+                sed do eiusmod temporconsectetur adipiscing elit, sed do eiusmod temportempor.
+                        </p>
+            </Box>
+          </Grid>
+        </Grid>
+        <Grid container spacing={8}>
+          <Grid item xs={12} md={6}>
+            <Box>
+              <Typography variant="h2" style={jpTheme.title} >Jinraj</Typography>
+              <p style={jpTheme.textDefault}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                ut aliquip ex ea commodo consequat.consectetur adipiscing elit,
+                sed do eiusmod consectetur adipiscing elit,
+                sed do eiusmod temporconsectetur adipiscing elit, sed do eiusmod temportempor.
+                        </p>
+              <p style={jpTheme.textDefault}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                ut aliquip ex ea commodo consequat.consectetur adipiscing elit,
+                sed do eiusmod consectetur adipiscing elit,
+                sed do eiusmod temporconsectetur adipiscing elit, sed do eiusmod temportempor.
+                        </p>
+            </Box>
+          </Grid>
+          <Grid item xs={12} md={6} direction="column" alignItems="center" justify="center" >
+            <img style={{
+              height: "700px",
+              width: "100%",
+              backgroundImage: `url(${Jinraj})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center center"
+            }} />
+          </Grid>
+        </Grid>
+      </Box>
+
+      <Box style={{ padding: "2em 4em 4em", background: jpStyle.colorGreen }}>
+        <Box style={{ padding: "0 0 2em 0" }}>
+          <Typography variant="h2" style={jpTheme.title} align="center">CONTACT</Typography>
         </Box>
 
-        <Grid container
-          spacing={0}
-          direction="column"
-          alignItems="center"
-          justify="center" >
+        <Grid container direction="column" alignItems="center" justify="center" >
           <SendEmail />
         </Grid>
       </Box>
       <Box>
 
       </Box>
-    </div>
+    </div >
   );
 }
 
