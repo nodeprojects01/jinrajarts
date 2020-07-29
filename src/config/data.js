@@ -19,72 +19,37 @@ import { jpStyle, jpTheme } from '../styles/global';
 
 export default {
     views: 1,
-    aboutUs:[
+    aboutUs: [
         {
-            id:"1",
-            name:"Praveen",
-            filepath:[Praveen],
-            websites:[{
-                name:"youtube",
-                link:""
+            id: "1",
+            name: "Praveen K R",
+            filepath: [Praveen],
+            websites: {
+                youtube: "https://www.youtube.com/channel/UCadO25GiC-YBWzosiAzz0Ag",
+                facebook: "https://www.facebook.com/praveen.jain.7798"
             },
-            {
-                name:"facebook",
-                link:""
-            },
-            {
-                name:"instagram",
-                link:""
-            },
-            {
-                name:"other",
-                link:""
-            }],
-            description:`Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-            ut aliquip ex ea commodo consequat.consectetur adipiscing elit,
-            sed do eiusmod consectetur adipiscing elit,
-            sed do eiusmod temporconsectetur adipiscing elit, sed do eiusmod temportempor.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-            ut aliquip ex ea commodo consequat.consectetur adipiscing elit,
-            sed do eiusmod consectetur adipiscing elit,
-            sed do eiusmod temporconsectetur adipiscing elit, sed do eiusmod temportempor.`
+            description: `He is a PhD student in the Engineering and Innovation department at 
+            OU - Milton Keynes with civil engineering background hailing from Karnataka, India. 
+            He resident of Milton Keynes, England since 2019. He inherited the art of painting 
+            from his father R S Karebasannanavar. He has been practising art since childhood. 
+            He received first place in the national level painting competition held at IISc - Bangalore 2010. 
+            Have participated and won 71 prizes in state, district and zone level competition in india.`
         },
         {
-            id:"2",
-            name:"Jinraj",
-            filepath:[Jinraj],
-            websites:[{
-                name:"youtube",
-                link:""
+            id: "2",
+            name: "Jinraj K R",
+            filepath: [Jinraj],
+            websites: {
+                youtube: "https://www.youtube.com/watch?v=50QwDgDlHok&t",
+                facebook: "https://www.facebook.com/Jinraj.KR",
+                instagram: "https://www.instagram.com/jinraj.arts"
             },
-            {
-                name:"facebook",
-                link:""
-            },
-            {
-                name:"instagram",
-                link:""
-            },
-            {
-                name:"other",
-                link:""
-            }],
-            description:`Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-            ut aliquip ex ea commodo consequat.consectetur adipiscing elit,
-            sed do eiusmod consectetur adipiscing elit,
-            sed do eiusmod temporconsectetur adipiscing elit, sed do eiusmod temportempor.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-            ut aliquip ex ea commodo consequat.consectetur adipiscing elit,
-            sed do eiusmod consectetur adipiscing elit,
-            sed do eiusmod temporconsectetur adipiscing elit, sed do eiusmod temportempor.`
+            description: `He is a software engineer by profession but a passionated artist, 
+            who is following his father's artistry from his childhood. The artistic ideas helped 
+            throughout his educational and professional journey in developing the presentation skills. 
+            Through his realism, portrait, imaginary, commercial and some landscape art, 
+            he creates his own pictorial language. Jinraj is currently practicing his paintings on 
+            his own in Bangalore, India, during all the free time that he gets.`
         }
     ],
     wallpaper: [background1, background5, background2, background3],
