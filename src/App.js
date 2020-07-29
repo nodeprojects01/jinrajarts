@@ -3,6 +3,7 @@ import './App.css';
 import { makeStyles } from '@material-ui/core/styles';
 import Navbar from './components/Navbar';
 import ImageCard from './components/ImageCard';
+import WideCard2 from './components/WideCard2';
 import WideCard from './components/WideCard';
 import Tags from './components/Tags';
 import RecentEvent from './components/RecentEvent';
@@ -150,71 +151,8 @@ function App() {
         <Box style={{ padding: "0 0 2em 0" }}>
           <Typography variant="h2" style={jpTheme.title} align="center">ABOUT US</Typography>
         </Box>
-        <Grid container spacing={8}>
-          <Grid item xs={12} md={6} direction="column" alignItems="center" justify="center">
-            <img style={{
-              height: "700px",
-              width: "100%",
-              backgroundImage: `url(${Praveen})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center center"
-            }} />
-          </Grid>
-
-          <Grid item xs={12} md={6}>
-            <Box>
-              <Typography variant="h2" style={jpTheme.title} >Praveen</Typography>
-              <p style={jpTheme.textDefault}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-                ut aliquip ex ea commodo consequat.consectetur adipiscing elit,
-                sed do eiusmod consectetur adipiscing elit,
-                sed do eiusmod temporconsectetur adipiscing elit, sed do eiusmod temportempor.
-                        </p>
-              <p style={jpTheme.textDefault}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-                ut aliquip ex ea commodo consequat.consectetur adipiscing elit,
-                sed do eiusmod consectetur adipiscing elit,
-                sed do eiusmod temporconsectetur adipiscing elit, sed do eiusmod temportempor.
-                        </p>
-            </Box>
-          </Grid>
-        </Grid>
-        <Grid container spacing={8}>
-          <Grid item xs={12} md={6}>
-            <Box>
-              <Typography variant="h2" style={jpTheme.title} >Jinraj</Typography>
-              <p style={jpTheme.textDefault}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-                ut aliquip ex ea commodo consequat.consectetur adipiscing elit,
-                sed do eiusmod consectetur adipiscing elit,
-                sed do eiusmod temporconsectetur adipiscing elit, sed do eiusmod temportempor.
-                        </p>
-              <p style={jpTheme.textDefault}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-                ut aliquip ex ea commodo consequat.consectetur adipiscing elit,
-                sed do eiusmod consectetur adipiscing elit,
-                sed do eiusmod temporconsectetur adipiscing elit, sed do eiusmod temportempor.
-                        </p>
-            </Box>
-          </Grid>
-          <Grid item xs={12} md={6} direction="column" alignItems="center" justify="center" >
-            <img style={{
-              height: "700px",
-              width: "100%",
-              backgroundImage: `url(${Jinraj})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center center"
-            }} />
-          </Grid>
-        </Grid>
+        <WideCard2 width="100%" height="700px" data={data.aboutUs[0]} />
+        <WideCard2 width="100%" height="700px" data={data.aboutUs[1]} otherWay />
       </Box>
 
       <Box style={{ padding: "2em 4em 4em", background: jpStyle.colorGreen }}>

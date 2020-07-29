@@ -12,11 +12,81 @@ import background5 from '../media/images/background5.jpg'
 import background3 from '../media/images/background3.jpg'
 import background2 from '../media/images/background2.jpg'
 import background1 from '../media/images/background1.jpg'
+import Praveen from '../media/images/praveen.jpg'
+import Jinraj from '../media/images/jinraj.jpg'
 // const imagePath="../media/images/";
 import { jpStyle, jpTheme } from '../styles/global';
 
 export default {
     views: 1,
+    aboutUs:[
+        {
+            id:"1",
+            name:"Praveen",
+            filepath:[Praveen],
+            websites:[{
+                name:"youtube",
+                link:""
+            },
+            {
+                name:"facebook",
+                link:""
+            },
+            {
+                name:"instagram",
+                link:""
+            },
+            {
+                name:"other",
+                link:""
+            }],
+            description:`Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+            ut aliquip ex ea commodo consequat.consectetur adipiscing elit,
+            sed do eiusmod consectetur adipiscing elit,
+            sed do eiusmod temporconsectetur adipiscing elit, sed do eiusmod temportempor.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+            ut aliquip ex ea commodo consequat.consectetur adipiscing elit,
+            sed do eiusmod consectetur adipiscing elit,
+            sed do eiusmod temporconsectetur adipiscing elit, sed do eiusmod temportempor.`
+        },
+        {
+            id:"2",
+            name:"Jinraj",
+            filepath:[Jinraj],
+            websites:[{
+                name:"youtube",
+                link:""
+            },
+            {
+                name:"facebook",
+                link:""
+            },
+            {
+                name:"instagram",
+                link:""
+            },
+            {
+                name:"other",
+                link:""
+            }],
+            description:`Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+            ut aliquip ex ea commodo consequat.consectetur adipiscing elit,
+            sed do eiusmod consectetur adipiscing elit,
+            sed do eiusmod temporconsectetur adipiscing elit, sed do eiusmod temportempor.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+            ut aliquip ex ea commodo consequat.consectetur adipiscing elit,
+            sed do eiusmod consectetur adipiscing elit,
+            sed do eiusmod temporconsectetur adipiscing elit, sed do eiusmod temportempor.`
+        }
+    ],
     wallpaper: [background1, background5, background2, background3],
     menu: [
         { name: "home", link: "" },
