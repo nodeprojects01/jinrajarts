@@ -1,6 +1,6 @@
 
 function getCategories(arrOfObjects){
-    var categories = [];
+    var categories = ['ALL'];
     arrOfObjects.forEach(obj => {
         var lw = obj.category.map(v => v.toLowerCase())
         categories.push.apply(categories, lw);

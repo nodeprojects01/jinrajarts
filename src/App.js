@@ -52,26 +52,30 @@ const useStyles = makeStyles((theme) => ({
 
 function App() {
   const classes = useStyles();
-  const columnView = functions.getColumnView(data.images, 3, "createdDate");
+  const [columnView,setColumnView] = React.useState(functions.getColumnView(data.images, 3, "createdDate"));
   const events = functions.getEvents(data.images, "createdDate");
   const menuItems = data.menu;
   const categories = functions.getCategories(data.images);
   const [tabValue, setTabValue] = React.useState(categories[0]);
 
-  console.log("categories - ", categories);
-
+ 
   const [showImage, setShowImage] = React.useState('');
 
   const handleOnClick = (e, filepath) => {
     setShowImage(filepath)
+    
   }
-  // const filterCategory(values) = values.filter((data) => {
-  //   if (data.category==tabValue) {
-  //     return data
-  //   }
-
-  // })
-  console.log(tabValue)
+  const handleSetTabValue=(newValue)=>{
+    setTabValue(newValue)
+    var filterImages = data.images.filter((data) => {
+      if (data.category==newValue ||newValue=='ALL') {
+        return data
+      }
+    })
+    setColumnView(functions.getColumnView(filterImages, 3, "createdDate"))
+   
+  }
+ 
   return (
     <div>
       {showImage != '' &&
@@ -125,13 +129,13 @@ function App() {
       <Box style={{ padding: "4em" }}>
         <Box style={{ padding: "0 0 2em 0" }}>
           <Typography variant="h2" style={jpTheme.title} align="center">PAINTINGS</Typography>
-          <Tags data={categories} value={tabValue} setValue={(newValue)=>setTabValue(newValue)}/>
+          <Tags data={categories} value={tabValue} setValue={(newValue)=>{handleSetTabValue(newValue)}}/>
         </Box>
         <Grid container spacing={4}>
           {columnView.map((items) => (
             <Grid item xs={12} md={12 / columnView.length}>
               {items.map((image) => (
-                image.category==tabValue &&
+                (image.category==tabValue||tabValue=='ALL') &&
                 <ImageCard data={image} onClick={(e) => { handleOnClick(e, image.filepath) }} />
                 
               ))}
