@@ -28,7 +28,7 @@ const CssTextField = withStyles({
           '& .MuiInputLabel-root': {
             fontFamily: jpStyle.fontFamilyMontserrat,
             color: jpStyle.colorGrey,
-            fontSize: jpStyle.fontSizeML,
+            fontSize: jpStyle.fontSizeM,
           }
         //   jpTheme.textDefault,
           

@@ -1,13 +1,20 @@
 
-function getCategories(arrOfObjects){
+function getCategories(arrOfObjects) {
     var categories = ['ALL'];
     arrOfObjects.forEach(obj => {
         var lw = obj.category.map(v => v.toLowerCase())
         categories.push.apply(categories, lw);
     });
-    console.log("itemsss - ",categories);
-    return categories.filter(function(elem, pos) {
+    console.log("itemsss - ", categories);
+    return categories.filter(function (elem, pos) {
         return categories.indexOf(elem) == pos;
+    });
+}
+
+function getCategoryImages(arrOfObjects, category, sortByKey) {
+    var images = getImageCollections(arrOfObjects, sortByKey);
+    return images.filter((data) => {
+        return (data.category == category || category == 'ALL')
     });
 }
 
@@ -23,7 +30,7 @@ function getColumnView(arrOfObjects, noOfColumns, sortByKey) {
     var columnView = [];
     for (var j = 1; j <= noOfColumns; j++) {
         var arr = [];
-        for (var i = j-1; i < imageData.length; i = i + noOfColumns) {
+        for (var i = j - 1; i < imageData.length; i = i + noOfColumns) {
             arr.push(imageData[i]);
         }
         columnView.push(arr);
@@ -57,5 +64,6 @@ export default {
     getImageCollections,
     sortby,
     getEvents,
-    getCategories
+    getCategories,
+    getCategoryImages
 }

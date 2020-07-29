@@ -17,8 +17,8 @@ export default function Tags(props) {
             <Tabs
                 centered
                 value={value}
-                // TabIndicatorProps={{style: {backgroundColor: jpStyle.colorGreyLight}}}
-                TabIndicatorProps={{style: {backgroundColor: "#D97D54"}}}
+                TabIndicatorProps={{style: {backgroundColor: jpStyle.colorGreyLight}}}
+                // TabIndicatorProps={{style: {backgroundColor: "#D97D54"}}}
                 onChange={handleChange}
                 variant="standard"
             >
