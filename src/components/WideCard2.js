@@ -30,7 +30,7 @@ export default function WideCard2(props) {
                             {props.data.description}
                         </p>
                         <Typography style={jpTheme.textSmall} >Follow on - </Typography>
-                        <Link href={props.data.websites.facebook} target="_blank">
+                        <Link href={props.data.websites.youtube} target="_blank">
                             <YouTubeIcon style={{ padding: "10px 10px 10px 0", fontSize: "2em", color: jpStyle.colorGrey }} />
                         </Link>
                         <Link href={props.data.websites.facebook} target="_blank">
@@ -50,10 +50,10 @@ export default function WideCard2(props) {
                             {props.data.description}
                         </p>
                         <Typography style={jpTheme.textSmall} >Follow on - </Typography>
-                        <Link href={props.data.websites.facebook} target="_blank">
+                        <Link href={props.data.websites.youtube} target="_blank">
                             <YouTubeIcon style={{ padding: "10px 10px 10px 0", fontSize: "2em", color: jpStyle.colorGrey }} />
                         </Link>
-                        <Link href={props.data.websites.facebook} target="_blank">
+                        <Link href={props.data.websites.instagram} target="_blank">
                             <InstagramIcon style={{ padding: "10px", fontSize: "1.8em", color: jpStyle.colorGrey }} />
                         </Link>
                         <Link href={props.data.websites.facebook} target="_blank">

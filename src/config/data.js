@@ -130,8 +130,10 @@ export default {
             size: "",
             isEvent: false,
             filepath: [revisited_sanative],
-            description: "Lorem sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-            createdDate: "15/May/2020",
+            description: `Painting depicts a saint (Individual Soul) meditating in varuna mudra 
+            praying Supreme Soul/Doctor to cure the world from COVID-19. When there is no medicine for a sickness, 
+            the only hope is supreme doctor -  Lord Vishnu/Dhanvantari (Supreme Soul).`,
+            createdDate: "17/Apr/2020",
             category: ["imaginary"],
             likes: 0,
             artist: "Praveen K R",

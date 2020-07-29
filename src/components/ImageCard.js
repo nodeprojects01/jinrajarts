@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function ImageCard(props) {
     const classes = useStyles();
-    
+
     return (
         <div>
             <Paper elevation={0} className={classes.paper} style={props.data.backgroundColor} onClick={props.onClick}>
@@ -60,10 +60,12 @@ export default function ImageCard(props) {
                         {/* </IconButton> */}
                     </Box>
                 </Box>
-                <Box style={jpTheme.textSmall}>
-                    {(props.data.description).substring(0,100)}
-                    ...<b style={{color:"#333", }}>more</b>
-                </Box>
+                {props.data.description != "" &&
+                    <Box style={jpTheme.textSmall}>
+                        {(props.data.description).substring(0, 100)}
+                    ...<b style={{ color: "#333", }}>more</b>
+                    </Box>
+                }
             </div>
             <br />
         </div>
