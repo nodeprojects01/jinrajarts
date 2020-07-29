@@ -68,6 +68,7 @@ function App() {
   const [activeCategory, setActiveCategory] = React.useState(categories[0]);
   const [showImage, setShowImage] = React.useState('');
 
+  console.log("column view - ", columnView);
   const handleOnClick = (e, filepath) => {
     setShowImage(filepath);
   }
@@ -137,9 +138,7 @@ function App() {
           {columnView.map((items) => (
             <Grid item xs={12} md={12 / columnView.length}>
               {items.map((image) => (
-                (image.category == activeCategory || activeCategory == 'ALL') &&
                 <ImageCard data={image} onClick={(e) => { handleOnClick(e, image.filepath) }} />
-
               ))}
             </Grid>
           ))}
