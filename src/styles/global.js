@@ -44,7 +44,6 @@ const jpTheme = {
         fontSize: jpStyle.fontSizeM,
         lineHeight: "2"
     },
-
     textSmall: {
         fontFamily: jpStyle.fontFamilyMontserrat,
         fontWeight: "400",
@@ -52,12 +51,14 @@ const jpTheme = {
         fontSize: jpStyle.fontSizeM,
         lineHeight: "2"
     },
-
     buttonBorderless: {
-        fontSize: "0.75em",
+        fontSize: jpStyle.fontSizeM,
         color: "#fff"
     },
-
+    buttonBorderlessGrey: {
+        fontSize: jpStyle.fontSizeM,
+        color: jpStyle.colorGrey
+    },
     subheader_c: {
         fontFamily: jpStyle.fontFamilyMontserrat,
         fontWeight: 800,

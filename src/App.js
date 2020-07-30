@@ -19,6 +19,7 @@ import Divider from '@material-ui/core/Divider';
 import ImageSlider from './components/ImageSlider';
 import Fab from '@material-ui/core/Fab';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles((theme) => ({
   aboutGrid: {
