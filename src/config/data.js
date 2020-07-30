@@ -12,7 +12,7 @@ import background5 from '../media/images/background5.jpg'
 import background3 from '../media/images/background3.jpg'
 import background2 from '../media/images/background2.jpg'
 import background1 from '../media/images/background1.jpg'
-import Praveen from '../media/images/praveen.jpg'
+import Praveen from '../media/images/praveen.JPG'
 import Jinraj from '../media/images/jinraj.jpg'
 // const imagePath="../media/images/";
 import { jpStyle, jpTheme } from '../styles/global';
@@ -67,7 +67,12 @@ export default {
             size: "",
             isEvent: true,
             filepath: [WaltonHallB4OU_HomagePainting],
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+            description: " Lorem ipsum dolor sit amet, consectetur adipiscing elit,"+
+            "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."+
+            "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi"+
+            "ut aliquip ex ea commodo consequat.consectetur adipiscing elit,"+
+            "sed do eiusmod consectetur adipiscing elit,"+
+            "sed do eiusmod temporconsectetur adipiscing elit, sed do eiusmod temportempor.",
             createdDate: "01/Mar/2020",
             category: ["landscape"],
             likes: 0,
