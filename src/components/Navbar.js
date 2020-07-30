@@ -10,6 +10,7 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Box from '@material-ui/core/Box';
 import { jpStyle, jpTheme } from '../styles/global';
+import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles((theme) => ({
     // root: {
@@ -39,9 +40,9 @@ export default function Navbar(props) {
         <div className={classes.root}>
             <AppBar position="static" style={{ background: 'transparent', boxShadow: 'none', color: "#555" }}>
                 <Toolbar style={{ padding: "0" }}>
-                    <Box display={{ xs: 'none', md: 'block', lg: 'block' }}>
+                <Box display={{ xs: 'none', md: 'block', lg: 'block' }}>
                         {props.data.map((item) => (
-                            <Button color={"inherit"} style={jpTheme.buttonBorderless}>{item.name}</Button>
+                           <Button color={"inherit"} style={jpTheme.buttonBorderless} href={item.link} >{item.name}</Button>
                         ))}
                     </Box>
                     <Box display={{ xs: 'block', md: 'none', lg: 'none', flex: 1 }}>
@@ -59,7 +60,7 @@ export default function Navbar(props) {
                         open={Boolean(anchorEl)}
                         onClose={handleClose}>
                         {props.data.map((item) => (
-                            <MenuItem onClick={handleClose}>{item.name}</MenuItem>
+                            <MenuItem onClick={handleClick} >{item.name}</MenuItem>
                         ))}
                     </Menu>
                 </Toolbar>

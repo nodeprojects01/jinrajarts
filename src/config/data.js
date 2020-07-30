@@ -54,11 +54,11 @@ export default {
     ],
     wallpaper: [background1, background5, background2, background3],
     menu: [
-        { name: "home", link: "" },
-        { name: "events", link: "" },
-        { name: "paintings", link: "" },
-        { name: "about us", link: "" },
-        { name: "contact", link: "" }
+        { name: "home", link: "#home" },
+        { name: "events", link: "#events" },
+        { name: "paintings", link: "#paintings" },
+        { name: "about us", link: "#aboutus" },
+        { name: "contact", link: "#contact" }
     ],
     images: [
         {
