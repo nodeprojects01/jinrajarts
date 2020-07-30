@@ -17,9 +17,9 @@ import SendEmail from './components/SendEmail'
 import Backdrop from '@material-ui/core/Backdrop';
 import Divider from '@material-ui/core/Divider';
 import ImageSlider from './components/ImageSlider';
-import Praveen from './media/images/praveen.jpg';
+import Praveen from './media/images/praveen.JPG';
 import Jinraj from './media/images/jinraj.jpg';
-
+import Button from '@material-ui/core/Button';
 const useStyles = makeStyles((theme) => ({
   aboutGrid: {
     padding: "5em !important",
@@ -111,10 +111,11 @@ function App() {
           }} >by Jinraj & Praveen</Typography>
           <br />
           <Navbar data={menuItems} />
+          
         </Box>
       </Grid>
 
-      <Box style={{ padding: "4em", background: jpStyle.colorGreyLight }}>
+      <Box id="events" style={{ padding: "4em", background: jpStyle.colorGreyLight }}>
         <WideCard data={events[0]} />
         <Divider variant="middle" style={{ marginTop: "4em" }} />
         <Box style={{ padding: "2em 0" }}>
@@ -129,7 +130,7 @@ function App() {
         </Grid>
       </Box>
 
-      <Box style={{ padding: "2em 4em 4em" }}>
+      <Box id="paintings" style={{ padding: "2em 4em 4em" }}>
         <Box style={{ padding: "0 0 2em 0" }}>
           <Typography variant="h2" style={jpTheme.title} align="center">PAINTINGS</Typography>
           <Tags data={categories} value={activeCategory} setValue={(newValue) => { onCategoryClick(newValue) }} />
@@ -146,7 +147,7 @@ function App() {
         </Grid>
       </Box>
 
-      <Box style={{ padding: "2em 4em 4em", background: jpStyle.colorGreyLight }}>
+      <Box id="aboutus" style={{ padding: "2em 4em 4em", background: jpStyle.colorGreyLight }}>
         <Box style={{ padding: "0 0 2em 0" }}>
           <Typography variant="h2" style={jpTheme.title} align="center">ABOUT US</Typography>
         </Box>
@@ -154,7 +155,7 @@ function App() {
         <WideCard2 width="100%" height="700px" data={data.aboutUs[1]} otherWay />
       </Box>
 
-      <Box style={{ padding: "2em 4em 4em", background: jpStyle.colorGreen }}>
+      <Box id="contact" style={{ padding: "2em 4em 4em", background: jpStyle.colorGreen }}>
         <Box style={{ padding: "0 0 2em 0" }}>
           <Typography variant="h2" style={jpTheme.title} align="center">CONTACT</Typography>
         </Box>
