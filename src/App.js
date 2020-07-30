@@ -17,8 +17,7 @@ import SendEmail from './components/SendEmail'
 import Backdrop from '@material-ui/core/Backdrop';
 import Divider from '@material-ui/core/Divider';
 import ImageSlider from './components/ImageSlider';
-import Praveen from './media/images/praveen.jpg';
-import Jinraj from './media/images/jinraj.jpg';
+import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles((theme) => ({
   aboutGrid: {
