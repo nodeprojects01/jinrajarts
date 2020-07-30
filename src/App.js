@@ -17,9 +17,9 @@ import SendEmail from './components/SendEmail'
 import Backdrop from '@material-ui/core/Backdrop';
 import Divider from '@material-ui/core/Divider';
 import ImageSlider from './components/ImageSlider';
-import Praveen from './media/images/praveen.JPG';
-import Jinraj from './media/images/jinraj.jpg';
-import Button from '@material-ui/core/Button';
+import Fab from '@material-ui/core/Fab';
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+
 const useStyles = makeStyles((theme) => ({
   aboutGrid: {
     padding: "5em !important",
@@ -86,7 +86,7 @@ function App() {
           <img className={classes.mainPic} style={{ padding: 0 }} src={showImage} />
         </Backdrop>
       }
-      <Grid container
+      <Grid container id="top"
         spacing={0}
         direction="column"
         alignItems="center"
@@ -111,7 +111,7 @@ function App() {
           }} >by Jinraj & Praveen</Typography>
           <br />
           <Navbar data={menuItems} />
-          
+
         </Box>
       </Grid>
 
@@ -164,9 +164,17 @@ function App() {
           <SendEmail />
         </Grid>
       </Box>
-      <Box>
 
-      </Box>
+
+      <Fab style={{
+        position: 'fixed',
+        bottom: "1em",
+        right: "1em",
+      }} 
+      href="#top" 
+      size="small" aria-label="scroll back to top">
+        <KeyboardArrowUpIcon />
+      </Fab>
     </div >
   );
 }
