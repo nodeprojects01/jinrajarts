@@ -30,6 +30,12 @@ const jpTheme = {
         fontSize: "2.5em",
         margin: "1em 0"
     },
+    titleMarginLess: {
+        fontFamily: jpStyle.fontFamilyMontserrat,
+        fontWeight: "200",
+        color: "#444",
+        fontSize: "2.5em"
+    },
     subTitle: {
         fontFamily: jpStyle.fontFamilyMontserrat,
         fontWeight: "400",

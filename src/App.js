@@ -175,13 +175,8 @@ function App() {
       </Box>
 
 
-      <Fab style={{
-        position: 'fixed',
-        bottom: "1em",
-        right: "1em",
-      }}
-        href="#top"
-        size="small" aria-label="scroll back to top">
+      <Fab style={{ position: 'fixed', bottom: "1em", right: "1em", }}
+        href="#top" size="small" aria-label="scroll back to top">
         <KeyboardArrowUpIcon />
       </Fab>
     </div >

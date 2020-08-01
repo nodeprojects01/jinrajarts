@@ -7,7 +7,8 @@ import { jpStyle, jpTheme } from '../styles/global';
 import ImageSlider from './ImageSlider'
 import data from '../config/data'
 import { useHistory } from "react-router-dom";
-import DisplayImage from './DisplayImage'
+import DisplayImage from './DisplayImage';
+
 export default function WideCard(props) {
     const history = useHistory();
     console.log(props)
@@ -15,8 +16,8 @@ export default function WideCard(props) {
         <div>
             <Grid container spacing={8}>
                 <Grid item xs={12} md={6}>
-                    <DisplayImage images={props.data.filepath} autoPlay={false} height="300px" width="100%"/>
-                     </Grid>
+                    <DisplayImage images={props.data.filepath} autoPlay={false} height="300px" width="100%" />
+                </Grid>
                 <Grid item xs={12} md={6}>
                     <Box>
                         <Typography variant="h2" style={jpTheme.title} >{props.data.name}</Typography>
@@ -24,10 +25,12 @@ export default function WideCard(props) {
                             {props.data.description}
                         </p>
                     </Box>
-                    <Button style={jpTheme.buttonBorderlessGrey} onClick={()=>{history.push({
-          pathname: '/Details',
-          data:props.data
-        })}} >view more</Button>
+                    <Button style={jpTheme.buttonBorderlessGrey} onClick={() => {
+                        history.push({
+                            pathname: '/Details',
+                            data: props.data
+                        })
+                    }} >view more</Button>
                 </Grid>
             </Grid>
         </div>
