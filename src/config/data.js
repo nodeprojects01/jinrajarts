@@ -12,7 +12,7 @@ import background5 from '../media/images/background5.jpg'
 import background3 from '../media/images/background3.jpg'
 import background2 from '../media/images/background2.jpg'
 import background1 from '../media/images/background1.jpg'
-import Praveen from '../media/images/praveen.JPG'
+import Praveen from '../media/images/praveen.jpg'
 import Jinraj from '../media/images/jinraj.jpg'
 // const imagePath="../media/images/";
 import { jpStyle, jpTheme } from '../styles/global';
