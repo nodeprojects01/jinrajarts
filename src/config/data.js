@@ -66,8 +66,13 @@ export default {
             name: "Walton Hall",
             size: "",
             isEvent: true,
-            filepath: [WaltonHallB4OU_HomagePainting],
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+            filepath: [WaltonHallB4OU_HomagePainting,background1, background5],
+            description: " Lorem ipsum dolor sit amet, consectetur adipiscing elit,"+
+            "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."+
+            "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi"+
+            "ut aliquip ex ea commodo consequat.consectetur adipiscing elit,"+
+            "sed do eiusmod consectetur adipiscing elit,"+
+            "sed do eiusmod temporconsectetur adipiscing elit, sed do eiusmod temportempor.",
             createdDate: "01/Mar/2020",
             category: ["landscape"],
             likes: 0,

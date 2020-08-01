@@ -10,8 +10,10 @@ import Typography from '@material-ui/core/Typography';
 import Image1 from "../media/images/background2.jpg";
 import Box from '@material-ui/core/Box';
 import { jpStyle, jpTheme } from '../styles/global';
-
-
+import Detail from '../pages/Detail'
+import { Link } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
+import DisplayImage from './DisplayImage';
 const useStyles = makeStyles({
   root: {
     minWidth: "100%",
@@ -27,10 +29,13 @@ const useStyles = makeStyles({
 
 export default function RecentEvent(props) {
   const classes = useStyles();
-
+  const history = useHistory();
   return (
     <Card className={classes.root} elevation={0}  >
       <CardActionArea>
+      
+        {/* <DisplayImage images={props.data.filepath} height="200" width="100%" /> */}
+        {/* <div style={{ width: "100%", height: "100%", background: "rgba(225,225,225,0.2)" }}> </div> */}
         <CardMedia
           className={classes.media}
           image={props.data.filepath}
@@ -44,15 +49,16 @@ export default function RecentEvent(props) {
             {props.data.name}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p" style={{ fontSize: "0.89em" }}>
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
+            {props.data.description}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
         {/* <Button style={jpTheme.buttonBorderlessGray}>share</Button> */}
-        <Button style={jpTheme.buttonBorderlessGray}>know more</Button>
+        <Button style={jpTheme.buttonBorderlessGray}  onClick={()=>{history.push({
+          pathname: '/Details',
+          data:props.data
+        })}} >know more</Button>
       </CardActions>
     </Card>
   );

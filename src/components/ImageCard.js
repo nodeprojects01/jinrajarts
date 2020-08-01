@@ -7,6 +7,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { jpStyle, jpTheme } from '../styles/global';
+import DisplayImage from './DisplayImage';
 
 
 const useStyles = makeStyles(theme => ({
@@ -42,11 +43,12 @@ export default function ImageCard(props) {
     return (
         <div>
             <Paper elevation={0} className={classes.paper} style={props.data.backgroundColor} onClick={props.onClick}>
-                {(props.data.more.hideFrame == false) ?
+                {/* {(props.data.more.hideFrame == false) ?
                     <img className={classes.mainPic} style={props.data.more.frameColor} src={props.data.filepath[0]} />
                     :
                     <img className={classes.mainPic} style={{ padding: 0 }} src={props.data.filepath} />
-                }
+                } */}
+                <DisplayImage images={props.data.filepath} style={{ padding: 0 }} width="100%" height="100%"/>
 
             </Paper>
             <div style={{ padding: "8px 12px 12px 12px" }}>
