@@ -66,7 +66,7 @@ export default {
             name: "Walton Hall",
             size: "",
             isEvent: true,
-            filepath: [WaltonHallB4OU_HomagePainting],
+            filepath: [WaltonHallB4OU_HomagePainting,background1, background5],
             description: " Lorem ipsum dolor sit amet, consectetur adipiscing elit,"+
             "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."+
             "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi"+

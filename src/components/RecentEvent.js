@@ -13,6 +13,7 @@ import { jpStyle, jpTheme } from '../styles/global';
 import Detail from '../pages/Detail'
 import { Link } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
+import DisplayImage from './DisplayImage';
 const useStyles = makeStyles({
   root: {
     minWidth: "100%",
@@ -32,6 +33,9 @@ export default function RecentEvent(props) {
   return (
     <Card className={classes.root} elevation={0}  >
       <CardActionArea>
+      
+        {/* <DisplayImage images={props.data.filepath} height="200" width="100%" /> */}
+        {/* <div style={{ width: "100%", height: "100%", background: "rgba(225,225,225,0.2)" }}> </div> */}
         <CardMedia
           className={classes.media}
           image={props.data.filepath}
