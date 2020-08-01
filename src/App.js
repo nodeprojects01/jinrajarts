@@ -7,6 +7,7 @@ import WideCard2 from './components/WideCard2';
 import WideCard from './components/WideCard';
 import Tags from './components/Tags';
 import RecentEvent from './components/RecentEvent';
+import Button from '@material-ui/core/Button';
 import data from './config/data';
 import functions from './config/functions';
 import Box from '@material-ui/core/Box';
@@ -129,6 +130,10 @@ function App() {
             </Grid>
           ))}
         </Grid>
+        <Box display="flex" justifyContent="center" style={{ padding: "2em 0 0" }}>
+          <Button style={jpTheme.buttonGrey}>view all</Button>
+          {/* <Button style={jpTheme.buttonGrey}>show less</Button> */}
+        </Box>
       </Box>
 
       <Box id="paintings" style={{ padding: "2em 4em 4em" }}>
@@ -144,8 +149,11 @@ function App() {
               ))}
             </Grid>
           ))}
-
         </Grid>
+        <Box display="flex" justifyContent="center" style={{ padding: "2em 0 0" }}>
+          <Button style={jpTheme.buttonGrey}>view all</Button>
+          {/* <Button style={jpTheme.buttonGrey}>show less</Button> */}
+        </Box>
       </Box>
 
       <Box id="aboutus" style={{ padding: "2em 4em 4em", background: jpStyle.colorGreyLight }}>
@@ -171,9 +179,9 @@ function App() {
         position: 'fixed',
         bottom: "1em",
         right: "1em",
-      }} 
-      href="#top" 
-      size="small" aria-label="scroll back to top">
+      }}
+        href="#top"
+        size="small" aria-label="scroll back to top">
         <KeyboardArrowUpIcon />
       </Fab>
     </div >

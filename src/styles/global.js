@@ -59,6 +59,11 @@ const jpTheme = {
         fontSize: jpStyle.fontSizeM,
         color: jpStyle.colorGrey
     },
+    buttonGrey: {
+        fontSize: jpStyle.fontSizeM,
+        color: jpStyle.colorGrey,
+        border: "1px solid"
+    },
     subheader_c: {
         fontFamily: jpStyle.fontFamilyMontserrat,
         fontWeight: 800,
