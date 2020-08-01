@@ -88,11 +88,7 @@ function App() {
           <img className={classes.mainPic} style={{ padding: 0 }} src={showImage} />
         </Backdrop>
       }
-      <Grid container id="top"
-        spacing={0}
-        direction="column"
-        alignItems="center"
-        justify="center"
+      <Grid container id="top" spacing={0} direction="column" alignItems="center" justify="center"
         style={{
           minHeight: "100vh",
           background: 'linear-gradient(45deg, #333 30%, #333 90%)'
@@ -104,16 +100,9 @@ function App() {
 
         <Box className={classes.coverText}>
           <Typography variant="h2" style={jpTheme.header}>GALLERY</Typography>
-          <Typography style={{
-            paddingLeft: "8px",
-            fontSize: "2em",
-            fontFamily: jpStyle.fontFamilyDancingScript,
-            fontWeight: "100",
-            color: "#FFF"
-          }} >by Jinraj & Praveen</Typography>
+          <Typography style={jpTheme.cursiveTitle} >by Jinraj & Praveen</Typography>
           <br />
           <Navbar data={menuItems} />
-
         </Box>
       </Grid>
 
@@ -174,9 +163,7 @@ function App() {
         </Grid>
       </Box>
 
-
-      <Fab style={{ position: 'fixed', bottom: "1em", right: "1em", }}
-        href="#top" size="small" aria-label="scroll back to top">
+      <Fab style={jpTheme.buttomRightCorner} href="#top" size="small" aria-label="scroll back to top">
         <KeyboardArrowUpIcon />
       </Fab>
     </div >

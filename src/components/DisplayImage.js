@@ -1,5 +1,6 @@
 import React from 'react';
-import ImageSlider from './ImageSlider'
+import ImageSlider from './ImageSlider';
+
 export default function DisplayImage(props) {
     console.log(props.images.length)
     console.log(props.images)

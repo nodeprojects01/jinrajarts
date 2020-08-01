@@ -4,8 +4,6 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import { jpStyle, jpTheme } from '../styles/global';
-import ImageSlider from './ImageSlider'
-import data from '../config/data'
 import { useHistory } from "react-router-dom";
 import DisplayImage from './DisplayImage';
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import Carousel from 'react-material-ui-carousel';
-import { Paper, Button } from '@material-ui/core'
-import makeStyles from "@material-ui/core/styles/makeStyles";
+import { Paper, Button } from '@material-ui/core';
 
 const showImage = (props, item) => {
     return (

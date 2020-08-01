@@ -10,7 +10,6 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Box from '@material-ui/core/Box';
 import { jpStyle, jpTheme } from '../styles/global';
-import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles((theme) => ({
     // root: {
@@ -38,7 +37,7 @@ export default function Navbar(props) {
     };
     return (
         <div className={classes.root}>
-            <AppBar position="static" style={{ background: 'transparent', boxShadow: 'none', color: "#555" }}>
+            <AppBar position="static" style={jpTheme.menuBar}>
                 <Toolbar style={{ padding: "0" }}>
                 <Box display={{ xs: 'none', md: 'block', lg: 'block' }}>
                         {props.data.map((item) => (

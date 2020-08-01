@@ -8,8 +8,6 @@ import forest from '../media/images/forest.jpg'
 import village_life from '../media/images/village_life.JPG'
 import chaturmuka_basadi from '../media/images/chaturmuka_basadi.JPG'
 import rainy_season from '../media/images/rainy_season.JPG'
-import background5 from '../media/images/background5.jpg'
-import background3 from '../media/images/background3.jpg'
 import background2 from '../media/images/background2.jpg'
 import background1 from '../media/images/background1.jpg'
 import Praveen from '../media/images/praveen.jpg'
@@ -52,7 +50,7 @@ export default {
             his own in Bangalore, India, during all the free time that he gets.`
         }
     ],
-    wallpaper: [background1, background5, background2, background3],
+    wallpaper: [background1, background2],
     menu: [
         { name: "home", link: "#home" },
         { name: "events", link: "#events" },
@@ -66,7 +64,7 @@ export default {
             name: "Walton Hall",
             size: "",
             isEvent: true,
-            filepath: [WaltonHallB4OU_HomagePainting,background1, background5],
+            filepath: [WaltonHallB4OU_HomagePainting,background1],
             description: " Lorem ipsum dolor sit amet, consectetur adipiscing elit,"+
             "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."+
             "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi"+

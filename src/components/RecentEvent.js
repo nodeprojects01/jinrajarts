@@ -7,13 +7,12 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import Image1 from "../media/images/background2.jpg";
-import Box from '@material-ui/core/Box';
 import { jpStyle, jpTheme } from '../styles/global';
 import Detail from '../pages/Detail'
 import { Link } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
 import DisplayImage from './DisplayImage';
+
 const useStyles = makeStyles({
   root: {
     minWidth: "100%",

@@ -41,7 +41,7 @@ export default function Detail(props) {
                     {props.location.data.description}
                 </Typography>
                 <br/>
-                <Box style={jpTheme.textSmall} align="center">art by {props.location.data.artist}</Box>
+                <Box style={jpTheme.textSmall} align="center">artby {props.location.data.artist}</Box>
                 <Box style={jpTheme.textSmall} align="center">{props.location.data.createdDate}</Box>
 
             </Box>

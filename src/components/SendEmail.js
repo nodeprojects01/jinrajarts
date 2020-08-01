@@ -1,18 +1,9 @@
 import React, { useState } from 'react';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
-import Paper from '@material-ui/core/Paper';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
 import { jpStyle, jpTheme } from '../styles/global';
-import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
 import CTextField from './CTextField';
-import Icon from '@material-ui/core/Icon';
 import Button from '@material-ui/core/Button';
-import SendIcon from '@material-ui/icons/Send';
 import axios from 'axios';
 
 const useStyles = makeStyles(theme => ({
