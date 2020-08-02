@@ -19,8 +19,11 @@ export default function WideCard(props) {
                 <Grid item xs={12} md={6}>
                     <Box>
                         <Typography variant="h2" style={jpTheme.title} >{props.data.name}</Typography>
+                        <p style={jpTheme.textSmall}>
+                            {props.data.createdDate}
+                        </p>
                         <p style={jpTheme.textDefault}>
-                            {props.data.description}
+                            {(props.data.description).substring(0, 300)}
                         </p>
                     </Box>
                     <Button style={jpTheme.buttonBorderlessGrey} onClick={() => {

@@ -47,8 +47,9 @@ export default function RecentEvent(props) {
           <Typography gutterBottom style={{ fontSize: "1.1em" }}>
             {props.data.name}
           </Typography>
+          <p style={jpTheme.textDefault}>{props.data.createdDate}</p>
           <Typography variant="body2" color="textSecondary" component="p" style={{ fontSize: "0.89em" }}>
-            {props.data.description}
+            {(props.data.description).substring(0, 200)}...
           </Typography>
         </CardContent>
       </CardActionArea>
