@@ -163,8 +163,9 @@ function App() {
         </Grid>
       </Box>
 
-      <Fab style={jpTheme.buttomRightCorner} href="#top" size="small" aria-label="scroll back to top">
-        <KeyboardArrowUpIcon />
+      <Fab style={jpTheme.buttomRightCorner} href="#top" size="medium" aria-label="scroll back to top">
+        {/* <KeyboardArrowUpIcon /> */}
+        <Typography variant="h2" style={jpTheme.subTitle}>TOP</Typography>
       </Fab>
     </div >
   );

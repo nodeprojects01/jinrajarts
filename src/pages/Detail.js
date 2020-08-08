@@ -23,16 +23,16 @@ const styles = {
 }
 
 export default function Detail(props) {
-
+    const back = "< BACK";
 
     return (
         <div>
             <Box style={{ padding: "4em", background: jpStyle.colorGreyLight }}>
                 <Box align="right">
-                    <Button component={Link} to="/" style={jpTheme.titleMarginLess} >x</Button>
+                    <Button component={Link} to="/" style={jpTheme.titleMarginLess} >{back}</Button>
                 </Box>
                 <Box display="flex" alignItems="center" justifyContent="center">
-                    {/* <img className={classes.mainPic} style={{ padding: 0,align:"center" }} src={props.location.data.filepath} /> */}
+                    {/* <img className={classes.mainPic} alt={props.name} style={{ padding: 0,align:"center" }} src={props.location.data.filepath} /> */}
                     <DisplayImage style={{ padding: 0, align: "center" }} height="300px" width="auto" images={props.location.data.filepath} />
                 </Box>
                 <Typography variant="h2" style={jpTheme.title} align="center">{props.location.data.name}</Typography>

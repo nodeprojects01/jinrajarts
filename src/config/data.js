@@ -52,7 +52,7 @@ export default {
     ],
     wallpaper: [background1, background2],
     menu: [
-        { name: "home", link: "#home" },
+        // { name: "home", link: "#home" },
         { name: "events", link: "#events" },
         { name: "paintings", link: "#paintings" },
         { name: "about us", link: "#aboutus" },

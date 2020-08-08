@@ -32,7 +32,7 @@ export default function RecentEvent(props) {
   return (
     <Card className={classes.root} elevation={0}  >
       <CardActionArea>
-      
+
         {/* <DisplayImage images={props.data.filepath} height="200" width="100%" /> */}
         {/* <div style={{ width: "100%", height: "100%", background: "rgba(225,225,225,0.2)" }}> </div> */}
         <CardMedia
@@ -47,7 +47,11 @@ export default function RecentEvent(props) {
           <Typography gutterBottom style={{ fontSize: "1.1em" }}>
             {props.data.name}
           </Typography>
-          <p style={jpTheme.textDefault}>{props.data.createdDate}</p>
+          <div style={{ textTransform: "uppercase", letterSpacing: "1px" }}>
+            <p style={jpTheme.textSmall}>
+              {props.data.createdDate}
+            </p>
+          </div>
           <Typography variant="body2" color="textSecondary" component="p" style={{ fontSize: "0.89em" }}>
             {(props.data.description).substring(0, 200)}...
           </Typography>
@@ -55,10 +59,12 @@ export default function RecentEvent(props) {
       </CardActionArea>
       <CardActions>
         {/* <Button style={jpTheme.buttonBorderlessGray}>share</Button> */}
-        <Button style={jpTheme.buttonBorderlessGray}  onClick={()=>{history.push({
-          pathname: '/Details',
-          data:props.data
-        })}} >know more</Button>
+        <Button style={jpTheme.buttonBorderlessGray} onClick={() => {
+          history.push({
+            pathname: '/Details',
+            data: props.data
+          })
+        }} >know more</Button>
       </CardActions>
     </Card>
   );

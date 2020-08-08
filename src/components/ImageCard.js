@@ -44,9 +44,9 @@ export default function ImageCard(props) {
         <div>
             <Paper elevation={0} className={classes.paper} style={props.data.backgroundColor} onClick={props.onClick}>
                 {/* {(props.data.more.hideFrame == false) ?
-                    <img className={classes.mainPic} style={props.data.more.frameColor} src={props.data.filepath[0]} />
+                    <img className={classes.mainPic} alt={props.name} style={props.data.more.frameColor} src={props.data.filepath[0]} />
                     :
-                    <img className={classes.mainPic} style={{ padding: 0 }} src={props.data.filepath} />
+                    <img className={classes.mainPic} alt={props.name} style={{ padding: 0 }} src={props.data.filepath} />
                 } */}
                 <DisplayImage images={props.data.filepath} style={{ padding: 0 }} width="100%" height="100%"/>
 

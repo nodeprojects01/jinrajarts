@@ -19,9 +19,11 @@ export default function WideCard(props) {
                 <Grid item xs={12} md={6}>
                     <Box>
                         <Typography variant="h2" style={jpTheme.title} >{props.data.name}</Typography>
-                        <p style={jpTheme.textSmall}>
-                            {props.data.createdDate}
-                        </p>
+                        <div style={{ textTransform: "uppercase", letterSpacing: "1px" }}>
+                            <p style={jpTheme.textSmall}>
+                                {props.data.createdDate}
+                            </p>
+                        </div>
                         <p style={jpTheme.textDefault}>
                             {(props.data.description).substring(0, 300)}
                         </p>
@@ -31,7 +33,7 @@ export default function WideCard(props) {
                             pathname: '/Details',
                             data: props.data
                         })
-                    }} >view more</Button>
+                    }} >read more</Button>
                 </Grid>
             </Grid>
         </div>

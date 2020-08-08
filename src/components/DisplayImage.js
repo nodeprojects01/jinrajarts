@@ -8,7 +8,7 @@ export default function DisplayImage(props) {
        {(Array.isArray(props.images) && props.images.length>1)?
             <ImageSlider images={props.images} autoPlay={props.autoPlay} height={props.height} width={props.width} />
         :
-            <img src={props.images} height={props.height} width={props.width} style={props.style}/>
+            <img src={props.images} alt={props.name} height={props.height} width={props.width} style={props.style}/>
        }
              
 </div>)}
