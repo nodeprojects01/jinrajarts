@@ -14,7 +14,7 @@ export default function WideCard2(props) {
         data = <div>
             <Grid container spacing={8}>
                 <Grid item xs={12} md={6} direction="column" alignItems="center" justify="center">
-                    <img alt={props.data.name} style={{
+                    <img style={{
                         height: props.height,
                         width: props.width,
                         backgroundImage: `url(${props.data.filepath})`,
@@ -62,7 +62,7 @@ export default function WideCard2(props) {
                     </Box>
                 </Grid>
                 <Grid item xs={12} md={6} direction="column" alignItems="center" justify="center">
-                    <img alt={props.data.name} style={{
+                    <img style={{
                         height: props.height,
                         width: props.width,
                         backgroundImage: `url(${props.data.filepath})`,
