@@ -61,7 +61,7 @@ export default function Navbar(props) {
                         onClose={handleClose}>
                         {props.data.map((item) => (
                              <a href={item.link} style={{textDecoration:'none',color:"inherit"}}>
-                            <MenuItem onTouchTap={()=>{handleClose()}} >{item.name}</MenuItem>
+                                <MenuItem onClick={handleClose} >{item.name}</MenuItem>
                             </a>
                         ))}
                     </Menu>

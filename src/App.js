@@ -63,8 +63,8 @@ const useStyles = makeStyles((theme) => ({
 
 function App() {
   const classes = useStyles();
-  const [columnView, setColumnView] = React.useState(functions.getColumnView(data.images, 3, "createdDate",3));
-  const [events,setEvents] =  React.useState(functions.getEvents(data.images, 3,"createdDate"));
+  const [columnView, setColumnView] = React.useState(functions.getColumnView(data.images, 3, "createdDate",data.paintings.showLessCount));
+  const [events,setEvents] =  React.useState(functions.getEvents(data.images, data.recentEvents.showLessCount,"createdDate"));
   const menuItems = data.menu;
   const categories = functions.getCategories(data.images);
   const [activeCategory, setActiveCategory] = React.useState(categories[0]);
@@ -74,12 +74,14 @@ function App() {
    const handleOnClick = (e, filepath) => {
     setShowImage(filepath);
   }
+// console.log("recentEvents.showLessCount-",data.recentEvents.showLessCount)
+
 
   const onCategoryClick = (newValue) => {
     setActiveCategory(newValue)
     setViewAllPaintings(false)
     var filterImages = functions.getCategoryImages(data.images, newValue, "createdDate");
-    setColumnView(functions.getColumnView(filterImages, 3, "createdDate",3))
+    setColumnView(functions.getColumnView(filterImages, 3, "createdDate",data.paintings.showLessCount))
   }
   const ViewAll=()=>{
     setViewAllPaintings(true)
@@ -90,7 +92,7 @@ function App() {
   const ViewLess=()=>{
     setViewAllPaintings(false)
     var filterImages = functions.getCategoryImages(data.images, activeCategory, "createdDate");
-    setColumnView(functions.getColumnView(filterImages, 3, "createdDate",3))
+    setColumnView(functions.getColumnView(filterImages, 3, "createdDate",data.paintings.showLessCount))
   }
   return (
     <div>
@@ -134,12 +136,12 @@ function App() {
           {viewAllEvents==false?
            <Button style={jpTheme.buttonGrey} onClick={()=>{
              setViewAllEvents(true)
-             setEvents(functions.getEvents(data.images, 0 ,"createdDate",0))}
+             setEvents(functions.getEvents(data.images, 0 ,"createdDate"))}
             }>view all</Button>
           :
           <Button style={jpTheme.buttonGrey} onClick={()=>{
             setViewAllEvents(false)
-            setEvents(functions.getEvents(data.images, 0 ,"createdDate",3))}
+            setEvents(functions.getEvents(data.images, data.recentEvents.showLessCount ,"createdDate"))}
           }>show less</Button>
           }
         </Box>
