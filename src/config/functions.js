@@ -54,12 +54,14 @@ function getColumnView(arrOfObjects, noOfColumns, sortByKey) {
     return columnView;
 }
 
-function getEvents(arrOfObjects, sortByKey) {
+function getEvents(arrOfObjects, displayAll,sortByKey) {
     var imageData = getImagesData(arrOfObjects);
     const events = imageData.filter((obj) => {
         return (!obj.hide && obj.isEvent);
     });
-    var sortedImageData = sortBy(events, sortByKey);
+    var sortedImageData=sortBy(events, sortByKey);
+    if(displayAll!=0)
+        sortedImageData = sortedImageData.splice(0,displayAll );
     return sortedImageData;
 }
 
