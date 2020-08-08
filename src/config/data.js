@@ -17,6 +17,12 @@ import { jpStyle, jpTheme } from '../styles/global';
 
 export default {
     views: 1,
+    paintings: {
+        showLessCount: 3
+    },
+    recentEvents: {
+        showLessCount: 3
+    },
     aboutUs: [
         {
             id: "1",

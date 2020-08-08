@@ -40,10 +40,10 @@ function getCategoryImages(arrOfObjects, category, sortByKey) {
     return sortedImageData;
 }
 
-function getColumnView(arrOfObjects, noOfColumns, sortByKey,sliceNumber) {
+function getColumnView(arrOfObjects, noOfColumns, sortByKey, sliceNumber) {
     var imageData = getImagesData(arrOfObjects);
-    if(sliceNumber!=0)
-        imageData=imageData.slice(0,sliceNumber)    
+    if (sliceNumber != 0)
+        imageData = imageData.slice(0, sliceNumber)
     var sortedImageData = sortBy(imageData, sortByKey);
     var columnView = [];
     for (var j = 1; j <= noOfColumns; j++) {
@@ -56,16 +56,16 @@ function getColumnView(arrOfObjects, noOfColumns, sortByKey,sliceNumber) {
     return columnView;
 }
 
-function getEvents(arrOfObjects, displayAll,sortByKey,sliceNumber) {
+function getEvents(arrOfObjects, displayAll, sortByKey, sliceNumber) {
     var imageData = getImagesData(arrOfObjects);
-    if(sliceNumber!=0)
-        imageData=imageData.slice(0,sliceNumber) 
+    if (sliceNumber != 0)
+        imageData = imageData.slice(0, sliceNumber)
     const events = imageData.filter((obj) => {
         return (!obj.hide && obj.isEvent);
     });
-    var sortedImageData=sortBy(events, sortByKey);
-    if(displayAll!=0)
-        sortedImageData = sortedImageData.splice(0,displayAll );
+    var sortedImageData = sortBy(events, sortByKey);
+    if (displayAll != 0)
+        sortedImageData = sortedImageData.splice(0, displayAll);
     return sortedImageData;
 }
 
