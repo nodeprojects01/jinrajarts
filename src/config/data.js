@@ -10,7 +10,7 @@ import chaturmuka_basadi from '../media/images/chaturmuka_basadi.JPG'
 import rainy_season from '../media/images/rainy_season.JPG'
 import background2 from '../media/images/background2.jpg'
 import background1 from '../media/images/background1.jpg'
-import Praveen from '../media/images/praveen.JPG'
+import Praveen from '../media/images/praveen.jpg'
 import Jinraj from '../media/images/jinraj.jpg'
 // const imagePath="../media/images/";
 import { jpStyle, jpTheme } from '../styles/global';
