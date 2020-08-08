@@ -33,10 +33,9 @@ export default function Navbar(props) {
         setAnchorEl(event.currentTarget);
     };
 
-    const handleClose = (nav) => {
+    const handleClose = () => {
         setAnchorEl(null);
-        window.location.href = nav;
-    };
+       };
     return (
         <div className={classes.root}>
             <AppBar position="static" style={jpTheme.menuBar}>
@@ -61,7 +60,9 @@ export default function Navbar(props) {
                         open={Boolean(anchorEl)}
                         onClose={handleClose}>
                         {props.data.map((item) => (
-                            <MenuItem onClick={() => {handleClose(item.link)}} >{item.name}</MenuItem>
+                             <a href={item.link} style={{textDecoration:'none',color:"inherit"}}>
+                            <MenuItem onTouchTap={()=>{handleClose()}} >{item.name}</MenuItem>
+                            </a>
                         ))}
                     </Menu>
                 </Toolbar>
