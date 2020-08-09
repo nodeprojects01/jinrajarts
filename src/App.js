@@ -64,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
 function App() {
   const classes = useStyles();
   const [columnView, setColumnView] = React.useState(functions.getColumnView(data.images, 3, "createdDate", data.paintings.showLessCount));
-  const [events, setEvents] = React.useState(functions.getEvents(data.images, data.recentEvents.showLessCount, "createdDate"));
+  const [events, setEvents] = React.useState(functions.getEvents(data.images, "createdDate", data.recentEvents.showLessCount));
   const menuItems = data.menu;
   const categories = functions.getCategories(data.images);
   const [activeCategory, setActiveCategory] = React.useState(categories[0]);
@@ -136,13 +136,13 @@ function App() {
           {viewAllEvents == false ?
             <Button style={jpTheme.buttonGrey} onClick={() => {
               setViewAllEvents(true)
-              setEvents(functions.getEvents(data.images, 0, "createdDate"))
+              setEvents(functions.getEvents(data.images, "createdDate", 0))
             }
             }>view all</Button>
             :
             <Button style={jpTheme.buttonGrey} onClick={() => {
               setViewAllEvents(false)
-              setEvents(functions.getEvents(data.images, data.recentEvents.showLessCount, "createdDate"))
+              setEvents(functions.getEvents(data.images, "createdDate", data.recentEvents.showLessCount))
             }
             }>show less</Button>
           }

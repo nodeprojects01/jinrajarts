@@ -56,7 +56,7 @@ function getColumnView(arrOfObjects, noOfColumns, sortByKey, displayCount) {
     return columnView;
 }
 
-function getEvents(arrOfObjects, displayCount, sortByKey) {
+function getEvents(arrOfObjects, sortByKey, displayCount) {
     var imageData = getImagesData(arrOfObjects);
     const events = imageData.filter((obj) => {
         return (!obj.hide && obj.isEvent);
