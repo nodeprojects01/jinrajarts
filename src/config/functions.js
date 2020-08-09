@@ -42,9 +42,9 @@ function getCategoryImages(arrOfObjects, category, sortByKey) {
 
 function getColumnView(arrOfObjects, noOfColumns, sortByKey, displayCount) {
     var imageData = getImagesData(arrOfObjects);
-    if (displayCount != 0)
-        imageData = imageData.slice(0, displayCount)
     var sortedImageData = sortBy(imageData, sortByKey);
+    if (displayCount != 0)
+        sortedImageData = sortedImageData.slice(0, displayCount);
     var columnView = [];
     for (var j = 1; j <= noOfColumns; j++) {
         var arr = [];
@@ -56,7 +56,7 @@ function getColumnView(arrOfObjects, noOfColumns, sortByKey, displayCount) {
     return columnView;
 }
 
-function getEvents(arrOfObjects, displayCount, sortByKey, ) {
+function getEvents(arrOfObjects, displayCount, sortByKey) {
     var imageData = getImagesData(arrOfObjects);
     const events = imageData.filter((obj) => {
         return (!obj.hide && obj.isEvent);

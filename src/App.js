@@ -63,36 +63,36 @@ const useStyles = makeStyles((theme) => ({
 
 function App() {
   const classes = useStyles();
-  const [columnView, setColumnView] = React.useState(functions.getColumnView(data.images, 3, "createdDate",data.paintings.showLessCount));
-  const [events,setEvents] =  React.useState(functions.getEvents(data.images, data.recentEvents.showLessCount,"createdDate"));
+  const [columnView, setColumnView] = React.useState(functions.getColumnView(data.images, 3, "createdDate", data.paintings.showLessCount));
+  const [events, setEvents] = React.useState(functions.getEvents(data.images, data.recentEvents.showLessCount, "createdDate"));
   const menuItems = data.menu;
   const categories = functions.getCategories(data.images);
   const [activeCategory, setActiveCategory] = React.useState(categories[0]);
   const [showImage, setShowImage] = React.useState('');
-  const [viewAllPaintings,setViewAllPaintings]=React.useState(false);
-  const [viewAllEvents,setViewAllEvents]=React.useState(false);
-   const handleOnClick = (e, filepath) => {
+  const [viewAllPaintings, setViewAllPaintings] = React.useState(false);
+  const [viewAllEvents, setViewAllEvents] = React.useState(false);
+  const handleOnClick = (e, filepath) => {
     setShowImage(filepath);
   }
-// console.log("recentEvents.showLessCount-",data.recentEvents.showLessCount)
+  // console.log("recentEvents.showLessCount-",data.recentEvents.showLessCount)
 
 
   const onCategoryClick = (newValue) => {
     setActiveCategory(newValue)
     setViewAllPaintings(false)
     var filterImages = functions.getCategoryImages(data.images, newValue, "createdDate");
-    setColumnView(functions.getColumnView(filterImages, 3, "createdDate",data.paintings.showLessCount))
+    setColumnView(functions.getColumnView(filterImages, 3, "createdDate", data.paintings.showLessCount))
   }
-  const ViewAll=()=>{
+  const ViewAll = () => {
     setViewAllPaintings(true)
     var filterImages = functions.getCategoryImages(data.images, activeCategory, "createdDate");
-    setColumnView(functions.getColumnView(filterImages, 3, "createdDate",0))
-      
+    setColumnView(functions.getColumnView(filterImages, 3, "createdDate", 0))
+
   }
-  const ViewLess=()=>{
+  const ViewLess = () => {
     setViewAllPaintings(false)
     var filterImages = functions.getCategoryImages(data.images, activeCategory, "createdDate");
-    setColumnView(functions.getColumnView(filterImages, 3, "createdDate",data.paintings.showLessCount))
+    setColumnView(functions.getColumnView(filterImages, 3, "createdDate", data.paintings.showLessCount))
   }
   return (
     <div>
@@ -133,16 +133,18 @@ function App() {
           ))}
         </Grid>
         <Box display="flex" justifyContent="center" style={{ padding: "2em 0 0" }}>
-          {viewAllEvents==false?
-           <Button style={jpTheme.buttonGrey} onClick={()=>{
-             setViewAllEvents(true)
-             setEvents(functions.getEvents(data.images, 0 ,"createdDate"))}
+          {viewAllEvents == false ?
+            <Button style={jpTheme.buttonGrey} onClick={() => {
+              setViewAllEvents(true)
+              setEvents(functions.getEvents(data.images, 0, "createdDate"))
+            }
             }>view all</Button>
-          :
-          <Button style={jpTheme.buttonGrey} onClick={()=>{
-            setViewAllEvents(false)
-            setEvents(functions.getEvents(data.images, data.recentEvents.showLessCount ,"createdDate"))}
-          }>show less</Button>
+            :
+            <Button style={jpTheme.buttonGrey} onClick={() => {
+              setViewAllEvents(false)
+              setEvents(functions.getEvents(data.images, data.recentEvents.showLessCount, "createdDate"))
+            }
+            }>show less</Button>
           }
         </Box>
       </Box>
@@ -155,19 +157,19 @@ function App() {
         <Grid container spacing={4}>
           {columnView.map((items) => (
             <Grid item xs={12} md={12 / columnView.length}>
-              
-               {items.map((image) => (
-                <ImageCard data={image} onClick={(e) => { handleOnClick(e, image.filepath) }} />               
+
+              {items.map((image) => (
+                <ImageCard data={image} onClick={(e) => { handleOnClick(e, image.filepath) }} />
               ))}
-              
+
             </Grid>
           ))}
         </Grid>
         <Box display="flex" justifyContent="center" style={{ padding: "2em 0 0" }}>
-          {viewAllPaintings==false?
-          <Button style={jpTheme.buttonGrey} onClick={ViewAll}>view all</Button>
-          :
-          <Button style={jpTheme.buttonGrey}  onClick={ViewLess}>show less</Button>
+          {viewAllPaintings == false ?
+            <Button style={jpTheme.buttonGrey} onClick={ViewAll}>view all</Button>
+            :
+            <Button style={jpTheme.buttonGrey} onClick={ViewLess}>show less</Button>
           }
         </Box>
       </Box>
