@@ -63,24 +63,37 @@ const useStyles = makeStyles((theme) => ({
 
 function App() {
   const classes = useStyles();
-  const [columnView, setColumnView] = React.useState(functions.getColumnView(data.images, 3, "createdDate"));
-  const events = functions.getEvents(data.images, "createdDate");
+  const [columnView, setColumnView] = React.useState(functions.getColumnView(data.images, 3, "createdDate", data.paintings.showLessCount));
+  const [events, setEvents] = React.useState(functions.getEvents(data.images, "createdDate", data.recentEvents.showLessCount));
   const menuItems = data.menu;
   const categories = functions.getCategories(data.images);
   const [activeCategory, setActiveCategory] = React.useState(categories[0]);
   const [showImage, setShowImage] = React.useState('');
-
-  console.log("column view - ", columnView);
+  const [viewAllPaintings, setViewAllPaintings] = React.useState(false);
+  const [viewAllEvents, setViewAllEvents] = React.useState(false);
   const handleOnClick = (e, filepath) => {
     setShowImage(filepath);
   }
+  // console.log("recentEvents.showLessCount-",data.recentEvents.showLessCount)
+
 
   const onCategoryClick = (newValue) => {
     setActiveCategory(newValue)
+    setViewAllPaintings(false)
     var filterImages = functions.getCategoryImages(data.images, newValue, "createdDate");
-    setColumnView(functions.getColumnView(filterImages, 3, "createdDate"))
+    setColumnView(functions.getColumnView(filterImages, 3, "createdDate", data.paintings.showLessCount))
   }
+  const ViewAll = () => {
+    setViewAllPaintings(true)
+    var filterImages = functions.getCategoryImages(data.images, activeCategory, "createdDate");
+    setColumnView(functions.getColumnView(filterImages, 3, "createdDate", 0))
 
+  }
+  const ViewLess = () => {
+    setViewAllPaintings(false)
+    var filterImages = functions.getCategoryImages(data.images, activeCategory, "createdDate");
+    setColumnView(functions.getColumnView(filterImages, 3, "createdDate", data.paintings.showLessCount))
+  }
   return (
     <div>
       {showImage != '' &&
@@ -113,15 +126,26 @@ function App() {
           <Typography variant="h2" style={jpTheme.title} align="center">RECENT EVENTS</Typography>
         </Box>
         <Grid container spacing={4}>
-          {(events.slice(1)).map((item, index) => (
+          {(events).map((item, index) => (
             <Grid item xs={12} md={4}>
               <RecentEvent data={item} />
             </Grid>
           ))}
         </Grid>
         <Box display="flex" justifyContent="center" style={{ padding: "2em 0 0" }}>
-          <Button style={jpTheme.buttonGrey}>view all</Button>
-          {/* <Button style={jpTheme.buttonGrey}>show less</Button> */}
+          {viewAllEvents == false ?
+            <Button style={jpTheme.buttonGrey} onClick={() => {
+              setViewAllEvents(true)
+              setEvents(functions.getEvents(data.images, "createdDate", 0))
+            }
+            }>view all</Button>
+            :
+            <Button style={jpTheme.buttonGrey} onClick={() => {
+              setViewAllEvents(false)
+              setEvents(functions.getEvents(data.images, "createdDate", data.recentEvents.showLessCount))
+            }
+            }>show less</Button>
+          }
         </Box>
       </Box>
 
@@ -133,15 +157,20 @@ function App() {
         <Grid container spacing={4}>
           {columnView.map((items) => (
             <Grid item xs={12} md={12 / columnView.length}>
+
               {items.map((image) => (
                 <ImageCard data={image} onClick={(e) => { handleOnClick(e, image.filepath) }} />
               ))}
+
             </Grid>
           ))}
         </Grid>
         <Box display="flex" justifyContent="center" style={{ padding: "2em 0 0" }}>
-          <Button style={jpTheme.buttonGrey}>view all</Button>
-          {/* <Button style={jpTheme.buttonGrey}>show less</Button> */}
+          {viewAllPaintings == false ?
+            <Button style={jpTheme.buttonGrey} onClick={ViewAll}>view all</Button>
+            :
+            <Button style={jpTheme.buttonGrey} onClick={ViewLess}>show less</Button>
+          }
         </Box>
       </Box>
 

@@ -17,6 +17,12 @@ import { jpStyle, jpTheme } from '../styles/global';
 
 export default {
     views: 1,
+    paintings: {
+        showLessCount: 3
+    },
+    recentEvents: {
+        showLessCount: 3
+    },
     aboutUs: [
         {
             id: "1",
@@ -86,7 +92,7 @@ export default {
             id: "2",
             name: "Dream Home",
             size: "",
-            isEvent: false,
+            isEvent: true,
             filepath: [dream_home],
             description: `My dream home would be in the area surrounded by greenary, a river, 
             animals and birds.`,

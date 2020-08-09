@@ -8,6 +8,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import Link from '@material-ui/core/Link';
 import Box from '@material-ui/core/Box';
 import { jpStyle, jpTheme } from '../styles/global';
 
@@ -34,7 +35,7 @@ export default function Navbar(props) {
 
     const handleClose = () => {
         setAnchorEl(null);
-    };
+       };
     return (
         <div className={classes.root}>
             <AppBar position="static" style={jpTheme.menuBar}>
@@ -59,7 +60,9 @@ export default function Navbar(props) {
                         open={Boolean(anchorEl)}
                         onClose={handleClose}>
                         {props.data.map((item) => (
-                            <MenuItem onClick={handleClick} >{item.name}</MenuItem>
+                             <a href={item.link} style={{textDecoration:'none',color:"inherit"}}>
+                                <MenuItem onClick={handleClose} >{item.name}</MenuItem>
+                            </a>
                         ))}
                     </Menu>
                 </Toolbar>
