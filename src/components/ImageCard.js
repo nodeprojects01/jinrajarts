@@ -1,13 +1,11 @@
 import React from 'react';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import Paper from '@material-ui/core/Paper';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
 import { jpStyle, jpTheme } from '../styles/global';
 import DisplayImage from './DisplayImage';
+import { useHistory } from "react-router-dom";
 
 
 const useStyles = makeStyles(theme => ({
@@ -39,6 +37,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function ImageCard(props) {
     const classes = useStyles();
+    const history = useHistory();
 
     return (
         <div>
@@ -48,7 +47,7 @@ export default function ImageCard(props) {
                     :
                     <img className={classes.mainPic} alt={props.name} style={{ padding: 0 }} src={props.data.filepath} />
                 } */}
-                <DisplayImage images={props.data.filepath} style={{ padding: 0 }} width="100%" height="100%"/>
+                <DisplayImage images={props.data.filepath} style={{ padding: 0 }} width="100%" height="100%" />
 
             </Paper>
             <div style={{ padding: "8px 12px 12px 12px" }}>
@@ -65,7 +64,13 @@ export default function ImageCard(props) {
                 {props.data.description != "" &&
                     <Box style={jpTheme.textSmall}>
                         {(props.data.description).substring(0, 100)}
-                    ...<b style={{ color: "#333", }}>more</b>
+                    ...<b style={{ color: "#333", cursor:"pointer" }}
+                            onClick={() => {
+                                history.push({
+                                    pathname: '/Details',
+                                    data: props.data
+                                })
+                            }}>more</b>
                     </Box>
                 }
             </div>

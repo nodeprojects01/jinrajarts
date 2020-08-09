@@ -1,14 +1,7 @@
 import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Navbar from '../components/Navbar';
-import data from '../config/data';
 import Box from '@material-ui/core/Box';
-import Grid from '@material-ui/core/Grid';
 import { Typography, Button } from '@material-ui/core';
 import { jpStyle, jpTheme } from '../styles/global';
-import Divider from '@material-ui/core/Divider';
-import ImageSlider from '../components/ImageSlider';
-import { NavLink as RouterLink } from "react-router-dom";
 import { Link } from 'react-router-dom'
 import DisplayImage from '../components/DisplayImage';
 
@@ -40,9 +33,13 @@ export default function Detail(props) {
                 <Typography variant="body2" color="textSecondary" component="p" align="center" style={{ fontSize: "0.89em" }}>
                     {props.location.data.description}
                 </Typography>
-                <br/>
+                <br />
                 <Box style={jpTheme.textSmall} align="center">artby {props.location.data.artist}</Box>
-                <Box style={jpTheme.textSmall} align="center">{props.location.data.createdDate}</Box>
+
+                <Box style={{ textTransform: "uppercase", letterSpacing: "1px" }} align="center">
+                    <p style={jpTheme.textSmall}>
+                        {props.location.data.createdDate}
+                    </p></Box>
 
             </Box>
         </div>

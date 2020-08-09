@@ -18,7 +18,7 @@ import { jpStyle, jpTheme } from '../styles/global';
 export default {
     views: 1,
     paintings: {
-        showLessCount: 3
+        showLessCount: 6
     },
     recentEvents: {
         showLessCount: 3
