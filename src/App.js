@@ -29,6 +29,12 @@ const useStyles = makeStyles((theme) => ({
       padding: "0 !important"
     }
   },
+  appMargin: {
+    padding: "2em 4em 4em",
+    [theme.breakpoints.down('md')]: {
+      padding: "2em",
+    }
+  },
   coverText: {
     position: 'absolute',
     top: "35%",
@@ -119,8 +125,10 @@ function App() {
         </Box>
       </Grid>
 
-      <Box id="events" style={{ padding: "4em", background: jpStyle.colorGreyLight }}>
-        <WideCard data={events[0]} />
+      <Box id="events" className={classes.appMargin} style={{ background: jpStyle.colorGreyLight }}>
+        <Box style={{ padding: "3em 0 1em" }}>
+          <WideCard data={events[0]} />
+        </Box>
         <Divider variant="middle" style={{ marginTop: "4em" }} />
         <Box style={{ padding: "2em 0" }}>
           <Typography variant="h2" style={jpTheme.title} align="center">RECENT EVENTS</Typography>
@@ -149,7 +157,7 @@ function App() {
         </Box>
       </Box>
 
-      <Box id="paintings" style={{ padding: "2em 4em 4em" }}>
+      <Box id="paintings" className={classes.appMargin}>
         <Box style={{ padding: "0 0 2em 0" }}>
           <Typography variant="h2" style={jpTheme.title} align="center">PAINTINGS</Typography>
           <Tags data={categories} value={activeCategory} setValue={(newValue) => { onCategoryClick(newValue) }} />
@@ -174,7 +182,7 @@ function App() {
         </Box>
       </Box>
 
-      <Box id="aboutus" style={{ padding: "2em 4em 4em", background: jpStyle.colorGreyLight }}>
+      <Box id="aboutus" className={classes.appMargin} style={{ background: jpStyle.colorGreyLight }}>
         <Box style={{ padding: "0 0 2em 0" }}>
           <Typography variant="h2" style={jpTheme.title} align="center">ABOUT US</Typography>
         </Box>
@@ -182,7 +190,7 @@ function App() {
         <WideCard2 width="100%" height="700px" data={data.aboutUs[1]} otherWay />
       </Box>
 
-      <Box id="contact" style={{ padding: "2em 4em 4em", background: jpStyle.colorGreen }}>
+      <Box id="contact" className={classes.appMargin} style={{ background: jpStyle.colorGreen }}>
         <Box style={{ padding: "0 0 2em 0" }}>
           <Typography variant="h2" style={jpTheme.title} align="center">CONTACT</Typography>
         </Box>
