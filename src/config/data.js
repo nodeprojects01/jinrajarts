@@ -10,15 +10,19 @@ import chaturmuka_basadi from '../media/images/chaturmuka_basadi.JPG'
 import rainy_season from '../media/images/rainy_season.JPG'
 import background2 from '../media/images/background2.jpg'
 import background1 from '../media/images/background1.jpg'
+import Lily from '../media/images/lily.jpg'
+import Tiger from '../media/images/tiger.jpg'
+import Intheair from '../media/images/intheair.jpg'
+import DreamHome2 from '../media/images/dreamhome.jpg'
+import Bharatanatyam from '../media/images/bharatanatya.jpg'
 import Praveen from '../media/images/praveen.jpg'
 import Jinraj from '../media/images/jinraj.jpg'
-// const imagePath="../media/images/";
 import { jpStyle, jpTheme } from '../styles/global';
 
 export default {
     views: 1,
     paintings: {
-        showLessCount: 6
+        showLessCount: 9
     },
     recentEvents: {
         showLessCount: 3
@@ -267,6 +271,118 @@ export default {
                 marginColor: "#fff"
             }
         },
+        {
+            id: "10",
+            name: "Tiger",
+            size: "",
+            isEvent: false,
+            filepath: [Tiger],
+            description: `A water painting of a tiger who is relaxing in the river`,
+            createdDate: "01/Mar/2006",
+            category: ["portrait"],
+            likes: 0,
+            artist: "Jinraj K R",
+            position: 1,
+            hide: false,
+            backgroundColor: { backgroundColor: jpStyle.colorGreyLight },
+            more: {
+                hideFrame: true,
+                frameColor: { backgroundColor: "#6c666d" },
+                hideMargin: true,
+
+                marginColor: "#fff"
+            }
+        },
+        {
+            id: "11",
+            name: "Bharatanatyam",
+            size: "",
+            isEvent: false,
+            filepath: [Bharatanatyam],
+            description: `Bharatanatyam is the older classical dance tradition of India. This painting is
+            insprired from one of the artist performing live on stage`,
+            createdDate: "07/May/2012",
+            category: ["portrait"],
+            likes: 0,
+            artist: "Jinraj K R",
+            position: 1,
+            hide: false,
+            backgroundColor: { backgroundColor: jpStyle.colorGreyLight },
+            more: {
+                hideFrame: true,
+                frameColor: { backgroundColor: "#6c666d" },
+                hideMargin: true,
+
+                marginColor: "#fff"
+            }
+        },
+        {
+            id: "12",
+            name: "Dream Home",
+            size: "",
+            isEvent: false,
+            filepath: [DreamHome2],
+            description: `A childhood dream to paint a home which is surrounded by nature and nothing else`,
+            createdDate: "05/Jan/2012",
+            category: ["landscape"],
+            likes: 0,
+            artist: "Jinraj K R",
+            position: 1,
+            hide: false,
+            backgroundColor: { backgroundColor: jpStyle.colorGreyLight },
+            more: {
+                hideFrame: true,
+                frameColor: { backgroundColor: "#6c666d" },
+                hideMargin: true,
+
+                marginColor: "#fff"
+            }
+        },
+        {
+            id: "13",
+            name: "In The Air",
+            size: "",
+            isEvent: false,
+            filepath: [Intheair],
+            description: `One of my favorite painting which was painted from the inspiration of 
+            actress Nargis Fakhri in a bollywood movie called Rockstar.`,
+            createdDate: "05/Jan/2012",
+            category: ["portrait"],
+            likes: 0,
+            artist: "Jinraj K R",
+            position: 1,
+            hide: false,
+            backgroundColor: { backgroundColor: jpStyle.colorGreyLight },
+            more: {
+                hideFrame: true,
+                frameColor: { backgroundColor: "#6c666d" },
+                hideMargin: true,
+
+                marginColor: "#fff"
+            }
+        },
+        {
+            id: "14",
+            name: "Lily",
+            size: "22” * 34”",
+            isEvent: false,
+            filepath: [Lily],
+            description: `This is an acrylic portrait painting`,
+            createdDate: "17/Apr/2020",
+            category: ["portrait"],
+            likes: 0,
+            artist: "Jinraj K R",
+            position: 1,
+            hide: false,
+            backgroundColor: { backgroundColor: jpStyle.colorGreyLight },
+            more: {
+                hideFrame: true,
+                frameColor: { backgroundColor: "#6c666d" },
+                hideMargin: true,
+
+                marginColor: "#fff"
+            }
+        }
     ]
 }
 
