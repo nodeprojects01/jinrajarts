@@ -126,7 +126,7 @@ function App() {
           <Typography variant="h2" style={jpTheme.title} align="center">RECENT EVENTS</Typography>
         </Box>
         <Grid container spacing={4}>
-          {(events).map((item, index) => (
+          {(events.slice(1)).map((item, index) => (
             <Grid item xs={12} md={4}>
               <RecentEvent data={item} />
             </Grid>

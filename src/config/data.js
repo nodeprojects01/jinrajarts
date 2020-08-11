@@ -25,7 +25,7 @@ export default {
         showLessCount: 9
     },
     recentEvents: {
-        showLessCount: 3
+        showLessCount: 4
     },
     aboutUs: [
         {
