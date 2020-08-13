@@ -94,13 +94,13 @@ export default {
         },
         {
             id: "2",
-            name: "Dream Home",
+            name: "Fantasy Home",
             size: "",
             isEvent: true,
             filepath: [dream_home],
-            description: `My dream home would be in the area surrounded by greenary, a river, 
-            animals and birds.`,
-            createdDate: "01/Mar/2002",
+            description: `An imaginary painting represents a dream home in the middle of
+            forest, next to a lake with happy animals being fed in the garden.`,
+            createdDate: "01/Jun/2006",
             category: ["imaginary"],
             likes: 0,
             artist: "Praveen K R",
@@ -116,13 +116,16 @@ export default {
         },
         {
             id: "3",
-            name: "Nightmare",
+            name: "Chaosim",
             size: "",
             isEvent: true,
             filepath: [nightmare],
-            description: `This painting of a dream associated with the humankind who is crossing 
-            the danger line and keeping the earth unsutable for living.`,
-            createdDate: "01/Mar/2000",
+            description: `This painting was made during national level competition held by IISc – Bangalore. The
+            topic – Chaosim was given on the spot and asked to picturize through our envisagement.
+            The painting depicts the sufferings of the man and to overcome it through self-realisation.
+            The knife pierced through the head represents the sufferings or imaginary problems of
+            human being, whereas fist depicts the resilient power to overcome it.`,
+            createdDate: "01/Mar/2012",
             category: ["imaginary"],
             likes: 0,
             artist: "Praveen K R",
@@ -138,13 +141,21 @@ export default {
         },
         {
             id: "4",
-            name: "Revisited Sanative",
+            name: "Sanative",
             size: "",
             isEvent: false,
             filepath: [revisited_sanative],
-            description: `Painting depicts a saint (Individual Soul) meditating in varuna mudra 
-            praying Supreme Soul/Doctor to cure the world from COVID-19. When there is no medicine for a sickness, 
-            the only hope is supreme doctor -  Lord Vishnu/Dhanvantari (Supreme Soul).`,
+            description: `A mystical and spiritual painting which depicts a saint (Individual Conciousness) 
+            meditating in varuna mudra praying Supreme Conciousness to cure the world from COVID-19. 
+            Varuna Mudra: It is a kind of hastha mudra yoga to balance water element and blood circulation.
+            In spirituality, there is a notion of supreme/absolute/pure consciousness which is ubiquitous
+            (present in every living and non-living things). All we as an individual also possess pure
+            consciousness however it is bounded by non-conscious layers viz., physical/body,
+            astral/emotional, causal/mental, and supra causal or intuitive causing one to have bounded
+            soul/consciousness or individual point of view. Through meditation we can transcend
+            through all these layers and can experience supreme consciousness. The painting represents 
+            a prayer to the supreme power (higher consciousness) to
+            strengthen our mental immunity and redeem the world from COVID-19.`,
             createdDate: "17/Apr/2020",
             category: ["imaginary"],
             likes: 0,
@@ -165,8 +176,9 @@ export default {
             size: "",
             isEvent: false,
             filepath: [serenity],
-            description: `A peaceful living at home, living behind the city noise and work pressure.`,
-            createdDate: "01/Sep/2018",
+            description: `Another imaginary painting created in the year 2015 of a home located 
+            outside the city with peaceful environment without noise or work pressure.`,
+            createdDate: "01/Sep/2015",
             category: ["imaginary"],
             likes: 0,
             artist: "Praveen K R",
@@ -182,12 +194,13 @@ export default {
         },
         {
             id: "6",
-            name: "Forest",
+            name: "Riparian Forestland",
             size: "",
             isEvent: false,
             filepath: [forest],
-            description: `A Land dominated by thousands of dense trees and flowing river noise.`,
-            createdDate: "01/Mar/2010",
+            description: `The fictional painting illustrates a forest dominated by dense
+            trees and meandering river boldly flowing amid the flora.`,
+            createdDate: "01/Mar/2011",
             category: ["landscape"],
             likes: 0,
             artist: "Praveen K R",
@@ -208,8 +221,10 @@ export default {
             size: "",
             isEvent: false,
             filepath: [village_life],
-            description: `Tried to portray a village home surrounded by beautiful green nature.`,
-            createdDate: "01/Mar/1998",
+            description: `The life of an Indian village is by no means a walk in the park, the economic condition is
+            always remaining dire. An imaginary glimpse of village life in India showing bullock cart and
+            cycle representing the obsolete transportation system captured in the year 2007.`,
+            createdDate: "01/Jun/2007",
             category: ["landscape"],
             likes: 0,
             artist: "Praveen K R",
@@ -226,15 +241,17 @@ export default {
         },
         {
             id: "8",
-            name: "Chaturmuka Basadi",
+            name: "Jain Basadi",
             size: "",
-            isEvent: true,
+            isEvent: false,
             filepath: [chaturmuka_basadi],
-            description: `This painting of Chaturmukha Basadi, is a symmetrical Jain temple situated 
-            in Karkala, Karnataka, India. It has four symmetrical faces and is thus called chaturmukha (four faces) 
-            basadi (a term used to refer to Jain temples. It is one of the most famous monuments in Karkala, 
-            and was built in the late 16th century by Immadi Bhairarasa Vodeya of the Santara dynasty in 1586.`,
-            createdDate: "01/Mar/1996",
+            description: `This painting (created in the year 2005) represents typical Jain Basadi/temple in Dakshina
+            Kannada region of Karnataka in India. This is an imaginary basadi inspired from
+            Chaturmukha Basadi - a symmetrical Jain temple situated in Karkala, Karnataka, India. It has
+            four symmetrical faces and is thus called chaturmukha (four faces) basadi (a term used to
+            refer to Jain temples. It is one of the most famous monuments in Karkala, and was built in
+            the late 16th century by Immadi Bhairarasa Vodeya of the Santara dynasty in 1586.`,
+            createdDate: "01/Jun/2005",
             category: ["landscape"],
             likes: 0,
             artist: "Praveen K R",
@@ -251,12 +268,16 @@ export default {
         },
         {
             id: "9",
-            name: "Rainy Season",
+            name: "Charmudi Ghat",
             size: "",
             isEvent: true,
             filepath: [rainy_season],
-            description: `A scene of access routes into the mountainous Western Ghats of Mangaluru, Karnataka.`,
-            createdDate: "01/Mar/1997",
+            description: `This painting represents Charmudi ghat is a motorable pathway in
+            Western ghats connecting Dakshina Kannada and Chikkamagaluru district in Karnataka -
+            India. The section of ghat is known by the name of Charmadi Ghat. The elevated ghat
+            section is famous for its 12 Hairpin curves which receives very heavy rainfall of over 7000
+            mm during the monsoon.`,
+            createdDate: "01/Jun/2008",
             category: ["landscape"],
             likes: 0,
             artist: "Praveen K R",
