@@ -21,7 +21,7 @@ import ImageSlider from './components/ImageSlider';
 import Fab from '@material-ui/core/Fab';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import Link from '@material-ui/core/Link';
-
+// import {setVisitorCount,getVisitorCount} from './VisitorCount/VisitorCount'
 const useStyles = makeStyles((theme) => ({
   aboutGrid: {
     padding: "5em !important",
@@ -80,9 +80,20 @@ function App() {
   const handleOnClick = (e, filepath) => {
     setShowImage(filepath);
   }
-  // console.log("recentEvents.showLessCount-",data.recentEvents.showLessCount)
-
-
+  // const visitorCount=()=>{
+  //   var n = localStorage.getItem('Visitor_Count');
+  //   if (n === null) {
+  //       n = 0;
+  //   }
+  //   n++;
+  //   localStorage.setItem("Visitor_Count", n);
+  //   return n;
+  // }
+  // React.useEffect(() => {
+  //   // console.log("visitorCount-",visitorCount())
+  // },[]);
+  // 
+// console.log('getVisitorCount-',getVisitorCount())
   const onCategoryClick = (newValue) => {
     setActiveCategory(newValue)
     setViewAllPaintings(false)
@@ -95,6 +106,9 @@ function App() {
     setColumnView(functions.getColumnView(filterImages, 3, "createdDate", 0))
 
   }
+  fetch("/visit").then(response => response.json()).then(value => {
+    console.log("visitorId-",value);
+});
   const ViewLess = () => {
     setViewAllPaintings(false)
     var filterImages = functions.getCategoryImages(data.images, activeCategory, "createdDate");
@@ -207,5 +221,6 @@ function App() {
     </div >
   );
 }
+
 
 export default App;

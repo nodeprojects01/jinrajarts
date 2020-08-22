@@ -2,12 +2,15 @@ const path = require('path');
 const express = require('express');
 const transporter = require('./config');
 const dotenv = require('dotenv');
+// const {getVisitorCount,
+//   setVisitorCount} = require('../src/VisitorCount/VisitorCount')
 dotenv.config();
 const app = express();
-
+let counter = 0
 const buildPath = path.join(__dirname, '..', 'build');
 app.use(express.json());
 app.use(express.static(buildPath));
+const storage = require('node-persist');
 
 app.post('/send', (req, res) => {
   try {
@@ -41,6 +44,21 @@ app.post('/send', (req, res) => {
   }
 });
 
+
+app.get("/visit", (req, res) => {
+  counter++;
+  storage.setItem("counter", counter).then(() => {
+   res.json(counter);
+  });
+});
+
+storage.init().then(() => storage.getItem("counter")).then((value) => {
+  if (value > 0) {
+      counter = value;
+  } else {
+      counter = 0;
+  }
+});
 app.listen(3030, () => {
   console.log('server start on port 3030');
 });
