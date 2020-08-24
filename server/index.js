@@ -52,7 +52,8 @@ app.get("/visit", (req, res) => {
   });
 });
 
-storage.init().then(() => storage.getItem("counter")).then((value) => {
+storage.init({
+  dir:'VisitorCount'}).then(() => storage.getItem("counter")).then((value) => {
   if (value > 0) {
       counter = value;
   } else {

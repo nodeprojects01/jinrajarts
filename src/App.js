@@ -8,7 +8,7 @@ import WideCard from './components/WideCard';
 import Tags from './components/Tags';
 import RecentEvent from './components/RecentEvent';
 import Button from '@material-ui/core/Button';
-import data from './config/data';
+import data from '../../data';
 import functions from './config/functions';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
@@ -77,23 +77,15 @@ function App() {
   const [showImage, setShowImage] = React.useState('');
   const [viewAllPaintings, setViewAllPaintings] = React.useState(false);
   const [viewAllEvents, setViewAllEvents] = React.useState(false);
+  var [visitorCount,setVisitorCount]=React.useState(0);
   const handleOnClick = (e, filepath) => {
     setShowImage(filepath);
   }
-  // const visitorCount=()=>{
-  //   var n = localStorage.getItem('Visitor_Count');
-  //   if (n === null) {
-  //       n = 0;
-  //   }
-  //   n++;
-  //   localStorage.setItem("Visitor_Count", n);
-  //   return n;
-  // }
-  // React.useEffect(() => {
-  //   // console.log("visitorCount-",visitorCount())
-  // },[]);
-  // 
-// console.log('getVisitorCount-',getVisitorCount())
+  React.useEffect(() => {
+    fetch("/visit").then(response => response.json()).then(value => {
+      setVisitorCount(value);
+    })
+  },[]);
   const onCategoryClick = (newValue) => {
     setActiveCategory(newValue)
     setViewAllPaintings(false)
@@ -106,9 +98,10 @@ function App() {
     setColumnView(functions.getColumnView(filterImages, 3, "createdDate", 0))
 
   }
-  fetch("/visit").then(response => response.json()).then(value => {
-    console.log("visitorId-",value);
-});
+  // fetch("/visit").then(response => response.json()).then(value => {
+  //   // return value
+  //   console.log("visitorId-",value);
+  // });
   const ViewLess = () => {
     setViewAllPaintings(false)
     var filterImages = functions.getCategoryImages(data.images, activeCategory, "createdDate");
@@ -212,6 +205,13 @@ function App() {
         <Grid container direction="column" alignItems="center" justify="center" >
           <SendEmail />
         </Grid>
+        <Grid>
+        <Box display="flex" flexDirection="row-reverse"style={{paddingTop:'40px'}}>       
+        <Box  p={1} style={{backgroundColor:jpStyle.colorGreyLight, borderRadius:'1em' }}>
+        <Typography style={jpTheme.subTitle} align="right">TOTAL VISITS <span style={{fontWeight:700,fontSize:'25px'}}>{visitorCount}</span></Typography>
+        </Box>
+      </Box>   
+       </Grid>
       </Box>
 
       <Fab style={jpTheme.buttomRightCorner} href="#top" size="medium" aria-label="scroll back to top">
