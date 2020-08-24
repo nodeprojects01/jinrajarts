@@ -8,7 +8,7 @@ import WideCard from './components/WideCard';
 import Tags from './components/Tags';
 import RecentEvent from './components/RecentEvent';
 import Button from '@material-ui/core/Button';
-import data from '../../data';
+import data from '../src/config/data';
 import functions from './config/functions';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
