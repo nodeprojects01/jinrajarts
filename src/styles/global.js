@@ -1,6 +1,7 @@
 const jpStyle = {
     fontFamilyDancingScript: "'Dancing Script', cursiv",
     fontFamilyMontserrat: "Montserrat, sans-serif",
+    fontFamilyAbril: "'Abril Fatface', cursive",
 
     colorBlack: "#555",
     colorGrey: "#999",
@@ -8,9 +9,9 @@ const jpStyle = {
     colorGreen: "#009688",
     colorRed: "#EB7077",
 
-    fontSizeXL: "6vw", //6vw
+    fontSizeXL: "8vw", //6vw
     fontSizeL: "2.5em",
-    fontSizeML: "0.9em",
+    fontSizeML: "1em",
     fontSizeM: "0.75em",
     fontSizeS: "0.7em"
 }
@@ -30,8 +31,15 @@ const jpTheme = {
         fontWeight: "100",
         color: "#FFF"
     },
+    cursiveTitle2: {
+        paddingLeft: "8px",
+        fontSize: "1.6em",
+        fontFamily: jpStyle.fontFamilyDancingScript,
+        fontWeight: "100",
+        color: jpStyle.colorBlack
+    },
     title: {
-        fontFamily: jpStyle.fontFamilyMontserrat,
+        fontFamily: jpStyle.fontFamilyAbril,
         fontWeight: "200",
         color: "#444",
         fontSize: jpStyle.fontSizeL,
@@ -48,7 +56,8 @@ const jpTheme = {
         fontWeight: "400",
         color: jpStyle.colorBlack,
         fontSize: jpStyle.fontSizeML,
-        margin: "0.5em 0"
+        margin: "0.5em 0",
+        lineHeight: "2"
     },
     textDefault: {
         fontFamily: jpStyle.fontFamilyMontserrat,
@@ -66,7 +75,7 @@ const jpTheme = {
     },
     buttonBorderless: {
         fontSize: jpStyle.fontSizeM,
-        color: "#fff"
+        color: jpStyle.colorGrey
     },
     buttonBorderlessGrey: {
         fontSize: jpStyle.fontSizeM,

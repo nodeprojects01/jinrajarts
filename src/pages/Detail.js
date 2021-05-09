@@ -29,8 +29,8 @@ export default function Detail(props) {
                     <DisplayImage style={{ padding: 0, align: "center" }} height="300px" width="auto" images={props.location.data.filepath} />
                 </Box>
                 <Typography variant="h2" style={jpTheme.title} align="center">{props.location.data.name}</Typography>
-                <Box style={jpTheme.textSmall}>{props.location.data.size}</Box>
-                <Typography variant="body2" color="textSecondary" component="p" align="center" style={{ fontSize: "0.89em" }}>
+                <Box style={jpTheme.textSmall} align="center">{props.location.data.size}</Box>
+                <Typography variant="body2" color="textSecondary" component="p" align="center" style={jpTheme.subTitle}>
                     {props.location.data.description}
                 </Typography>
                 <br />

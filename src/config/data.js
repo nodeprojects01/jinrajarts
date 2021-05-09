@@ -8,15 +8,13 @@ import forest from '../media/images/forest.jpg'
 import village_life from '../media/images/village_life.JPG'
 import chaturmuka_basadi from '../media/images/chaturmuka_basadi.JPG'
 import rainy_season from '../media/images/rainy_season.JPG'
-import background2 from '../media/images/background2.jpg'
-import background1 from '../media/images/background1.jpg'
 import Lily from '../media/images/lily.jpg'
 import Tiger from '../media/images/tiger.jpg'
 import Intheair from '../media/images/intheair.jpg'
 import DreamHome2 from '../media/images/dreamhome.jpg'
 import Bharatanatyam from '../media/images/bharatanatya.jpg'
 import Praveen from '../media/images/praveen.jpg'
-import Jinraj from '../media/images/jinraj.jpg'
+import Jinraj from '../media/images/jinraj.png'
 import { jpStyle, jpTheme } from '../styles/global';
 
 export default {
@@ -25,7 +23,7 @@ export default {
         showLessCount: 9
     },
     recentEvents: {
-        showLessCount: 4
+        showLessCount: 3
     },
     aboutUs: [
         {
@@ -34,7 +32,8 @@ export default {
             filepath: [Praveen],
             websites: {
                 youtube: "https://www.youtube.com/channel/UCadO25GiC-YBWzosiAzz0Ag",
-                facebook: "https://www.facebook.com/praveen.jain.7798"
+                facebook: "https://www.facebook.com/praveen.jain.7798",
+                instagram: "https://www.instagram.com/praveenkrarts"
             },
             description: `He is a PhD student in the Engineering and Innovation department at 
             OU - Milton Keynes with civil engineering background hailing from Karnataka, India. 
@@ -60,7 +59,7 @@ export default {
             his own in Bangalore, India, during all the free time that he gets.`
         }
     ],
-    wallpaper: [background1, background2],
+    wallpaper: [rainy_season],
     menu: [
         // { name: "home", link: "#home" },
         { name: "events", link: "#events" },
