@@ -50,7 +50,9 @@ export default function WideCard2(props) {
                     <Box>
                         <Typography variant="h2" style={jpTheme.title} >{props.data.name}</Typography>
                         <p style={jpTheme.subTitle}>
-                            {props.data.description}
+                            {props.data.description.split("<br/>").map((sent) => (
+                                <p>{sent}</p>
+                            ))}
                         </p>
                         <Typography style={jpTheme.textSmall} >Follow on - </Typography>
                         <Link href={props.data.websites.youtube} target="_blank">

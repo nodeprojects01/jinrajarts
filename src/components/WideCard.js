@@ -14,7 +14,7 @@ export default function WideCard(props) {
         <div>
             <Grid container spacing={8}>
                 <Grid item xs={12} md={6}>
-                    <DisplayImage images={props.data.filepath} style={{ padding: 0, boxShadow: "5px 5px 15px grey" }} width="100%" height="100%" />
+                    <DisplayImage images={props.data.filepath} style={{ padding: 0 }} width="100%" height="100%" />
                 </Grid>
                 <Grid item xs={12} md={6} style={{ textAlign: "center" }}>
                     <Box>

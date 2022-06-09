@@ -35,12 +35,11 @@ export default {
                 facebook: "https://www.facebook.com/praveen.jain.7798",
                 instagram: "https://www.instagram.com/praveenkrarts"
             },
-            description: `He is a PhD student in the Engineering and Innovation department at 
-            OU - Milton Keynes with civil engineering background hailing from Karnataka, India. 
-            He resident of Milton Keynes, England since 2019. He inherited the art of painting 
-            from his father R S Karebasannanavar. He has been practising art since childhood. 
-            He received first place in the national level painting competition held at IISc - Bangalore 2010. 
-            Have participated and won 71 prizes in state, district and zone level competition in india.`
+            description: `Praveen is a figurative and illustrative artist practicing since childhood, learnt from artist-cum-father R S Karebasannanavar. He has been a resident of England since the year 2019. Most of his artworks are in watercolour, acrylic and rarely in oil media influenced from landscape, history and architecture. Some of his paintings are illustrative and metaphorical where he tries to express his intention through nonverbal power of communication and encourages the audience to stay in their imagination. Since the pandemic, he’s been motivated by Paint Out – Norfolk event to mainly work in plein air.
+<br/>
+            His lockdown painting titled SANATIVE was selected and featured in the 2020 open stage online gallery of UK’s leading arts school – Bristol Old Victoria Theatre. He secured first place in the national level painting competition held at IISc – Bangalore, India in 2010 and has participated and won 71 prizes in state, district and zone level competitions in India. He has been participating, exhibiting in UK’s premier plein-air painting competition and exhibition Paint Out Norfolk since the year 2020.  He recently displayed his works in the Spring Exhibition of Buckinghamshire Art Society at Beaconsfield in England. He is an elected member of Bucks Art Society and also a member of Milton Keynes Society of Artists.
+<br/>       
+            In parallel to this profession, he is currently a PhD scholar in Engineering and Innovation department at The Open University - Milton Keynes, England researching in collaboration with Technical Center of Mechanical Industries, CETIM - France. He graduated from NIT Patna, India with a master’s degree in Structural Engineering (2015) and completed his bachelor’s degree in Civil Engineering from Bangalore Institute of technology (2013).`
         },
         {
             id: "2",

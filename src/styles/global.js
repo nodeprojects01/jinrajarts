@@ -1,7 +1,7 @@
 const jpStyle = {
-    fontFamilyDancingScript: "'Dancing Script', cursiv",
+    fontFamilyDancingScript: "Epilogue, sans-serif",
     fontFamilyMontserrat: "Montserrat, sans-serif",
-    fontFamilyAbril: "'Abril Fatface', cursive",
+    fontFamilyAbril: "Epilogue, sans-serif",
 
     colorBlack: "#555",
     colorGrey: "#999",
@@ -12,7 +12,7 @@ const jpStyle = {
     fontSizeXL: "8vw", //6vw
     fontSizeL: "2.5em",
     fontSizeML: "1em",
-    fontSizeM: "0.75em",
+    fontSizeM: "0.85em",
     fontSizeS: "0.7em"
 }
 
@@ -35,21 +35,22 @@ const jpTheme = {
         paddingLeft: "8px",
         fontSize: "1.6em",
         fontFamily: jpStyle.fontFamilyDancingScript,
-        fontWeight: "100",
+        fontWeight: "600",
         color: jpStyle.colorBlack
     },
     title: {
         fontFamily: jpStyle.fontFamilyAbril,
-        fontWeight: "200",
+        fontWeight: "600",
         color: "#444",
         fontSize: jpStyle.fontSizeL,
         margin: "1em 0"
     },
     titleMarginLess: {
-        fontFamily: jpStyle.fontFamilyMontserrat,
-        fontWeight: "200",
+        // fontFamily: jpStyle.fontFamilyMontserrat,
+        fontFamily: jpStyle.fontFamilyAbril,
+        fontWeight: "600",
         color: "#444",
-        fontSize: jpStyle.fontSizeL
+        fontSize: jpStyle.fontSizeML
     },
     subTitle: {
         fontFamily: jpStyle.fontFamilyMontserrat,

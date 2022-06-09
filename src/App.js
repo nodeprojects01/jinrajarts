@@ -100,7 +100,7 @@ function App() {
       <Grid container id="top" spacing={0} alignItems="center"
         style={{ minHeight: "100px", padding: "0 4em" }}>
         <Box>
-          <Typography style={jpTheme.cursiveTitle2} >by Jinraj & Praveen</Typography>
+          <Typography style={jpTheme.cursiveTitle2} >By Praveen</Typography>
         </Box>
       </Grid>
 
@@ -112,7 +112,7 @@ function App() {
 
       <Box id="paintings" className={classes.appMargin}>
         <Box style={{ padding: "0 0 2em 0" }}>
-          <Typography variant="h2" style={jpTheme.title} align="center">PAINTINGS</Typography>
+          <Typography variant="h2" style={jpTheme.title} align="center">Paintings</Typography>
           <Tags data={categories} value={activeCategory} setValue={(newValue) => { onCategoryClick(newValue) }} />
         </Box>
         <Grid container spacing={4}>
@@ -137,12 +137,12 @@ function App() {
 
       <Box id="aboutus" className={classes.appMargin} style={{ paddingTop: "5em", background: jpStyle.colorGreyLight }}>
         <WideCard2 data={data.aboutUs[0]} />
-        <WideCard2 data={data.aboutUs[1]} otherWay />
+        {/* <WideCard2 data={data.aboutUs[1]} otherWay /> */}
       </Box>
 
       <Box id="contact" className={classes.appMargin} style={{ background: jpStyle.colorGreen }}>
         <Box style={{ padding: "0 0 2em 0" }}>
-          <Typography variant="h2" style={jpTheme.title} align="center">CONTACT</Typography>
+          <Typography variant="h2" style={jpTheme.title} align="center">Contact</Typography>
         </Box>
 
         <Grid container direction="column" alignItems="center" justify="center" >
