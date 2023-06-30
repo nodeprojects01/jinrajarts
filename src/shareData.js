@@ -44,6 +44,7 @@ async function generateTemplate() {
     },
     columns: data.headers.map(header => ({
       name: header,
+      filterButton: true,
     })),
   });
 
