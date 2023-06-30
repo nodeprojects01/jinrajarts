@@ -35,12 +35,11 @@ function generateTemplate() {
   // Convert workbook to XLSX format
   const workbookBuffer = await workbook.xlsx.writeBuffer();
   const workbookArray = Array.from(new Uint8Array(workbookBuffer));
-  const worksheet = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(worksheet, XLSX.utils.aoa_to_sheet([]), 'Sheet1');
-  XLSX.utils.sheet_add_aoa(worksheet.Sheets.Sheet1, workbookArray, { origin: -1 });
+  const worksheetData = XLSX.utils.sheet_to_json(sheet, { header: 1, raw: false });
+  const worksheet = XLSX.utils.aoa_to_sheet(worksheetData);
 
   // Save the workbook as XLSX
-  const xlsxData = XLSX.write(worksheet, { bookType: 'xlsx', type: 'array' });
+  const xlsxData = XLSX.write({ Sheets: { Sheet1: worksheet }, SheetNames: ['Sheet1'] }, { bookType: 'xlsx', type: 'array' });
   const xlsxFile = new Blob([xlsxData], { type: 'application/octet-stream' });
   const url = window.URL.createObjectURL(xlsxFile);
   const a = document.createElement('a');
