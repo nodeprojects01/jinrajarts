@@ -1,5 +1,4 @@
 import * as ExcelJS from 'exceljs';
-import * as XLSX from 'xlsx';
 
 async function generateTemplate() {
   const data = {
@@ -15,6 +14,10 @@ async function generateTemplate() {
   // Set headers
   sheet.addRow(data.headers);
 
+  // Add dummy row for table definition
+  const dummyRow = sheet.addRow([]);
+  dummyRow.hidden = true;
+
   // Add data rows
   const numRows = 5000;
   for (let i = 0; i < numRows; i++) {
@@ -24,11 +27,11 @@ async function generateTemplate() {
   // Define the range for the table
   const tableRange = {
     from: {
-      row: 1,
+      row: dummyRow.number,
       column: 1,
     },
     to: {
-      row: numRows + 1,
+      row: dummyRow.number,
       column: data.headers.length,
     },
   };
@@ -45,6 +48,7 @@ async function generateTemplate() {
     columns: data.headers.map(header => ({
       name: header,
       filterButton: true,
+      style: { font: { bold: true } },
     })),
   });
 
@@ -60,6 +64,10 @@ async function generateTemplate() {
     formula1: dropdownFormula,
     showDropDown: true,
   };
+
+  // Remove dummy row
+  dummyRow.hidden = false;
+  dummyRow.delete();
 
   // Convert workbook to XLSX format
   const workbookBuffer = await workbook.xlsx.writeBuffer();
