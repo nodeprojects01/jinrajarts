@@ -1,3 +1,5 @@
+import * as ExcelJS from 'exceljs';
+
 function generateTemplate() {
   const data = {
     headers: ["name", "age", "gender"],
@@ -6,38 +8,42 @@ function generateTemplate() {
     }
   };
 
-  const workbook = XLSX.utils.book_new();
-  const worksheet = XLSX.utils.aoa_to_sheet([data.headers]);
+  // Create a new Excel workbook
+  const workbook = new ExcelJS.Workbook();
+  const sheet = workbook.addWorksheet("Sheet1");
+  
+  // Set headers
+  sheet.addRow(data.headers);
   
   // Add dropdown for gender column
-  const genderColumnIndex = data.headers.indexOf("gender");
+  const genderColumnIndex = data.headers.indexOf("gender") + 1;
   const genderProperty = data.properties.gender;
+  
+  // Create a data validation for the gender column
   const genderValidation = {
     type: "list",
-    formula1: '"' + genderProperty.join(",") + '"',
+    formula1: genderProperty.map(gender => gender),
+    showDropDown: true,
   };
-  const genderRange = XLSX.utils.encode_range({
-    s: { c: genderColumnIndex, r: 1 },
-    e: { c: genderColumnIndex, r: 100 },
-  });
-  worksheet["!cols"] = [{}, {}, { x14ac: 1 }];
-  worksheet["!dataValidations"] = [
-    {
-      ref: genderRange,
-      validation: genderValidation,
-    },
-  ];
   
-  // Add the worksheet to the workbook
-  XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
+  // Apply the data validation to the cells
+  const genderColumn = sheet.getColumn(genderColumnIndex);
+  genderColumn.eachCell((cell, rowNumber) => {
+    if (rowNumber > 1) {
+      cell.dataValidation = genderValidation;
+    }
+  });
   
   // Save the workbook
-  const wbout = XLSX.write(workbook, { type: "array", bookType: "xlsx" });
-  const blob = new Blob([wbout], { type: "application/octet-stream" });
-  const url = window.URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "template.xlsx";
-  a.click();
-  window.URL.revokeObjectURL(url);
+  workbook.xlsx.writeBuffer().then(buffer => {
+    const blob = new Blob([buffer], { type: "application/octet-stream" });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "template.xlsx";
+    a.click();
+    window.URL.revokeObjectURL(url);
+  });
 }
+
+generateTemplate();
