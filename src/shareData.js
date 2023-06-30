@@ -5,7 +5,7 @@ async function generateTemplate() {
   const data = {
     headers: ["name", "age", "gender"],
     properties: {
-      gender: ["male", "female"]
+      gender: ["male", "female", "non-binary", "undisclosed", "transgender", "agender", "bigender", "genderqueer", "genderfluid", "two-spirit", "other", "prefer not to say", "not applicable", "unknown", "rather not say", "all"]
     }
   };
 
@@ -18,19 +18,23 @@ async function generateTemplate() {
   // Add dropdown for gender column
   const genderColumnIndex = data.headers.indexOf("gender") + 1;
   const genderProperty = data.properties.gender;
-  const genderRange = `'Sheet1'!$${String.fromCharCode(64 + genderColumnIndex)}$2:$${String.fromCharCode(64 + genderColumnIndex)}$100`;
+  const maxDropdownValuesPerRange = 12;
+  const dropdownRanges = [];
+
+  for (let i = 0; i < genderProperty.length; i += maxDropdownValuesPerRange) {
+    const chunk = genderProperty.slice(i, i + maxDropdownValuesPerRange);
+    dropdownRanges.push(chunk.join(","));
+  }
 
   const dropdownValidation = {
     type: 'list',
-    formula1: genderRange,
+    formula1: dropdownRanges.join(","),
     showDropDown: true,
   };
 
-  sheet.getColumn(genderColumnIndex).eachCell((cell, rowNumber) => {
-    if (rowNumber > 1) {
-      cell.dataValidation = dropdownValidation;
-    }
-  });
+  // Assign dropdown validation to the first cell of the gender column
+  const firstCell = sheet.getCell(2, genderColumnIndex);
+  firstCell.dataValidation = dropdownValidation;
 
   // Convert workbook to XLSX format
   const workbookBuffer = await workbook.xlsx.writeBuffer();
