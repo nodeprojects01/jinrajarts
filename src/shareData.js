@@ -32,8 +32,15 @@ function generateTemplate() {
     }
   });
 
+  // Convert workbook to XLSX format
+  const workbookBuffer = await workbook.xlsx.writeBuffer();
+  const workbookArray = Array.from(new Uint8Array(workbookBuffer));
+  const worksheet = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(worksheet, XLSX.utils.aoa_to_sheet([]), 'Sheet1');
+  XLSX.utils.sheet_add_aoa(worksheet.Sheets.Sheet1, workbookArray, { origin: -1 });
+
   // Save the workbook as XLSX
-  const xlsxData = XLSX.utils.sheet_to_blob(workbook.xlsx.write(workbook));
+  const xlsxData = XLSX.write(worksheet, { bookType: 'xlsx', type: 'array' });
   const xlsxFile = new Blob([xlsxData], { type: 'application/octet-stream' });
   const url = window.URL.createObjectURL(xlsxFile);
   const a = document.createElement('a');
