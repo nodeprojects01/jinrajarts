@@ -1,7 +1,7 @@
 import * as ExcelJS from 'exceljs';
 import * as XLSX from 'xlsx';
 
-function generateTemplate() {
+async function generateTemplate() {
   const data = {
     headers: ["name", "age", "gender"],
     properties: {
@@ -34,13 +34,10 @@ function generateTemplate() {
 
   // Convert workbook to XLSX format
   const workbookBuffer = await workbook.xlsx.writeBuffer();
-  const workbookArray = Array.from(new Uint8Array(workbookBuffer));
-  const worksheetData = XLSX.utils.sheet_to_json(sheet, { header: 1, raw: false });
-  const worksheet = XLSX.utils.aoa_to_sheet(worksheetData);
+  const workbookArray = new Uint8Array(workbookBuffer);
 
   // Save the workbook as XLSX
-  const xlsxData = XLSX.write({ Sheets: { Sheet1: worksheet }, SheetNames: ['Sheet1'] }, { bookType: 'xlsx', type: 'array' });
-  const xlsxFile = new Blob([xlsxData], { type: 'application/octet-stream' });
+  const xlsxFile = new Blob([workbookArray], { type: 'application/octet-stream' });
   const url = window.URL.createObjectURL(xlsxFile);
   const a = document.createElement('a');
   a.href = url;
