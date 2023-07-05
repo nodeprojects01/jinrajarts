@@ -1,43 +1,32 @@
-import React, { useState } from 'react';
-import ExcelJS from 'exceljs';
+const ExcelJS = require('exceljs');
 
-function ExcelGenerator() {
-  const [teams, setTeams] = useState([]);
-  const [selectedTeam, setSelectedTeam] = useState('');
+async function jsonToExcel(data, sheetName, outputFilePath) {
+  const workbook = new ExcelJS.Workbook();
+  const worksheet = workbook.addWorksheet(sheetName);
 
-  const handleGenerateExcel = () => {
-    const workbook = new ExcelJS.Workbook();
-    
-    const teamsSheet = workbook.addWorksheet('Teams');
-    teamsSheet.getColumn('A').values = [['Teams'], ...teams.map(team => [team])];
-    
-    const mainSheet = workbook.addWorksheet('Main');
-    mainSheet.columns = [
-      { header: 'Country', key: 'country' },
-      { header: 'Teams', key: 'team', dataValidation: { type: 'list', formula1: `Teams!$A$2:$A${teams.length + 1}` } },
-      { header: 'Games', key: 'games' },
-      { header: 'Wins', key: 'wins' }
-    ];
-    
-    workbook.xlsx.writeBuffer().then(buffer => {
-      const blob = new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
-      saveAs(blob, 'teams.xlsx');
-    });
-  };
+  // Convert headers to title case and make them bold
+  const headers = Object.keys(data[0]);
+  for (let i = 0; i < headers.length; i++) {
+    headers[i] = headers[i][0].toUpperCase() + headers[i].slice(1);
+  }
 
-  return (
-    <div>
-      <button onClick={handleGenerateExcel}>Generate Excel</button>
-      <br />
-      <br />
-      <select value={selectedTeam} onChange={(e) => setSelectedTeam(e.target.value)}>
-        <option value="">Select a team</option>
-        {teams.map((team, index) => (
-          <option key={index} value={team}>
-            {team}
-          </option>
-        ))}
-      </select>
-    </div>
-  );
+  const headerRow = worksheet.addRow(headers);
+  headerRow.eachCell(cell => {
+    cell.font = { bold: true };
+  });
+
+  // Add data rows
+  for (const item of data) {
+    const values = Object.values(item);
+    worksheet.addRow(values);
+  }
+
+  // Adjust column widths
+  worksheet.columns.forEach(column => {
+    const columnWidth = column.header.length < 12 ? 12 : column.header.length;
+    column.width = columnWidth < 30 ? columnWidth : 30;
+  });
+
+  // Save workbook to file
+  await workbook.xlsx.writeFile(outputFilePath);
 }
