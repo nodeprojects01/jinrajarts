@@ -7,19 +7,14 @@ async function fetchData() {
     const pageSize = pageSizeResponse.data.pageSize;
 
     // Prepare an array to store the parallel API requests
-    const requests = [];
-
-    // Make parallel API requests based on the page size
-    for (let i = 0; i < pageSize; i++) {
-      requests.push(axios.get(`https://api.example.com/data/${i + 1}`));
-    }
+    const requests = Array.from({ length: pageSize }, (_, i) =>
+      axios.get(`https://api.example.com/data/${i + 1}`)
+    );
 
     // Execute the parallel requests with a delay between each request
-    const responses = [];
-    for (let i = 0; i < requests.length; i++) {
-      const response = await makeDelayedRequest(requests[i], i * 1000); // Adjust the delay as needed
-      responses.push(response);
-    }
+    const responses = await Promise.all(
+      requests.map((request, i) => makeDelayedRequest(request, i * 1000)) // Adjust the delay as needed
+    );
 
     // Combine the responses into a single array
     const combinedResult = responses.reduce((accumulator, response) => {
@@ -34,9 +29,9 @@ async function fetchData() {
 
 // Function to delay a request using a timeout
 function makeDelayedRequest(request, delay) {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     setTimeout(() => {
-      request.then(resolve).catch(reject);
+      resolve(request);
     }, delay);
   });
 }
