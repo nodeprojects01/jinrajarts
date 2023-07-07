@@ -6,15 +6,13 @@ async function fetchData() {
     const pageSizeResponse = await axios.get('https://api.example.com/page-size');
     const pageSize = pageSizeResponse.data.pageSize;
 
-    // Prepare an array to store the parallel API requests
-    const requests = Array.from({ length: pageSize }, (_, i) =>
-      axios.get(`https://api.example.com/data/${i + 1}`)
+    // Prepare an array of functions that return promises
+    const requestFunctions = Array.from({ length: pageSize }, (_, i) =>
+      () => makeDelayedRequest(`https://api.example.com/data/${i + 1}`, i * 1000) // Adjust the delay as needed
     );
 
-    // Execute the parallel requests with a delay between each request
-    const responses = await Promise.all(
-      requests.map((request, i) => makeDelayedRequest(request, i * 1000)) // Adjust the delay as needed
-    );
+    // Execute the promises with a delay between each request
+    const responses = await Promise.all(requestFunctions.map(fn => fn()));
 
     // Combine the responses into a single array
     const combinedResult = responses.reduce((accumulator, response) => {
@@ -28,10 +26,15 @@ async function fetchData() {
 }
 
 // Function to delay a request using a timeout
-function makeDelayedRequest(request, delay) {
+function makeDelayedRequest(url, delay) {
   return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(request);
+    setTimeout(async () => {
+      try {
+        const response = await axios.get(url);
+        resolve(response);
+      } catch (error) {
+        resolve({ error: error.message });
+      }
     }, delay);
   });
 }
