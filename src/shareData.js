@@ -1,30 +1,44 @@
-const XLSX = require('xlsx');
+const axios = require('axios');
 
-function jsonToExcel(data, sheetName, outputFilePath) {
-  const workbook = XLSX.utils.book_new();
-  const worksheet = XLSX.utils.json_to_sheet(data);
+async function fetchData() {
+  try {
+    // Call the first API to retrieve the page size
+    const pageSizeResponse = await axios.get('https://api.example.com/page-size');
+    const pageSize = pageSizeResponse.data.pageSize;
 
-  // Convert headers to title case and add spaces between words
-  const headers = Object.keys(data[0]);
-  for (let i = 0; i < headers.length; i++) {
-    headers[i] = headers[i]
-      .replace(/([a-z])([A-Z])/g, '$1 $2') // Add space before capital letters
-      .replace(/_/g, ' '); // Replace underscores with spaces
-    headers[i] = headers[i][0].toUpperCase() + headers[i].slice(1); // Convert to title case
+    // Prepare an array to store the parallel API requests
+    const requests = [];
+
+    // Make parallel API requests based on the page size
+    for (let i = 0; i < pageSize; i++) {
+      requests.push(axios.get(`https://api.example.com/data/${i + 1}`));
+    }
+
+    // Execute the parallel requests with a delay between each request
+    const responses = [];
+    for (let i = 0; i < requests.length; i++) {
+      const response = await makeDelayedRequest(requests[i], i * 1000); // Adjust the delay as needed
+      responses.push(response);
+    }
+
+    // Combine the responses into a single array
+    const combinedResult = responses.reduce((accumulator, response) => {
+      return accumulator.concat(response.data);
+    }, []);
+
+    console.log('Combined Result:', combinedResult);
+  } catch (error) {
+    console.error('Error:', error.message);
   }
-
-  // Make headers bold
-  const headerStyle = { bold: true };
-  XLSX.utils.sheet_add_json(worksheet, [{}], { skipHeader: true, origin: 'A1' });
-  headers.forEach((header, index) => {
-    const cellAddress = XLSX.utils.encode_cell({ r: 0, c: index });
-    worksheet[cellAddress].v = header;
-    worksheet[cellAddress].s = headerStyle;
-  });
-
-  // Add the worksheet to the workbook
-  XLSX.utils.book_append_sheet(workbook, worksheet, sheetName);
-
-  // Write the workbook to the output file
-  XLSX.writeFile(workbook, outputFilePath);
 }
+
+// Function to delay a request using a timeout
+function makeDelayedRequest(request, delay) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      request.then(resolve).catch(reject);
+    }, delay);
+  });
+}
+
+fetchData();
