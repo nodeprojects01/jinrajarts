@@ -1,42 +1,31 @@
-const axios = require('axios');
+function formatDate(inputDateStr, desiredDateFormat) {
+  const inputDate = new Date(inputDateStr);
+  
+  const year = inputDate.getFullYear();
+  const month = String(inputDate.getMonth() + 1).padStart(2, '0');
+  const date = String(inputDate.getDate()).padStart(2, '0');
+  const hours = String(inputDate.getHours()).padStart(2, '0');
+  const minutes = String(inputDate.getMinutes()).padStart(2, '0');
+  const seconds = String(inputDate.getSeconds()).padStart(2, '0');
+  const milliseconds = String(inputDate.getMilliseconds()).padStart(3, '0');
+  
+  const formattedDate = desiredDateFormat
+    .replace('yyyy', year)
+    .replace('MM', month)
+    .replace('dd', date)
+    .replace('HH', hours)
+    .replace('mm', minutes)
+    .replace('ss', seconds)
+    .replace('SSS', milliseconds);
 
-async function fetchData() {
-  try {
-    // Call the first API to retrieve the page size
-    const pageSizeResponse = await axios.get('https://api.example.com/page-size');
-    const pageSize = pageSizeResponse.data.pageSize;
-
-    // Prepare an array of functions that return promises
-    const requestFunctions = Array.from({ length: pageSize }, (_, i) =>
-      () => makeDelayedRequest(`https://api.example.com/data/${i + 1}`, i * 1000) // Adjust the delay as needed
-    );
-
-    // Execute the promises with a delay between each request
-    const responses = await Promise.all(requestFunctions.map(fn => fn()));
-
-    // Combine the responses into a single array
-    const combinedResult = responses.reduce((accumulator, response) => {
-      return accumulator.concat(response.data);
-    }, []);
-
-    console.log('Combined Result:', combinedResult);
-  } catch (error) {
-    console.error('Error:', error.message);
-  }
+  return formattedDate;
 }
 
-// Function to delay a request using a timeout
-function makeDelayedRequest(url, delay) {
-  return new Promise((resolve) => {
-    setTimeout(async () => {
-      try {
-        const response = await axios.get(url);
-        resolve(response);
-      } catch (error) {
-        resolve({ error: error.message });
-      }
-    }, delay);
-  });
-}
+const inputDateStr1 = "2023-12-03";
+const inputDateStr2 = "2023-12-03 20:15";
+const inputDateStr3 = "2023-12-03 20:15:30.122";
+const desiredDateFormat = "yyyy-MM-dd HH:mm:ss.SSS";
 
-fetchData();
+console.log(formatDate(inputDateStr1, desiredDateFormat));
+console.log(formatDate(inputDateStr2, desiredDateFormat));
+console.log(formatDate(inputDateStr3, desiredDateFormat));
