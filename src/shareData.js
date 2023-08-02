@@ -1,13 +1,22 @@
 function formatDate(inputDateStr, desiredDateFormat) {
   const inputDate = new Date(inputDateStr);
-  
-  const year = inputDate.getFullYear();
-  const month = String(inputDate.getMonth() + 1).padStart(2, '0');
-  const date = String(inputDate.getDate()).padStart(2, '0');
-  const hours = String(inputDate.getHours()).padStart(2, '0');
-  const minutes = String(inputDate.getMinutes()).padStart(2, '0');
-  const seconds = String(inputDate.getSeconds()).padStart(2, '0');
-  const milliseconds = String(inputDate.getMilliseconds()).padStart(3, '0');
+  const utcDate = new Date(Date.UTC(
+    inputDate.getFullYear(),
+    inputDate.getMonth(),
+    inputDate.getDate(),
+    inputDate.getHours(),
+    inputDate.getMinutes(),
+    inputDate.getSeconds(),
+    inputDate.getMilliseconds()
+  ));
+
+  const year = utcDate.getUTCFullYear();
+  const month = String(utcDate.getUTCMonth() + 1).padStart(2, '0');
+  const date = String(utcDate.getUTCDate()).padStart(2, '0');
+  const hours = String(utcDate.getUTCHours()).padStart(2, '0');
+  const minutes = String(utcDate.getUTCMinutes()).padStart(2, '0');
+  const seconds = String(utcDate.getUTCSeconds()).padStart(2, '0');
+  const milliseconds = String(utcDate.getUTCMilliseconds()).padStart(3, '0');
   
   const formattedDate = desiredDateFormat
     .replace('yyyy', year)
