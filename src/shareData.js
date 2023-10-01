@@ -1,117 +1,32 @@
-import React, { useState } from 'react';
-import { Drawer, TextField, Button, Typography } from '@material-ui/core';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
+ public List<Map<String, Object>> getStudentsByIds(@RequestParam List<Integer> studentIds) {
+        List<Object[]> results = studentRepository.findPointsByStudentIds(studentIds);
 
-import './MyComponent.css'; // Import custom CSS file for styling
+        List<Map<String, Object>> formattedResults = new ArrayList<>();
 
-const MyComponent = () => {
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
-  const [userId, setUserId] = useState('');
-  const [userName, setUserName] = useState('');
+        for (Object[] result : results) {
+            Integer studentId = (Integer) result[0];
+            Integer points = (Integer) result[1];
 
-  const handleDrawerOpen = () => {
-    setIsDrawerOpen(true);
-  };
+            // Check if the studentId already exists in the formattedResults list
+            boolean found = false;
+            for (Map<String, Object> formattedResult : formattedResults) {
+                if (formattedResult.get("studentId").equals(studentId)) {
+                    ((List<Integer>) formattedResult.get("points")).add(points);
+                    found = true;
+                    break;
+                }
+            }
 
-  const handleDrawerClose = () => {
-    setIsDrawerOpen(false);
-  };
+            // If the studentId is not found, create a new entry
+            if (!found) {
+                Map<String, Object> studentData = new HashMap<>();
+                studentData.put("studentId", studentId);
+                List<Integer> pointsList = new ArrayList<>();
+                pointsList.add(points);
+                studentData.put("points", pointsList);
+                formattedResults.add(studentData);
+            }
+        }
 
-  const handleApply = () => {
-    // Perform actions with the filter values
-    console.log({
-      startDate,
-      endDate,
-      userId,
-      userName,
-    });
-
-    handleDrawerClose();
-  };
-
-  const handleReset = () => {
-    setStartDate(null);
-    setEndDate(null);
-    setUserId('');
-    setUserName('');
-  };
-
-  return (
-    <div>
-      {/* Render the icon */}
-      <span onClick={handleDrawerOpen}>Open Drawer</span>
-
-      {/* Render the drawer */}
-      <Drawer anchor="right" open={isDrawerOpen} onClose={handleDrawerClose}>
-        <div className="drawer-content">
-          <Typography variant="h6" className="drawer-title">
-            Filters
-          </Typography>
-          <DatePicker
-            selected={startDate}
-            onChange={(date) => setStartDate(date)}
-            placeholderText="Start Date"
-            className="date-picker"
-          />
-          <DatePicker
-            selected={endDate}
-            onChange={(date) => setEndDate(date)}
-            placeholderText="End Date"
-            className="date-picker"
-          />
-          <TextField
-            label="User ID"
-            value={userId}
-            onChange={(e) => setUserId(e.target.value)}
-            fullWidth
-            className="text-field"
-          />
-          <TextField
-            label="User Name"
-            value={userName}
-            onChange={(e) => setUserName(e.target.value)}
-            fullWidth
-            className="text-field"
-          />
-          <div className="button-container">
-            <Button variant="contained" color="primary" onClick={handleApply}>
-              Apply
-            </Button>
-            <Button variant="contained" color="secondary" onClick={handleReset}>
-              Reset
-            </Button>
-          </div>
-        </div>
-      </Drawer>
-    </div>
-  );
-};
-
-export default MyComponent;
-
-
-.drawer-content {
-  width: 300px;
-  padding: 20px;
-}
-
-.drawer-title {
-  margin-bottom: 20px;
-}
-
-.date-picker {
-  margin-bottom: 10px;
-}
-
-.text-field {
-  margin-bottom: 10px;
-}
-
-.button-container {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
+        return formattedResults;
+    }
