@@ -1,4 +1,7 @@
- public List<Map<String, Object>> getStudentsByIds(@RequestParam List<Integer> studentIds) {
+ @Query("SELECT s.studentId, s.points FROM Student s WHERE s.studentId IN :studentIds")
+    List<Object[]> findPointsByStudentIds(@Param("studentIds") List<Integer> studentIds);
+
+public List<Map<String, Object>> getStudentsByIds(@RequestParam List<Integer> studentIds) {
         List<Object[]> results = studentRepository.findPointsByStudentIds(studentIds);
 
         List<Map<String, Object>> formattedResults = new ArrayList<>();
